@@ -349,7 +349,8 @@ table.tbl{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.6}
 .theme-btn{padding:0 12px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:14px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:6px}.theme-btn:hover{border-color:var(--ink)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .dl-btn{color:#1a0a0c}}
 :root[data-theme="dark"] .dl-btn{color:#1a0a0c}
-@media (max-width:520px){.theme-btn .tl{display:none}}
+.theme-btn.ic{position:fixed;top:12px;right:16px;z-index:65;width:40px;height:40px;padding:0;justify-content:center;font-size:18px;line-height:1;box-shadow:var(--shadow)}.theme-btn .tl{display:none}
+@media (max-width:960px){.theme-btn.ic{right:64px;top:10px}}
 .dim-note{margin:0 0 10px;padding:8px 12px;border-radius:10px;background:var(--da-soft);color:var(--ink-2);font-size:13.5px;line-height:1.5}
 .upcoming-part .soon-card,.upcoming-part .ch-h,.chapter.deferred>.ch-h,.chapter.deferred>.soon-card,.who[href="#part-2"],.who[href="#part-3"],.toc-part.is-soon{opacity:.45;filter:grayscale(.85)}
 .who[href="#part-2"]:hover,.who[href="#part-3"]:hover{opacity:.75}
@@ -561,7 +562,8 @@ body{padding-bottom:84px}
   </div>
 </div>
 
-<div class="sbar" id="sbar" hidden><div class="sbar-in"><div class="sbar-t"><b id="sb-n"></b><span class="sbar-sub">รอบที่ 1 · Demo 1</span></div><div class="sbar-b"><button type="button" class="theme-btn" id="theme-btn" aria-label="สลับโหมดมืดและสว่าง"><span class="ti" aria-hidden="true">🌙</span><span class="tl">โหมดมืด</span></button><button type="button" class="r-btn" data-gonext id="sb-go">หัวข้อถัดไป</button><button type="button" class="dl-btn sm" data-dl>ดาวน์โหลดผล</button></div></div></div>
+<button type="button" class="theme-btn ic" id="theme-btn" title="สลับโหมดมืด/สว่าง" aria-label="สลับโหมดมืดและสว่าง"><span class="ti" aria-hidden="true">🌙</span><span class="tl"></span></button>
+<div class="sbar" id="sbar" hidden><div class="sbar-in"><div class="sbar-t"><b id="sb-n"></b><span class="sbar-sub">รอบที่ 1 · Demo 1</span></div><div class="sbar-b"><button type="button" class="r-btn" data-gonext id="sb-go">หัวข้อถัดไป</button><button type="button" class="dl-btn sm" data-dl>ดาวน์โหลดผล</button></div></div></div>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="ภาพหน้าจอขนาดใหญ่">
@@ -907,7 +909,7 @@ function renderProgress(){
 
 /* ---------- theme switch (light / dark) ---------- */
 function curDark(){ var a=root.getAttribute('data-theme'); return a?a==='dark':!!(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches) }
-function paintTheme(){ var d=curDark(), b=$('#theme-btn'); if(!b) return; $('.ti',b).textContent=d?'☀️':'🌙'; $('.tl',b).textContent=d?'โหมดสว่าง':'โหมดมืด'; b.setAttribute('aria-pressed',d?'true':'false') }
+function paintTheme(){ var d=curDark(), b=$('#theme-btn'); if(!b) return; $('.ti',b).textContent=d?'☀️':'🌙'; b.title=d?'สลับเป็นโหมดสว่าง':'สลับเป็นโหมดมืด'; b.setAttribute('aria-pressed',d?'true':'false') }
 var sv=store.get('shinsen-manual-theme'); if(sv==='dark'||sv==='light') root.setAttribute('data-theme',sv);
 document.addEventListener('click',function(e){ if(!e.target.closest('#theme-btn')) return; var n=curDark()?'light':'dark'; root.setAttribute('data-theme',n); store.set('shinsen-manual-theme',n); paintTheme() });
 var ROUND='Demo 1';
