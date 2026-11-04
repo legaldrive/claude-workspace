@@ -1,0 +1,1065 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>คู่มือการใช้งานระบบสั่งซื้อ Shinsen Ichiba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+Thai:wght@600;700&display=swap">
+<style>
+/* Layout: a floating index rail (search + table of contents) beside one reading column; steps carry the same red numbered markers as the screenshots */
+:root{
+  --paper:#ffffff; --rail:#f3f4f6; --raise:#ffffff; --sunk:#f6f7f9;
+  --ink:#1b1f26; --ink-2:#4a515e; --ink-3:#7b8391; --line:#e2e5ea; --line-2:#eceef2;
+  --brand:#c4162a; --brand-ink:#a3101f; --brand-soft:#fcecee;
+  --marker:#d7202b;
+  --warn-bg:#fff6e6; --warn-line:#f0d6a2; --warn-ink:#6d4300; --warn-icon:#c27800;
+  --ok:#1d7a4f; --ok-soft:#e5f3ec; --on-ok:#ffffff;
+  --d1:#b3172a; --d1-soft:#fcecee; --d2:#2453c9; --d2-soft:#e9effd; --d3:#7039c7; --d3-soft:#f1eafd; --da:#576070; --da-soft:#eceff3;
+  --ui-bg:#eef0f4; --ui-line:#dadee5; --mark:#ffe58f; --scrim:rgba(17,20,26,.48); --shadow:0 1px 2px rgba(16,20,28,.06),0 8px 24px rgba(16,20,28,.08);
+  --f-body:"IBM Plex Sans Thai","Noto Sans Thai","Sukhumvit Set",Thonburi,"Leelawadee UI",system-ui,sans-serif;
+  --f-display:"Noto Serif Thai","IBM Plex Sans Thai",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --rail-w:300px; --col:780px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#121418; --rail:#191c21; --raise:#1d2026; --sunk:#171a1f;
+  --ink:#e8eaee; --ink-2:#b4bac4; --ink-3:#8b929e; --line:#2b3038; --line-2:#23272e;
+  --brand:#ff5c6c; --brand-ink:#ff8a95; --brand-soft:#3a1a1f; --marker:#e5323c;
+  --warn-bg:#2d2312; --warn-line:#5a4520; --warn-ink:#f3d08b; --warn-icon:#f0b44c;
+  --ok:#5fcf98; --ok-soft:#173226; --on-ok:#0b1f15;
+  --d1:#ff8a95; --d1-soft:#3a1a1f; --d2:#8fb0ff; --d2-soft:#1b2747; --d3:#c3a3ff; --d3-soft:#2a1f45; --da:#aab2bf; --da-soft:#262a31;
+  --ui-bg:#262a31; --ui-line:#353b45; --mark:#6b5410; --scrim:rgba(0,0,0,.62); --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35);
+  color-scheme:dark }}
+:root[data-theme="dark"]{
+  --paper:#121418; --rail:#191c21; --raise:#1d2026; --sunk:#171a1f;
+  --ink:#e8eaee; --ink-2:#b4bac4; --ink-3:#8b929e; --line:#2b3038; --line-2:#23272e;
+  --brand:#ff5c6c; --brand-ink:#ff8a95; --brand-soft:#3a1a1f; --marker:#e5323c;
+  --warn-bg:#2d2312; --warn-line:#5a4520; --warn-ink:#f3d08b; --warn-icon:#f0b44c;
+  --ok:#5fcf98; --ok-soft:#173226; --on-ok:#0b1f15;
+  --d1:#ff8a95; --d1-soft:#3a1a1f; --d2:#8fb0ff; --d2-soft:#1b2747; --d3:#c3a3ff; --d3-soft:#2a1f45; --da:#aab2bf; --da-soft:#262a31;
+  --ui-bg:#262a31; --ui-line:#353b45; --mark:#6b5410; --scrim:rgba(0,0,0,.62); --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35);
+  color-scheme:dark }
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:4px}
+button{font:inherit;color:inherit}
+kbd{font-family:var(--f-mono);font-size:11px;font-weight:500;line-height:1;padding:3px 5px;border:1px solid var(--ui-line);border-bottom-width:2px;border-radius:5px;background:var(--raise);color:var(--ink-2)}
+[id]{scroll-margin-top:28px}
+
+.app{display:grid;grid-template-columns:var(--rail-w) minmax(0,1fr);gap:40px;align-items:start}
+
+/* ---------- rail ---------- */
+.side{position:sticky;top:max(16px,env(safe-area-inset-top,0px));height:calc(100vh - 32px);margin-block:16px;display:flex;flex-direction:column;background:var(--rail);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.side-h{padding:18px 16px 12px;display:grid;gap:12px;border-bottom:1px solid var(--line)}
+.brand{display:flex;gap:10px;align-items:center;text-decoration:none}
+.brand-mark{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--brand);color:#fff;flex:none}
+.brand-mark svg{width:19px;height:19px}
+.brand-t{display:grid;line-height:1.3}
+.brand-t b{font-size:15px;font-weight:600}
+.brand-t small{font-size:12px;color:var(--ink-3)}
+.search-trigger{display:flex;align-items:center;gap:8px;width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--raise);color:var(--ink-3);font-size:14px;cursor:pointer;text-align:left}
+.search-trigger:hover{border-color:var(--ui-line);color:var(--ink-2)}
+.search-trigger svg{width:16px;height:16px;flex:none}
+.search-trigger span{flex:1}
+.toc{flex:1;overflow:auto;padding:10px 8px 16px;overscroll-behavior:contain;font-size:14px;line-height:1.5}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc a{display:flex;gap:8px;padding:6px 10px;border-radius:8px;text-decoration:none;color:var(--ink-2)}
+.toc a:hover{background:var(--line-2);color:var(--ink)}
+.toc a.on{background:var(--raise);color:var(--ink);font-weight:600;box-shadow:inset 0 0 0 1px var(--line)}
+.toc .tn{font-family:var(--f-mono);font-size:12px;color:var(--ink-3);min-width:22px;padding-top:2px;font-variant-numeric:tabular-nums}
+.toc a.on .tn{color:var(--brand)}
+.toc-top>a{font-weight:600;color:var(--ink)}
+.toc-part{margin-top:14px}
+.toc-part-h{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 10px 4px}
+.toc-part-h a,.toc-part-h>span{padding:0;display:grid;font-size:12px;font-weight:600;color:var(--ink);line-height:1.4;background:none!important;box-shadow:none!important}
+.toc-part-h .pn{font-size:11px;color:var(--ink-3);font-weight:500;letter-spacing:.02em}
+.toc-subs{margin:2px 0 6px 18px!important;border-left:1px solid var(--line);padding-left:6px!important}
+.toc-subs a{padding:4px 8px;font-size:13px}
+.js .toc-ch:not(.open) .toc-subs{display:none}
+.toc-part.is-soon .toc-ch a,.toc-ch.soon>a{color:var(--ink-3)}
+.toc-ch.soon .tt{flex:1}
+.toc-ch.soon .chip{font-size:10.5px;padding:3px 6px;align-self:center}
+.chapter.deferred .soon-card{margin-top:4px}
+.chapter.deferred .soon-card .soon{margin-bottom:10px}
+.soon-ref{text-decoration-style:dashed}
+.side-f{padding:12px 16px 14px;border-top:1px solid var(--line);display:grid;gap:6px;font-size:12px;color:var(--ink-3)}
+.rounds{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.rounds ol{display:flex;gap:6px;margin:0;padding:0;list-style:none;flex-wrap:wrap}
+.rounds li{padding:2px 8px;border-radius:999px;border:1px dashed var(--ui-line)}
+.rounds li.done{border-style:solid;border-color:transparent;background:var(--d1-soft);color:var(--d1);font-weight:600}
+.ver{margin:0}
+
+/* ---------- chips & inline ---------- */
+.chip{display:inline-flex;align-items:center;gap:4px;white-space:nowrap;font-size:11.5px;font-weight:600;line-height:1;padding:5px 8px;border-radius:999px;background:var(--da-soft);color:var(--da)}
+.chip.d1{background:var(--d1-soft);color:var(--d1)} .chip.d2{background:var(--d2-soft);color:var(--d2)} .chip.d3{background:var(--d3-soft);color:var(--d3)}
+.ui{display:inline;padding:1px 6px;border-radius:5px;background:var(--ui-bg);box-shadow:inset 0 0 0 1px var(--ui-line);font-weight:500;font-size:.94em;white-space:normal;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.xref{color:var(--brand-ink);text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--brand) 35%,transparent);text-underline-offset:3px;font-weight:500}
+.xref:hover{text-decoration-color:var(--brand)}
+mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
+
+/* ---------- column ---------- */
+.main{min-width:0;padding-block:16px 96px}
+.doc{max-width:var(--col);margin:0 auto 0 0}
+.top{display:none}
+.hero{padding:40px 0 28px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.hero-eyebrow{margin:0 0 6px;font-size:13px;font-weight:600;color:var(--brand);letter-spacing:.02em}
+.hero h1{font-family:var(--f-display);font-size:clamp(30px,4.2vw,42px);line-height:1.3;margin:0 0 12px;text-wrap:balance;font-weight:700}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin:0 0 20px;color:var(--ink-2);font-size:14px}
+.hero-search{display:flex;align-items:center;gap:10px;width:100%;max-width:560px;padding:13px 16px;border-radius:12px;border:1px solid var(--line);background:var(--sunk);color:var(--ink-3);cursor:pointer;font-size:15px;text-align:left}
+.hero-search:hover{border-color:var(--ui-line);background:var(--raise)}
+.hero-search svg{width:18px;height:18px;flex:none;color:var(--ink-2)}
+.hero-search span{flex:1}
+
+h2,h3,h4,h5{text-wrap:balance}
+.anchor{text-decoration:none}
+.anchor:hover{text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px}
+
+/* about */
+.about{padding:28px 0 8px}
+.about-body>p:first-child{font-size:17px;color:var(--ink)}
+.about-body p{margin:0 0 14px;color:var(--ink-2)}
+.about-body ul{margin:0 0 18px;padding-left:20px;color:var(--ink-2)}
+.about-body li{margin:4px 0}
+h3.minor{font-size:15px;font-weight:600;margin:26px 0 10px;color:var(--ink)}
+.who-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 20px}
+.who{display:flex;flex-direction:column;gap:4px;padding:16px;border:1px solid var(--line);border-radius:14px;text-decoration:none;background:var(--raise);transition:border-color .15s,transform .15s}
+.who:hover{border-color:var(--ui-line);transform:translateY(-1px)}
+.who-n{font-size:12px;color:var(--ink-3);font-weight:600}
+.who-t{font-weight:600;font-size:16px;line-height:1.45}
+.who-for{font-size:13px;color:var(--ink-2)}
+.who-c{font-size:13px;color:var(--ink-3);line-height:1.6;flex:1}
+.who .chip{align-self:flex-start;margin-top:8px}
+
+/* parts & chapters */
+.part{padding-top:24px}
+.part-h{margin:40px 0 8px;padding:28px 0 22px;border-top:2px solid var(--ink)}
+.part-eyebrow{font-size:13px;font-weight:600;color:var(--ink-3);letter-spacing:.04em}
+.part-h h2{font-family:var(--f-display);font-size:clamp(25px,3.2vw,32px);line-height:1.35;margin:4px 0 6px}
+.part-for{margin:0 0 10px;color:var(--ink-2)}
+.soon{margin:0;display:flex;gap:10px;align-items:center;flex-wrap:wrap;color:var(--ink-3);font-size:14px}
+.chapter{padding-top:36px}
+.ch-h{margin-bottom:14px}
+.ch-eyebrow{font-family:var(--f-mono);font-size:12px;font-weight:600;color:var(--brand);letter-spacing:.03em}
+.ch-h h2{font-size:clamp(23px,2.7vw,27px);line-height:1.4;margin:2px 0 0;font-weight:700}
+.goal{display:grid;gap:2px;padding:14px 16px;border-radius:12px;background:var(--sunk);border:1px solid var(--line-2);margin:0 0 16px}
+.goal-l{font-size:12px;font-weight:600;color:var(--ink-3)}
+.goal p{margin:0;font-weight:500}
+.ch-intro>p{color:var(--ink-2);margin:0 0 14px}
+
+.sub{margin-top:34px;padding-top:26px;border-top:1px solid var(--line-2)}
+.sub-h{font-size:19px;line-height:1.5;margin:0 0 12px;font-weight:600}
+.sub-h .sn{display:inline-block;font-family:var(--f-mono);font-size:14px;font-weight:600;color:var(--brand);margin-right:10px;font-variant-numeric:tabular-nums}
+.when{display:flex;gap:10px;align-items:baseline;margin:0 0 16px;color:var(--ink-2)}
+.when-l{flex:none;font-size:12px;font-weight:600;color:var(--ink-2);padding:2px 8px;border-radius:6px;background:var(--line-2)}
+.lbl{font-size:13px;font-weight:700;letter-spacing:.03em;color:var(--ink-3);margin:20px 0 8px}
+.sub p{margin:0 0 12px}
+
+ol.steps{list-style:none;counter-reset:st;padding:0;margin:0 0 18px}
+ol.steps>li{counter-increment:st;position:relative;padding-left:40px;margin:0 0 10px}
+ol.steps>li::before{content:counter(st);position:absolute;left:0;top:1px;width:26px;height:26px;border-radius:50%;background:var(--marker);color:#fff;font:600 13px/26px var(--f-mono);text-align:center;box-shadow:0 0 0 3px color-mix(in srgb,var(--marker) 16%,transparent)}
+ul.nested{margin:6px 0 0;padding-left:18px;color:var(--ink-2)}
+ul.notes,.sub>ul,.chapter>ul{padding-left:20px;margin:0 0 14px;color:var(--ink-2)}
+ul.notes li,.sub>ul li{margin:5px 0}
+ul.checks{list-style:none;padding-left:0!important}
+ul.checks>li{position:relative;padding-left:30px;margin:7px 0}
+ul.checks>li::before{content:"";position:absolute;left:2px;top:6px;width:16px;height:16px;border:1.5px solid var(--ui-line);border-radius:4px;background:var(--raise)}
+.sub ol:not(.steps):not(.tasks):not(.quiz){padding-left:22px}
+
+/* screenshots */
+.shot{margin:6px 0 22px}
+.shot-btn{display:block;position:relative;width:100%;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;cursor:zoom-in;box-shadow:var(--shadow)}
+.shot-btn img{display:block;width:100%;height:auto}
+.zoom-hint{position:absolute;right:10px;bottom:10px;display:inline-flex;align-items:center;gap:5px;padding:5px 9px 5px 7px;border-radius:999px;background:rgba(20,22,27,.78);color:#fff;font-size:12px;opacity:0;transition:opacity .15s}
+.zoom-hint svg{width:15px;height:15px}
+.shot-btn:hover .zoom-hint,.shot-btn:focus-visible .zoom-hint{opacity:1}
+@media (hover:none){.zoom-hint{opacity:1}}
+.shot figcaption{margin-top:8px;font-size:13px;color:var(--ink-3);display:flex;gap:8px;flex-wrap:wrap}
+.fig-n{font-family:var(--f-mono);font-weight:600;color:var(--ink-2)}
+
+/* callouts */
+.callout{display:flex;gap:12px;align-items:flex-start;padding:13px 16px;border-radius:12px;margin:4px 0 16px;font-size:15px}
+.callout svg{width:20px;height:20px;flex:none;margin-top:3px}
+.callout.warn{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink)}
+.callout.warn svg{color:var(--warn-icon)}
+.callout-label{font-weight:700}
+
+/* tables */
+.tbl-wrap{overflow-x:auto;margin:6px 0 20px;border:1px solid var(--line);border-radius:12px}
+table.tbl{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.6}
+.tbl th{background:var(--sunk);text-align:left;font-weight:600;font-size:13px;color:var(--ink-2);padding:10px 14px;border-bottom:1px solid var(--line)}
+.tbl td{padding:10px 14px;border-top:1px solid var(--line-2);vertical-align:top;overflow-wrap:anywhere}
+.tbl tr:first-child td{border-top:0}
+.tbl.quick td:first-child{font-weight:500}
+.tbl.quick td:last-child{white-space:nowrap}
+@media (max-width:640px){.tbl.quick td:last-child{white-space:normal}}
+
+/* practice / quiz */
+.practice{margin:30px 0 8px;border:1px solid var(--line);border-radius:14px;background:var(--sunk);padding:16px 18px 10px}
+.practice-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin-bottom:10px}
+.practice-l{font-size:12px;font-weight:700;color:#fff;background:var(--ok);padding:3px 9px;border-radius:999px;letter-spacing:.02em}
+.quizbox .practice-l{background:var(--d2)}
+.practice-t{font-weight:600;flex:1;min-width:0}
+.practice-n{font-family:var(--f-mono);font-size:12px;color:var(--ink-3)}
+.tasks{list-style:none;margin:0;padding:0}
+.task{border-top:1px solid var(--line)}
+.task:first-child{border-top:0}
+.task label{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px 18px;padding:10px 0 10px 34px;position:relative;cursor:pointer}
+.task input{position:absolute;opacity:0;width:1px;height:1px}
+.task label::before{content:"";position:absolute;left:2px;top:13px;width:18px;height:18px;border-radius:5px;border:1.5px solid var(--ui-line);background:var(--raise)}
+.task input:checked+label::before{background:var(--ok);border-color:var(--ok)}
+.task input:checked+label::after{content:"";position:absolute;left:8px;top:16px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.task input:focus-visible+label::before{outline:2px solid var(--brand);outline-offset:2px}
+.task input:checked+label .task-do{color:var(--ink-3);text-decoration:line-through;text-decoration-color:var(--ink-3)}
+.task-do{font-weight:500}
+.task-ok{color:var(--ink-2);font-size:14px}
+.task-ok-l{display:block;font-size:11.5px;color:var(--ink-3);font-weight:600}
+@media (max-width:640px){.task label{grid-template-columns:1fr}}
+.quiz{list-style:none;margin:0;padding:0;counter-reset:q}
+.q{border-top:1px solid var(--line);padding:10px 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px 18px}
+.q:first-child{border-top:0}
+.q-ask{margin:0;font-weight:500}
+.q-ans{position:relative;min-height:30px}
+.q-text{margin:0;color:var(--ink-2);font-size:14.5px}
+.q-reveal{display:none}
+.js .q:not(.revealed) .q-text{filter:blur(6px);user-select:none;pointer-events:none}
+.js .q:not(.revealed) .q-reveal{display:inline-flex;position:absolute;left:0;top:0;z-index:1;padding:4px 12px;border-radius:999px;border:1px solid var(--ui-line);background:var(--raise);font-size:13px;font-weight:600;cursor:pointer}
+@media (max-width:640px){.q{grid-template-columns:1fr}}
+
+/* upcoming */
+.soon-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.soon-card{border:1px dashed var(--ui-line);border-radius:14px;padding:14px 16px;color:var(--ink-2)}
+.soon-card h3{font-size:15px;margin:0 0 6px;display:flex;gap:8px;color:var(--ink)}
+.chn{font-family:var(--f-mono);color:var(--ink-3);font-size:13px;padding-top:2px}
+.soon-card ul{list-style:none;margin:0;padding:0;font-size:13.5px;line-height:1.65}
+.soon-card .sn{font-family:var(--f-mono);font-size:12px;color:var(--ink-3);margin-right:6px}
+
+/* prev / next */
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:34px 0 0}
+.pn a{display:grid;gap:2px;padding:12px 16px;border:1px solid var(--line);border-radius:12px;text-decoration:none}
+.pn a:hover{border-color:var(--ui-line);background:var(--sunk)}
+.pn small{font-size:12px;color:var(--ink-3)}
+.pn b{font-weight:600;font-size:14.5px}
+.pn .next{text-align:right;grid-column:2}
+.doc-f{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)}
+
+.flash{animation:flash 1.8s ease-out}
+@keyframes flash{0%,30%{background:var(--brand-soft);box-shadow:0 0 0 10px var(--brand-soft);border-radius:8px}100%{background:transparent;box-shadow:0 0 0 10px transparent}}
+
+/* ---------- search palette ---------- */
+.pal{position:fixed;inset:0;z-index:50}
+.pal-scrim,.lb{background:var(--scrim)}
+.pal-scrim{position:absolute;inset:0;backdrop-filter:blur(2px)}
+.pal-box{position:relative;margin:min(12vh,96px) auto 0;width:min(680px,calc(100% - 32px));max-height:min(72vh,640px);display:flex;flex-direction:column;background:var(--raise);border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.28);overflow:hidden}
+.pal-in{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.pal-in svg{width:20px;height:20px;color:var(--ink-3);flex:none}
+.pal-in input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:17px;color:var(--ink)}
+.pal-in input::placeholder{color:var(--ink-3)}
+.pal-res{overflow:auto;padding:6px;flex:1}
+.pal-item{display:grid;gap:1px;padding:10px 12px;border-radius:10px;text-decoration:none}
+.pal-item.sel{background:var(--sunk);box-shadow:inset 0 0 0 1px var(--line)}
+.pal-crumb{font-size:12px;color:var(--ink-3)}
+.pal-crumb em{font-style:normal;color:var(--d2)}
+.pal-title{font-weight:600}
+.pal-snip{font-size:13.5px;color:var(--ink-2);line-height:1.6;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.pal-empty,.pal-hint{padding:14px 12px;margin:0;color:var(--ink-3);font-size:14px}
+.pal-sugg{display:flex;flex-wrap:wrap;gap:8px;padding:0 12px 14px}
+.pal-sugg button{padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--sunk);font-size:13.5px;cursor:pointer}
+.pal-sugg button:hover{border-color:var(--ui-line);background:var(--raise)}
+.pal-foot{display:flex;gap:16px;flex-wrap:wrap;padding:9px 16px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-3)}
+.pal-foot span{display:inline-flex;gap:4px;align-items:center}
+
+/* ---------- lightbox ---------- */
+.lb{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;background:rgba(10,12,16,.9)}
+.lb-bar{display:flex;align-items:center;gap:12px;padding:calc(10px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));color:#eef0f3;font-size:14px}
+.lb-cap{flex:1;min-width:0}
+.lb-count{font-family:var(--f-mono);font-size:12px;color:#aab1bc}
+.lb-x{width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;font-size:22px;line-height:1;cursor:pointer}
+.lb-stage{flex:1;min-height:0;overflow:auto;display:grid;place-items:center;padding:8px max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lb-stage img{max-width:min(100%,1400px);max-height:calc(100vh - 110px);width:auto;height:auto;border-radius:10px;background:#fff;cursor:zoom-in}
+.lb.zoomed .lb-stage{place-items:start center}
+.lb.zoomed .lb-stage img{max-width:none;max-height:none;width:auto;cursor:zoom-out}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:64px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(20,22,27,.6);color:#fff;font-size:28px;cursor:pointer}
+.lb-nav.prev{left:max(12px,env(safe-area-inset-left,0px))} .lb-nav.next{right:max(12px,env(safe-area-inset-right,0px))}
+
+.totop{position:fixed;right:max(20px,calc(env(safe-area-inset-right,0px) + 12px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:20;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--raise);box-shadow:var(--shadow);cursor:pointer;font-size:18px;color:var(--ink-2)}
+.scrim{display:none}
+
+/* ---------- tryout tracking: per-topic flags, comments, team overview ---------- */
+.try-guide{display:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0 0;padding:0;list-style:none;counter-reset:tg;max-width:680px}
+.js .try-guide{display:grid}
+.try-guide li{counter-increment:tg;display:flex;gap:10px;align-items:flex-start;padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:var(--raise);font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.try-guide li::before{content:counter(tg);flex:none;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--paper);font:600 12px/22px var(--f-mono);text-align:center;margin-top:1px}
+.try-guide b{color:var(--ink);font-weight:600}
+.team-open{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:var(--raise);font-size:14px;font-weight:500;cursor:pointer}
+.team-open:hover{border-color:var(--ui-line);background:var(--sunk)}
+.team-open svg{width:17px;height:17px;color:var(--ink-2)}
+.team-open[hidden],.seg[hidden]{display:none}
+
+.tb{margin:26px 0 0;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--sunk);display:grid;gap:10px}
+.tb-q{margin:0!important;font-size:14px;font-weight:600;color:var(--ink)}
+.tb-acts{display:flex;flex-wrap:wrap;gap:8px}
+.tb-btn{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:7px 14px;border-radius:10px;border:1px solid var(--ui-line);background:var(--raise);font-size:14px;font-weight:500;line-height:1.3;cursor:pointer;color:var(--ink);transition:background .12s,border-color .12s}
+.tb-btn svg{width:17px;height:17px;flex:none}
+.tb-btn:hover{border-color:var(--ink-3)}
+.tb-done svg{color:var(--ok)} .tb-issue svg{color:var(--warn-icon)} .tb-cmt svg{color:var(--ink-2)}
+.tb-done[aria-pressed="true"]{background:var(--ok);border-color:var(--ok);color:var(--on-ok)}
+.tb-done[aria-pressed="true"] svg{color:var(--on-ok)}
+.tb-issue[aria-pressed="true"]{background:var(--warn-bg);border-color:var(--warn-icon);color:var(--warn-ink)}
+.tb-meta{margin:0!important;font-size:13px;color:var(--ink-3)}
+.tb-meta:empty{display:none}
+.tb-cl{font-size:13px;font-weight:600;color:var(--ink-2);margin:4px 0 -4px}
+.tb-cl span{font-weight:400;color:var(--ink-3)}
+.tb-ta{display:block;width:100%;min-height:64px;resize:vertical;font:inherit;font-size:15px;line-height:1.6;padding:10px 12px;border-radius:10px;border:1px solid var(--ui-line);background:var(--raise);color:var(--ink);overflow:hidden}
+.tb-ta:focus{outline:2px solid var(--brand);outline-offset:1px}
+.tb-ta::placeholder{color:var(--ink-3)}
+.tb-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:-4px}
+.tb-foot:has(.tb-cs:empty):has(.tb-save[hidden]):has(.tb-send[hidden]){display:none}
+.tb-fa{display:flex;gap:8px;align-items:center;margin-left:auto}
+.tb-foot{flex-wrap:wrap}
+.tb-cs{font-size:12.5px;color:var(--ink-3)}
+.tb-cs.ok{color:var(--ok)}
+.tb-send{text-decoration:none;background:var(--brand);border-color:var(--brand);color:#fff}
+.tb-send svg{color:#fff}
+.tb-send:hover{border-color:var(--brand-ink);background:var(--brand-ink)}
+.tb-sent{margin:0!important;font-size:12.5px;color:var(--ink-3)}
+.try-local{margin-top:14px;max-width:680px;padding:12px 14px;border-radius:12px;border:1px solid var(--warn-line);background:var(--warn-bg);color:var(--warn-ink);font-size:13.5px;line-height:1.6;display:grid;gap:8px}
+.try-local p{margin:0}
+.try-name{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-weight:600}
+.try-name input{font:inherit;font-weight:400;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--ui-line);background:var(--raise);color:var(--ink);width:240px;max-width:100%}
+.tb-save{min-height:36px;padding:6px 14px;border-radius:9px;border:0;background:var(--ink);color:var(--paper);font-size:13.5px;font-weight:600;cursor:pointer}
+.sub-st{margin-left:10px;vertical-align:3px;font-size:11px}
+.sub-st[hidden]{display:none}
+.chip.ok{background:var(--ok-soft);color:var(--ok)} .chip.warn{background:var(--warn-bg);color:var(--warn-ink);box-shadow:inset 0 0 0 1px var(--warn-line)}
+
+.toc-subs a::after{content:"";margin-left:auto;flex:none;align-self:center;width:8px;height:8px;border-radius:50%}
+.toc-subs a.tried::after{background:var(--ok)}
+.toc-subs a.flag::after{background:var(--warn-icon)}
+.toc .tc{margin-left:auto;flex:none;align-self:center;font-family:var(--f-mono);font-size:11px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.toc .tc.full{color:var(--ok);font-weight:600}
+
+.prog{display:grid;gap:6px;padding:10px 12px;border-radius:12px;background:var(--raise);border:1px solid var(--line);margin-bottom:4px}
+.prog[hidden]{display:none}
+.prog-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;color:var(--ink-2);font-size:12.5px}
+.prog-n{font-family:var(--f-mono);font-size:12.5px;color:var(--ink);font-variant-numeric:tabular-nums}
+.prog-bar{height:6px;border-radius:99px;background:var(--line-2);overflow:hidden}
+.prog-bar i{display:block;height:100%;width:0;background:var(--ok);border-radius:99px;transition:width .3s}
+.prog-note{margin:0;font-size:12px;line-height:1.5;color:var(--ink-3)}
+.prog-team{justify-self:start;padding:0;border:0;background:none;color:var(--brand-ink);font-size:12.5px;font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.prog-team[hidden]{display:none}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:70;width:max-content;max-width:min(560px,calc(100vw - 32px));text-align:center;line-height:1.5;padding:10px 16px;border-radius:12px;background:var(--ink);color:var(--paper);font-size:14px;box-shadow:var(--shadow)}
+.toast[hidden]{display:none}
+
+.team{position:fixed;inset:0;z-index:55}
+.team[hidden]{display:none}
+.team-box{position:relative;margin:min(6vh,48px) auto 0;width:min(820px,calc(100% - 32px));max-height:calc(100vh - min(12vh,96px));display:flex;flex-direction:column;background:var(--raise);border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.28);overflow:hidden}
+.team-hd{display:flex;gap:12px;align-items:flex-start;padding:18px 20px 12px}
+.team-hd>div{flex:1;min-width:0}
+.team-hd h2{margin:0;font-size:20px;line-height:1.4}
+.team-sub{margin:2px 0 0;font-size:13px;color:var(--ink-3)}
+.x-btn{width:38px;height:38px;flex:none;border-radius:10px;border:1px solid var(--line);background:var(--sunk);font-size:22px;line-height:1;cursor:pointer;color:var(--ink-2)}
+.team-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:0 20px 14px}
+.stat b small{font-size:13px;font-weight:500;color:var(--ink-3)}
+.stat{padding:10px 14px;border-radius:12px;background:var(--sunk);border:1px solid var(--line-2)}
+.stat b{display:block;font-size:22px;line-height:1.3;font-variant-numeric:tabular-nums}
+.stat span{font-size:12.5px;color:var(--ink-3)}
+.stat.warn b{color:var(--warn-icon)}
+.team-ctl{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;padding:0 20px 10px;border-bottom:1px solid var(--line)}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:10px;background:var(--sunk);border:1px solid var(--line)}
+.seg button{padding:6px 14px;border:0;border-radius:8px;background:none;font-size:13.5px;font-weight:500;color:var(--ink-2);cursor:pointer}
+.seg button[aria-selected="true"],.seg button[aria-pressed="true"]{background:var(--raise);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08),inset 0 0 0 1px var(--line)}
+.team-body{overflow:auto;padding:8px 12px 12px;flex:1;overscroll-behavior:contain}
+.tm-ch{margin:12px 8px 4px;font-size:12px;font-weight:600;color:var(--ink-3);letter-spacing:.02em}
+.tm-row{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:2px 10px;align-items:start;padding:9px 8px;border-radius:10px;text-decoration:none}
+.tm-row:hover{background:var(--sunk)}
+.tm-n{font-family:var(--f-mono);font-size:13px;font-weight:600;color:var(--brand);padding-top:1px}
+.tm-t{font-weight:500;line-height:1.5}
+.tm-who{grid-column:2;font-size:12.5px;color:var(--ink-3);line-height:1.6}
+.tm-who .w{color:var(--warn-ink);background:var(--warn-bg);padding:0 6px;border-radius:5px}
+.tm-cnt{grid-row:1/span 2;grid-column:3;display:flex;gap:6px;align-items:center;padding-top:1px}
+.cnt{display:inline-flex;align-items:center;gap:4px;min-width:42px;justify-content:center;padding:3px 8px;border-radius:999px;font:600 12px/1.3 var(--f-mono);background:var(--line-2);color:var(--ink-3)}
+.cnt svg{width:13px;height:13px}
+.cnt.ok{background:var(--ok-soft);color:var(--ok)} .cnt.warn{background:var(--warn-bg);color:var(--warn-ink)}
+.tm-cms{grid-column:2/4;display:grid;gap:6px;margin-top:6px}
+.tm-cm{display:block;padding:8px 12px;border-radius:10px;background:var(--sunk);border:1px solid var(--line-2);font-size:13.5px;line-height:1.6;color:var(--ink);white-space:pre-wrap;overflow-wrap:anywhere}
+.tm-cm b{display:block;font-size:12px;font-weight:600;color:var(--ink-3);white-space:normal}
+.tm-cm.w{background:var(--warn-bg);border-color:var(--warn-line)}
+.pp-its{grid-column:2;display:grid;gap:6px;margin-top:6px}
+.pp-it{display:block;padding:8px 12px;border-radius:10px;background:var(--sunk);border:1px solid var(--line-2);text-decoration:none}
+.pp-it:hover{border-color:var(--ui-line)}
+.pp-it.w{background:var(--warn-bg);border-color:var(--warn-line)}
+.pp-it-h{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;font-weight:600}
+.pp-it-h .chip{font-size:10.5px;padding:3px 7px}
+.pp-it-c{display:block;font-size:13.5px;color:var(--ink-2);white-space:pre-wrap;overflow-wrap:anywhere;margin-top:2px}
+.tm-empty{padding:28px 12px;text-align:center;color:var(--ink-3);font-size:14px}
+.pp{display:grid;grid-template-columns:40px minmax(0,1fr);gap:4px 12px;padding:12px 8px;border-top:1px solid var(--line-2)}
+.pp:first-child{border-top:0}
+.pp img,.pp-av{width:40px;height:40px;border-radius:50%;object-fit:cover;background:var(--line-2);display:block}
+.pp-n{font-weight:600;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pp-n small{font-weight:500;font-size:11.5px;color:var(--ink-3);padding:1px 7px;border-radius:999px;border:1px solid var(--line)}
+.pp-m{font-size:12.5px;color:var(--ink-3)}
+.pp-bar{grid-column:2;height:6px;border-radius:99px;background:var(--line-2);overflow:hidden;max-width:360px}
+.pp-bar i{display:block;height:100%;background:var(--ok)}
+.pp-flags{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.pp-flags a{font-size:12.5px;padding:2px 8px;border-radius:7px;background:var(--warn-bg);color:var(--warn-ink);text-decoration:none;box-shadow:inset 0 0 0 1px var(--warn-line)}
+.pp-label{grid-column:2;display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px;font-size:12.5px;color:var(--ink-3)}
+.pp-label input{font:inherit;font-size:13.5px;padding:6px 10px;border-radius:8px;border:1px solid var(--ui-line);background:var(--paper);color:var(--ink);min-width:0;width:200px}
+.team-foot{margin:0;padding:10px 20px 14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3)}
+
+/* ---------- narrow ---------- */
+@media (max-width:1100px){:root{--rail-w:272px}.app{gap:28px}}
+@media (max-width:960px){
+  .app{display:block}
+  .top{display:flex;position:sticky;top:env(safe-area-inset-top,0px);z-index:30;align-items:center;gap:10px;padding:10px 0;margin:0;background:var(--paper);border-bottom:1px solid var(--line)}
+  .top-t{flex:1;font-weight:600;font-size:15px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .icon-btn{width:40px;height:40px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--line);background:var(--raise);cursor:pointer;flex:none}
+  .icon-btn svg{width:19px;height:19px}
+  .side{position:fixed;z-index:45;top:0;bottom:0;left:0;height:auto;margin:0;width:min(320px,86vw);border-radius:0 16px 16px 0;border-left:0;transform:translateX(-102%);transition:transform .22s ease;padding-top:env(safe-area-inset-top,0px);padding-left:env(safe-area-inset-left,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+  .nav-open .side{transform:none;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .scrim{position:fixed;inset:0;z-index:40;background:var(--scrim)}
+  .nav-open .scrim{display:block}
+  [id]{scroll-margin-top:76px}
+  .hero{padding-top:24px}
+  .who-grid{grid-template-columns:1fr}
+  .soon-grid{grid-template-columns:1fr}
+  .main{padding-top:0}
+}
+@media (max-width:520px){
+  .pn{grid-template-columns:1fr}.pn .next{grid-column:auto}
+  .sub-h{font-size:18px}
+  .when{flex-direction:column;gap:4px}
+  .team-box{margin-top:max(8px,env(safe-area-inset-top,0px));width:calc(100% - 16px);max-height:calc(100vh - 16px)}
+  .team-hd{padding:14px 14px 10px}
+  .team-stats{padding:0 14px 12px;gap:8px;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat{padding:8px 10px} .stat b{font-size:18px}
+  .team-ctl{padding:0 14px 10px}
+  .team-body{padding:6px 6px 10px}
+  .team-foot{padding:10px 14px 12px}
+}
+@media (max-width:680px){.try-guide{grid-template-columns:1fr}}
+</style>
+
+<div class="app">
+  <aside class="side" id="side" aria-label="สารบัญและค้นหา">
+    <div class="side-h">
+      <a class="brand" href="#about">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M9 8h7M9 11.5h5"/></svg></span>
+        <span class="brand-t"><b>คู่มือระบบสั่งซื้อ</b><small>Shinsen Ichiba</small></span>
+      </a>
+      <button class="search-trigger" type="button" data-open-search><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>ค้นหาในคู่มือ</span><kbd class="k-mod">Ctrl K</kbd></button>
+    </div>
+    <nav class="toc" aria-label="สารบัญ"><ul class="toc-root"><li class="toc-top"><a href="#about">เกี่ยวกับคู่มือนี้</a></li><li class="toc-part"><div class="toc-part-h"><a href="#part-1"><span class="pn">ส่วนที่ 1</span>ทีม Shinsen ในระบบหลังบ้าน</a><span class="chip d1">Demo 1</span></div><ul><li class="toc-ch"><a href="#quick"><span class="tn">★</span>เจอเรื่องนี้ ทำอะไร</a></li><li class="toc-ch"><a href="#ch-1"><span class="tn">1.</span>เริ่มต้นใช้งาน</a><ul class=toc-subs><li><a href="#s-1-1"><span class="tn">1.1</span>เข้าสู่ระบบครั้งแรกจากอีเมลเชิญ</a></li><li><a href="#s-1-2"><span class="tn">1.2</span>เข้าสู่ระบบและลืมรหัสผ่าน</a></li><li><a href="#s-1-3"><span class="tn">1.3</span>รู้จักหน้าจอหลัก</a></li><li><a href="#s-1-4"><span class="tn">1.4</span>เปลี่ยนรหัสผ่าน</a></li></ul></li><li class="toc-ch"><a href="#ch-2"><span class="tn">2.</span>ดึงข้อมูลจาก TRCloud</a><ul class=toc-subs><li><a href="#s-2-1"><span class="tn">2.1</span>Sync สินค้า (SKU)</a></li><li><a href="#s-2-2"><span class="tn">2.2</span>Sync QO และดูรายละเอียด QO</a></li><li><a href="#s-2-3"><span class="tn">2.3</span>Sync ผู้ชำระเงิน (Contact)</a></li><li><a href="#s-2-4"><span class="tn">2.4</span>เมื่อ Sync ไม่สำเร็จ</a></li></ul></li><li class="toc-ch"><a href="#ch-3"><span class="tn">3.</span>เปิดร้านค้าใหม่ให้พร้อมสั่ง</a><ul class=toc-subs><li><a href="#s-3-1"><span class="tn">3.1</span>เพิ่มร้านค้า</a></li><li><a href="#s-3-2"><span class="tn">3.2</span>ตั้งกฎวันส่ง (วันที่ส่งได้ · สั่งล่วงหน้าสูงสุด · เวลาปิดรับ) และยอดสั่งซื้อขั้นต่ำ</a></li><li><a href="#s-3-3"><span class="tn">3.3</span>ผูก QO ให้ร้านค้า</a></li><li><a href="#s-3-4"><span class="tn">3.4</span>เชิญผู้ดูแลร้านคนแรก</a></li><li><a href="#s-3-5"><span class="tn">3.5</span>ตรวจว่าร้านพร้อมสั่ง</a></li></ul></li><li class="toc-ch"><a href="#ch-4"><span class="tn">4.</span>ดูแลร้านค้าที่มีอยู่</a><ul class=toc-subs><li><a href="#s-4-1"><span class="tn">4.1</span>ค้นหาและเปิดร้านค้า</a></li><li><a href="#s-4-2"><span class="tn">4.2</span>แก้ไขข้อมูลร้านค้า</a></li><li><a href="#s-4-3"><span class="tn">4.3</span>แก้กฎวันส่ง และเมื่อกฎใหม่กระทบคำสั่งซื้อที่มีอยู่</a></li><li><a href="#s-4-4"><span class="tn">4.4</span>เปลี่ยนเป็น QO ใหม่</a></li><li><a href="#s-4-5"><span class="tn">4.5</span>ระงับร้านค้า</a></li></ul></li><li class="toc-ch"><a href="#ch-5"><span class="tn">5.</span>สินค้าและรูปสินค้า</a><ul class=toc-subs><li><a href="#s-5-1"><span class="tn">5.1</span>ดูรายละเอียดสินค้าและร้านค้าที่ใช้</a></li><li><a href="#s-5-2"><span class="tn">5.2</span>เปลี่ยนรูปสินค้าทีละรายการ</a></li><li><a href="#s-5-3"><span class="tn">5.3</span>นำเข้ารูปหลายรายการด้วย Excel + ZIP</a></li><li><a href="#s-5-4"><span class="tn">5.4</span>ส่งออกรายการสินค้าเป็น Excel</a></li></ul></li><li class="toc-ch soon"><a href="#ch-6"><span class="tn">6.</span><span class="tt">เรื่องแจ้งปัญหาจากร้านค้า</span><span class="chip d2">Demo 2</span></a></li><li class="toc-ch"><a href="#ch-7"><span class="tn">7.</span>วันหยุดบริษัท</a><ul class=toc-subs><li><a href="#s-7-1"><span class="tn">7.1</span>เพิ่มวันหยุด</a></li><li><a href="#s-7-2"><span class="tn">7.2</span>แก้ไขและลบวันหยุด</a></li><li><a href="#s-7-3"><span class="tn">7.3</span>เมื่อวันหยุดตรงกับวันที่มีคำสั่งซื้อแล้ว</a></li></ul></li><li class="toc-ch"><a href="#ch-8"><span class="tn">8.</span>สำหรับผู้ดูแลระบบ</a><ul class=toc-subs><li><a href="#s-8-1"><span class="tn">8.1</span>เชิญ ระงับ และส่งลิงก์ตั้งรหัสผ่านให้ผู้ดูแล</a></li><li><a href="#s-8-2"><span class="tn">8.2</span>Role และสิทธิ์รายเมนู</a></li><li><a href="#s-8-3"><span class="tn">8.3</span>Audit log</a></li><li><a href="#s-8-4"><span class="tn">8.4</span>ตั้งค่าการเชื่อมต่อ TRCloud</a></li><li><a href="#s-8-5"><span class="tn">8.5</span>ตั้งเวลา Sync อัตโนมัติ</a></li></ul></li><li class="toc-ch"><a href="#ch-9"><span class="tn">9.</span>เมื่อเจอปัญหาในระบบหลังบ้าน</a><ul class=toc-subs><li><a href="#s-9-1"><span class="tn">9.1</span>ไม่เห็นเมนู หรือขึ้นว่าไม่มีสิทธิ์</a></li><li><a href="#s-9-2"><span class="tn">9.2</span>Sync ค้างหรือไม่สำเร็จ</a></li><li><a href="#s-9-3"><span class="tn">9.3</span>นำเข้า Excel หรืออัปโหลดรูปไม่ผ่าน</a></li></ul></li></ul></li><li class="toc-part is-soon"><div class="toc-part-h"><a href="#part-2"><span class="pn">ส่วนที่ 2</span>ร้านค้า</a><span class="chip d2">Demo 2</span></div><ul><li class="toc-ch soon"><a href="#ch-10"><span class="tn">10.</span>เริ่มต้นใช้งาน</a></li><li class="toc-ch soon"><a href="#ch-11"><span class="tn">11.</span>สั่งซื้อ</a></li><li class="toc-ch soon"><a href="#ch-12"><span class="tn">12.</span>เมื่อสั่งไม่ได้</a></li><li class="toc-ch soon"><a href="#ch-13"><span class="tn">13.</span>หลังสั่งซื้อ</a></li><li class="toc-ch soon"><a href="#ch-14"><span class="tn">14.</span>แจ้งปัญหา</a></li><li class="toc-ch soon"><a href="#ch-15"><span class="tn">15.</span>แจ้งเตือน</a></li><li class="toc-ch soon"><a href="#ch-16"><span class="tn">16.</span>สำหรับผู้ดูแลร้าน</a></li><li class="toc-ch soon"><a href="#ch-17"><span class="tn">17.</span>เมื่อเจอปัญหาในเว็บสั่งซื้อ</a></li></ul></li><li class="toc-part is-soon"><div class="toc-part-h"><a href="#part-3"><span class="pn">ส่วนที่ 3</span>sale ทำแทนร้านค้า</a><span class="chip d3">Demo 3</span></div><ul><li class="toc-ch soon"><a href="#ch-18"><span class="tn">18.</span>เข้าร้านค้าแทนลูกค้า</a></li><li class="toc-ch soon"><a href="#ch-19"><span class="tn">19.</span>สั่งซื้อแทนร้านค้า</a></li><li class="toc-ch soon"><a href="#ch-20"><span class="tn">20.</span>สั่งนอกกฎ</a></li><li class="toc-ch soon"><a href="#ch-21"><span class="tn">21.</span>จัดการคำสั่งซื้อที่ยืนยันแล้ว</a></li><li class="toc-ch soon"><a href="#ch-22"><span class="tn">22.</span>ข้อความถึงร้าน</a></li><li class="toc-ch soon"><a href="#ch-23"><span class="tn">23.</span>จัดการผู้ใช้และ Role แทนผู้ดูแลร้าน</a></li><li class="toc-ch soon"><a href="#ch-24"><span class="tn">24.</span>รับเรื่องแล้วทำแทน</a></li></ul></li><li class="toc-part"><div class="toc-part-h"><span>ภาคผนวก</span><span class="chip da">ทุกรอบ</span></div><ul><li class="toc-ch"><a href="#app-a"><span class="tn">ก.</span>สิ่งที่แต่ละ Role ทำได้</a></li><li class="toc-ch"><a href="#app-b"><span class="tn">ข.</span>คำศัพท์</a></li><li class="toc-ch"><a href="#app-c"><span class="tn">ค.</span>แผนอบรมก่อนใช้งานจริง</a></li></ul></li></ul></nav>
+    <div class="side-f">
+      <div class="prog" id="prog" hidden>
+        <div class="prog-top"><span>การทดลองของคุณ</span><b class="prog-n" id="prog-n"></b></div>
+        <div class="prog-bar" aria-hidden="true"><i id="prog-fill"></i></div>
+        <p class="prog-note" id="prog-note"></p>
+        <button class="prog-team" type="button" data-open-team hidden>ดูภาพรวมของทุกคน</button>
+      </div>
+      <div class="rounds"><ol><li class="done">Demo 1 · 5 พ.ย.</li><li>Demo 2 · 12 พ.ย.</li><li>Demo 3 · 19 พ.ย.</li></ol></div>
+      <p class="ver">ฉบับ Demo 1 · อัปเดต 3 พ.ย. 2569</p>
+    </div>
+  </aside>
+  <div class="scrim" data-close-nav></div>
+
+  <main class="main" id="main">
+    <div class="top">
+      <button class="icon-btn menu-btn" type="button" aria-label="เปิดสารบัญ" aria-controls="side" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <span class="top-t">คู่มือระบบสั่งซื้อ Shinsen Ichiba</span>
+      <button class="icon-btn" type="button" data-open-search aria-label="ค้นหาในคู่มือ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+    </div>
+    <div class="doc">
+      <header class="hero">
+        <p class="hero-eyebrow">Shinsen Ichiba · ระบบสั่งซื้อวัตถุดิบ</p>
+        <h1>คู่มือการใช้งาน</h1>
+        <p class="hero-meta"><span class="chip d1">ฉบับ Demo 1</span><span>อัปเดต 3 พ.ย. 2569</span><span>ส่วนที่ 1 พร้อมใช้ (บทที่ 6 มากับ Demo 2) · ส่วนที่ 2 และ 3 เพิ่มตามรอบ Demo</span></p>
+        <button class="hero-search" type="button" data-open-search><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>ค้นหาเรื่องที่ต้องทำ เช่น ปิดรับ, QO ใหม่, ลืมรหัสผ่าน</span><kbd class="k-mod">Ctrl K</kbd></button>
+        <ol class="try-guide" aria-label="วิธีทดลองใช้ระบบไปพร้อมคู่มือ">
+          <li><span><b>อ่านหัวข้อ</b> แล้วลองทำตามในระบบจริง</span></li>
+          <li><span>ท้ายหัวข้อ กด <b>ทดลองแล้ว</b> แล้วกด <b>ส่งถึงทีม</b> เพื่อให้ทีมรู้ว่าลองแล้ว</span></li>
+          <li><span>ติดขัดหรือสงสัย กด <b>มีประเด็น</b> แล้วพิมพ์ในช่องความเห็นท้ายหัวข้อ</span></li>
+        </ol>
+        <div class="try-local" id="try-local" hidden>
+          <p>ไม่ต้องเข้าสู่ระบบใดๆ · ใส่ชื่อของคุณ กดสถานะและพิมพ์ความเห็นท้ายหัวข้อ แล้วกด <b>ส่งถึงทีม</b> ทีมจะได้รับทันทีโดยไม่ต้องออกจากหน้านี้</p>
+          <label class="try-name">ชื่อของคุณ <input type="text" id="try-name" maxlength="60" placeholder="เช่น สมชาย · ฝ่ายจัดซื้อ" autocomplete="name"></label>
+        </div>
+        <button class="team-open" type="button" data-open-team hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2A4.5 4.5 0 0 1 21 18.5"/></svg>ดูภาพรวมการทดลองของทุกคน</button>
+      </header>
+      <section class="about" id="about" data-spy data-search data-title="เกี่ยวกับคู่มือนี้" data-crumb="เริ่มต้น"><div class="about-body"><p>คู่มือนี้อธิบายการใช้งานระบบสั่งซื้อวัตถุดิบ Shinsen Ichiba ซึ่งมีสองฝั่งในระบบเดียวกัน คือ <strong>ระบบหลังบ้าน</strong> ที่ทีม Shinsen ใช้ดูแลร้านค้า สินค้า และเรื่องแจ้งปัญหา และ <strong>เว็บสั่งซื้อ</strong> ที่ร้านค้าใช้สั่งซื้อและติดตามคำสั่งซื้อ ทั้งสองฝั่งเข้าสู่ระบบจากหน้าเดียวกัน ระบบพาไปยังฝั่งที่ถูกต้องตามบัญชีเอง</p><h3 class="minor">ใครอ่านส่วนไหน</h3><div class="who-grid"><a class="who" href="#part-1"><span class="who-n">ส่วนที่ 1</span><span class="who-t">ทีม Shinsen ในระบบหลังบ้าน</span><span class="who-for">สำหรับ sale และผู้ดูแลระบบ (Super admin)</span><span class="who-c">ดึงข้อมูลจาก TRCloud เปิดและดูแลร้านค้า สินค้าและรูป เรื่องแจ้งปัญหา วันหยุดบริษัท ผู้ดูแลและสิทธิ์</span><span class="chip d1">Demo 1 · พฤ. 5 พ.ย.</span></a><a class="who" href="#part-2"><span class="who-n">ส่วนที่ 2</span><span class="who-t">ร้านค้า</span><span class="who-for">สำหรับ ผู้ดูแลร้านและผู้ซื้อของร้าน</span><span class="who-c">สั่งซื้อ เลือกวันส่ง ประวัติคำสั่งซื้อ แจ้งปัญหา และจัดการผู้ใช้ในร้าน</span><span class="chip d2">Demo 2 · พฤ. 12 พ.ย.</span></a><a class="who" href="#part-3"><span class="who-n">ส่วนที่ 3</span><span class="who-t">sale ทำแทนร้านค้า</span><span class="who-for">สำหรับ sale</span><span class="who-c">เข้าร้านค้าแทนลูกค้า สั่งซื้อแทน สั่งนอกกฎ ปลดล็อกหรือยกเลิกคำสั่งซื้อ และข้อความถึงร้าน</span><span class="chip d3">Demo 3 · พฤ. 19 พ.ย.</span></a></div><p>sale ใช้ทั้งสองฝั่ง จึงควรอ่าน<a class="xref" href="#part-1">ส่วนที่ 1</a> และ 3 และอ่าน<a class="xref" href="#part-2">ส่วนที่ 2</a> เพื่อรู้ว่าร้านค้าเห็นหน้าจออย่างไร</p><h3 class="minor">คู่มือส่งตามรอบ Demo</h3><p>คู่มือทยอยส่งหลัง Demo แต่ละรอบ พร้อมบัญชีทดลองของรอบนั้น สารบัญด้านซ้ายมีป้ายบอกว่าแต่ละส่วนมาพร้อม Demo รอบไหน บทที่ยังไม่ถึงรอบจะมีแค่ชื่อหัวข้อ</p><h3 class="minor">แต่ละหัวข้อเขียนแบบเดียวกัน</h3><ul><li><strong>เป้าหมาย</strong> (ต้นบท) สิ่งที่ทำได้หลังจบบท</li><li><strong>ใช้เมื่อ</strong> สถานการณ์ที่ต้องใช้หัวข้อนี้</li><li><strong>ขั้นตอน</strong> ทำตามลำดับเลข ชื่อปุ่มและชื่อช่องอยู่ในกรอบสีเทา ตรงกับที่เห็นบนหน้าจอ</li><li><strong>ภาพหน้าจอ</strong> เลขในวงกลมสีแดงตรงกับเลขขั้นตอน กรอบแดงชี้จุดที่ต้องกดหรือกรอก</li><li><strong>ระวัง</strong> สิ่งที่ย้อนกลับไม่ได้ หรือกระทบลูกค้าทันที</li><li><strong>ข้อควรรู้</strong> ผลที่ตามมา ข้อจำกัด และสิ่งที่มักพลาด</li><li><strong>ฝึกทำ</strong> (ท้ายบท) งานให้ลองทำกับบัญชีทดลอง พร้อมผลที่ควรเห็น</li></ul><p><strong>ใช้อบรมก่อนใช้งานจริง</strong> คู่มือนี้ใช้เป็นเอกสารอบรมได้ ดูแผนอบรมที่<a class="xref" href="#app-c">ภาคผนวก ค</a> หลังใช้งานจริง เมื่อมีงานเข้ามาให้เริ่มจากหน้า <a class="xref" href="#quick">เจอเรื่องนี้ ทำอะไร</a> ต้น<a class="xref" href="#part-1">ส่วนที่ 1</a> หรือกดค้นหา (Ctrl K)</p><h3 class="minor">ข้อมูลในคู่มือ</h3><ul><li>ชื่อร้าน อีเมล เลขที่เอกสาร และตัวเลขในภาพและตัวอย่างเป็นข้อมูลตัวอย่าง ไม่ใช่ข้อมูลจริง</li><li>ระบบยังอยู่ระหว่างพัฒนา หน้าจอจริงอาจต่างจากภาพเล็กน้อย คู่มือจะปรับตามทุกรอบที่ส่ง</li><li>ช่วงทดลองใช้ ระบบยังไม่เชื่อมต่อ TRCloud จริง สินค้า QO และผู้ชำระเงินเป็นข้อมูลตัวอย่าง และเลขที่ใบสั่งขายเป็นค่าจำลอง การเชื่อมต่อจริงเริ่มทดสอบในช่วง UAT</li></ul></div></section><section class="part" id="part-1" data-spy><header class="part-h"><span class="part-eyebrow">ส่วนที่ 1</span><h2>ทีม Shinsen ในระบบหลังบ้าน</h2><p class="part-for">สำหรับ sale และผู้ดูแลระบบ (Super admin)</p><p class="soon"><span class="chip d1">มาพร้อม Demo 1 · พฤ. 5 พ.ย.</span></p></header><article class="chapter quickpage" id="quick" data-spy data-search data-title="เจอเรื่องนี้ ทำอะไร" data-crumb="ส่วนที่ 1"><header class="ch-h"><span class="ch-eyebrow">เริ่มที่นี่เมื่อมีงานเข้ามา</span><h2><a class="anchor" href="#quick">เจอเรื่องนี้ ทำอะไร</a></h2></header><p>ใช้หน้านี้เมื่อมีงานเข้ามา แล้วไม่แน่ใจว่าต้องเปิดหัวข้อไหน</p><div class="tbl-wrap"><table class="tbl quick"><thead><tr><th>สถานการณ์</th><th>ไปที่</th></tr></thead><tbody><tr><td>ลูกค้าเปิดร้านหรือสาขาใหม่</td><td><a class="xref" href="#ch-3">บทที่ 3</a> ทำตามลำดับ <a class="xref" href="#s-3-1">3.1</a> ถึง <a class="xref" href="#s-3-5">3.5</a></td></tr><tr><td>ลูกค้าขอเปลี่ยนวันรับของ เวลาปิดรับ หรือยอดขั้นต่ำ</td><td><a class="xref" href="#s-4-3">4.3</a></td></tr><tr><td>ลูกค้ามี QO ใบใหม่ หรือราคาเปลี่ยน</td><td><a class="xref" href="#s-2-2">2.2</a> แล้ว <a class="xref" href="#s-4-4">4.4</a></td></tr><tr><td>สินค้าใหม่ไม่ขึ้น หรือชื่อสินค้าผิด</td><td><a class="xref" href="#s-2-1">2.1</a> (แก้ที่ TRCloud แล้ว Sync)</td></tr><tr><td>สินค้ายังไม่มีรูป</td><td><a class="xref" href="#s-5-2">5.2</a> ทีละรายการ หรือ <a class="xref" href="#s-5-3">5.3</a> หลายรายการ</td></tr><tr><td>ร้านแจ้งปัญหาเข้ามาในระบบ</td><td><a class="xref soon-ref" href="#ch-6" title="มาพร้อม Demo 2">6.3</a> แล้ว <a class="xref soon-ref" href="#ch-6" title="มาพร้อม Demo 2">6.4</a></td></tr><tr><td>ร้านโทรมาแจ้ง ไม่ได้เปิดเรื่องในระบบ</td><td><a class="xref soon-ref" href="#ch-6" title="มาพร้อม Demo 2">6.5</a></td></tr><tr><td>ร้านขอสั่งหลังเวลาปิดรับ</td><td><a class="xref soon-ref" href="#ch-6" title="มาพร้อม Demo 2">6.3</a> แล้วสั่งนอกกฎ (<a class="xref" href="#part-3">ส่วนที่ 3</a>)</td></tr><tr><td>ประกาศวันหยุดบริษัท</td><td><a class="xref" href="#s-7-1">7.1</a> และ <a class="xref" href="#s-7-3">7.3</a></td></tr><tr><td>ร้านปิดสาขาหรือหยุดสั่ง</td><td><a class="xref" href="#s-4-5">4.5</a></td></tr><tr><td>พนักงาน Shinsen เข้าใหม่ ย้ายหน้าที่ หรือลาออก</td><td><a class="xref" href="#s-8-1">8.1</a></td></tr><tr><td>Sync ไม่สำเร็จ</td><td><a class="xref" href="#s-2-4">2.4</a> และ <a class="xref" href="#s-9-2">9.2</a></td></tr><tr><td>เข้าเมนูไม่ได้ หรือขึ้นว่าไม่มีสิทธิ์</td><td><a class="xref" href="#s-9-1">9.1</a></td></tr></tbody></table></div></article><article class="chapter" id="ch-1" data-spy><header class="ch-h"><span class="ch-eyebrow">บทที่ 1 · Demo 1</span><h2><a class="anchor" href="#ch-1">เริ่มต้นใช้งาน</a></h2></header><div class="ch-intro" data-search data-title="1. เริ่มต้นใช้งาน" data-crumb="บทที่ 1" id="ch-1-intro"><div class="goal"><span class="goal-l">เป้าหมายของบทนี้</span><p>เข้าสู่ระบบครั้งแรกได้ รู้จักเมนูและเครื่องมือบนหน้าจอหลัก และเปลี่ยนรหัสผ่านเองได้</p></div><p>ทีม Shinsen และร้านค้าเข้าสู่ระบบจากหน้าเดียวกัน เมื่อเข้าด้วยบัญชีผู้ดูแล ระบบพาไปที่ระบบหลังบ้านเอง</p></div><section class="sub" id="s-1-1" data-spy data-search data-comment-targetdata-title="1.1 เข้าสู่ระบบครั้งแรกจากอีเมลเชิญ" data-crumb="บทที่ 1"><h3 class="sub-h"><a class="anchor" href="#s-1-1"><span class="sn">1.1</span>เข้าสู่ระบบครั้งแรกจากอีเมลเชิญ</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ได้รับอีเมลเชิญเป็นผู้ดูแลจากผู้ดูแลระบบ (Super admin)</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>เปิดอีเมลเชิญ แล้วกดลิงก์ตั้งรหัสผ่าน</li><li>ระบบเปิดหน้า <span class="ui">ตั้งรหัสผ่านใหม่</span> และแสดงอีเมลของบัญชีคุณ</li><li>กรอก <span class="ui">รหัสผ่านใหม่</span> และ <span class="ui">ยืนยันรหัสผ่าน</span> ให้ตรงกัน อย่างน้อย 8 ตัวอักษร มีทั้งตัวเลขและตัวอักษร</li><li>กด <span class="ui">บันทึกและเข้าสู่ระบบ</span> ระบบพาเข้าระบบหลังบ้านทันที</li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: หน้าตั้งรหัสผ่านใหม่"><img src="img/01.webp" alt="หน้าตั้งรหัสผ่านใหม่" width="1389" height="868" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 1.1</span>หน้าตั้งรหัสผ่านใหม่</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ลิงก์ในอีเมลเชิญมีอายุ 72 ชั่วโมง และใช้ได้ครั้งเดียว</li><li>ถ้าขึ้นว่า <span class="ui">ลิงก์นี้ใช้ไม่ได้แล้ว</span> แปลว่าลิงก์หมดอายุหรือถูกใช้ไปแล้ว กด <span class="ui">ขอลิงก์ใหม่</span> หรือขอให้ Super admin ส่งลิงก์ตั้งรหัสผ่านใหม่ให้ (ดู <a class="xref" href="#s-8-1">8.1</a>)</li><li>เมนูที่เห็นเป็นไปตาม Role ที่ Super admin เลือกตอนเชิญ (ดู <a class="xref" href="#s-8-2">8.2</a>)</li></ul></section><section class="sub" id="s-1-2" data-spy data-search data-comment-targetdata-title="1.2 เข้าสู่ระบบและลืมรหัสผ่าน" data-crumb="บทที่ 1"><h3 class="sub-h"><a class="anchor" href="#s-1-2"><span class="sn">1.2</span>เข้าสู่ระบบและลืมรหัสผ่าน</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>เข้าใช้งานตามปกติ หรือจำรหัสผ่านไม่ได้</span></p><h5 class="lbl lbl-steps">ขั้นตอน · เข้าสู่ระบบ</h5><ol class="steps"><li>เปิดหน้าเว็บของระบบ</li><li>กรอก <span class="ui">อีเมล</span> และ <span class="ui">รหัสผ่าน</span></li><li>กด <span class="ui">เข้าสู่ระบบ</span></li></ol><h5 class="lbl lbl-steps">ขั้นตอน · ลืมรหัสผ่าน</h5><ol class="steps"><li>ที่หน้าเข้าสู่ระบบ กด <span class="ui">ลืมรหัสผ่าน?</span></li><li>กรอกอีเมลที่ใช้เข้าระบบ แล้วกด <span class="ui">ส่งลิงก์ตั้งรหัสผ่าน</span></li><li>ระบบขึ้นหน้า <span class="ui">ตรวจสอบอีเมลของคุณ</span> เปิดอีเมลแล้วกดลิงก์ภายใน 30 นาที</li><li>ตั้งรหัสผ่านใหม่ แล้วกด <span class="ui">บันทึกและเข้าสู่ระบบ</span></li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: หน้าเข้าสู่ระบบ"><img src="img/02.webp" alt="หน้าเข้าสู่ระบบ" width="1389" height="868" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 1.2-1</span>หน้าเข้าสู่ระบบ</figcaption></figure><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: หน้าลืมรหัสผ่าน"><img src="img/03.webp" alt="หน้าลืมรหัสผ่าน" width="1389" height="868" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 1.2-2</span>หน้าลืมรหัสผ่าน</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ถ้าขึ้นว่า <span class="ui">อีเมลหรือรหัสผ่านไม่ถูกต้อง</span> ให้ลองอีกครั้ง หรือกด <span class="ui">ลืมรหัสผ่าน?</span></li><li>ใส่รหัสผ่านผิด 5 ครั้งติดกัน ระบบพักการเข้าสู่ระบบของอีเมลนั้น 15 นาที</li><li>หน้า <span class="ui">ตรวจสอบอีเมลของคุณ</span> ขึ้นข้อความเดียวกันทุกครั้ง ไม่ว่าอีเมลนั้นจะมีบัญชีหรือไม่ เพื่อไม่ให้คนอื่นใช้หน้านี้เช็กว่าอีเมลใดมีบัญชี</li><li>ถ้าไม่ได้รับอีเมล กดส่งอีกครั้งได้เมื่อครบเวลานับถอยหลังบนหน้าจอ และลองดูในโฟลเดอร์ขยะหรือสแปม</li></ul></section><section class="sub" id="s-1-3" data-spy data-search data-comment-targetdata-title="1.3 รู้จักหน้าจอหลัก" data-crumb="บทที่ 1"><h3 class="sub-h"><a class="anchor" href="#s-1-3"><span class="sn">1.3</span>รู้จักหน้าจอหลัก</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>เข้าระบบหลังบ้านครั้งแรก</span></p><p>หลังเข้าสู่ระบบ หน้าแรกคือหน้า <strong>แจ้งปัญหา</strong> ส่วนต่างๆ ที่ใช้บ่อยมีดังนี้</p><ol><li><strong>เมนูหลัก</strong> แจ้งปัญหา · ร้านค้า · สินค้า SKU · QO · Contact · วันหยุด และเมนูของผู้ดูแลระบบ ได้แก่ ผู้ดูแล · Role · Audit log · ตั้งค่าระบบ แต่ละคนเห็นเมนูไม่เท่ากัน ขึ้นกับ Role</li><li><strong>สลับ Workspace</strong> สลับระหว่างระบบหลังบ้านกับการเข้าร้านค้าแทนลูกค้า (ดู<a class="xref" href="#part-3">ส่วนที่ 3</a>)</li><li><strong>ค้นหาด่วน</strong> กด Ctrl+K หรือไอคอนแว่นขยาย ค้นได้จากชื่อร้านค้า · เลขที่แจ้งปัญหา (#RQ) · เลขคำสั่งซื้อ (#OR) หรือเลขใบสั่งขาย (SO) · รหัส SKU · Contact ใช้ลูกศรขึ้นลงเพื่อเลือก กด Enter เพื่อเปิด กด Esc เพื่อปิด</li><li><strong>กระดิ่งแจ้งเตือน</strong> ดูเรื่องใหม่และเหตุขัดข้องของระบบ (ดู <a class="xref soon-ref" href="#ch-6" title="มาพร้อม Demo 2">6.6</a>)</li><li><strong>เมนูโปรไฟล์</strong> แสดงชื่อ อีเมล และ Role ของคุณ มีคำสั่ง <span class="ui">เปลี่ยนรหัสผ่าน</span> และ <span class="ui">ออกจากระบบ</span></li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: หน้าจอหลักและค้นหาด่วน"><img src="img/04.webp" alt="หน้าจอหลักและค้นหาด่วน" width="1074" height="809" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 1.3</span>หน้าจอหลักและค้นหาด่วน</figcaption></figure></section><section class="sub" id="s-1-4" data-spy data-search data-comment-targetdata-title="1.4 เปลี่ยนรหัสผ่าน" data-crumb="บทที่ 1"><h3 class="sub-h"><a class="anchor" href="#s-1-4"><span class="sn">1.4</span>เปลี่ยนรหัสผ่าน</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ต้องการเปลี่ยนรหัสผ่านที่ใช้อยู่</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>คลิกเมนูโปรไฟล์ แล้วเลือก <span class="ui">เปลี่ยนรหัสผ่าน</span></li><li>กรอก <span class="ui">รหัสผ่านปัจจุบัน</span> <span class="ui">รหัสผ่านใหม่</span> และ <span class="ui">ยืนยันรหัสผ่านใหม่</span></li><li>กด <span class="ui">บันทึกรหัสผ่าน</span></li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: เปลี่ยนรหัสผ่าน"><img src="img/05.webp" alt="เปลี่ยนรหัสผ่าน" width="1074" height="809" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 1.4</span>เปลี่ยนรหัสผ่าน</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>รหัสผ่านใหม่ต้องมีอย่างน้อย 8 ตัวอักษร มีทั้งตัวเลขและตัวอักษร</li><li>เปลี่ยนแล้ว อุปกรณ์อื่นที่เข้าระบบด้วยบัญชีนี้อยู่จะถูกออกจากระบบ</li><li>ถ้าจำรหัสผ่านปัจจุบันไม่ได้ ให้ออกจากระบบแล้วใช้ <span class="ui">ลืมรหัสผ่าน?</span> (ดู <a class="xref" href="#s-1-2">1.2</a>)</li></ul><section class="practice" aria-label="ฝึกทำ"><header class="practice-h"><span class="practice-l">ฝึกทำ</span><span class="practice-t">ใช้บัญชีทดลอง</span><span class="practice-n" data-practice-count="s-1-4"></span></header><ol class="tasks" data-practice-list="s-1-4"><li class="task"><input type="checkbox" id="p-s-1-4-1" data-practice="s-1-4"><label for="p-s-1-4-1"><span class="task-do">ตั้งรหัสผ่านจากอีเมลเชิญของบัญชีทดลอง</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>เข้าหน้าแจ้งปัญหาได้</span></label></li><li class="task"><input type="checkbox" id="p-s-1-4-2" data-practice="s-1-4"><label for="p-s-1-4-2"><span class="task-do">ออกจากระบบ แล้วใช้ <span class="ui">ลืมรหัสผ่าน?</span> ตั้งรหัสใหม่</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>ได้อีเมลลิงก์ และเข้าด้วยรหัสใหม่ได้</span></label></li><li class="task"><input type="checkbox" id="p-s-1-4-3" data-practice="s-1-4"><label for="p-s-1-4-3"><span class="task-do">กด Ctrl+K ค้นชื่อร้านตัวอย่าง แล้วกด Enter</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>เปิดร้านนั้นได้</span></label></li><li class="task"><input type="checkbox" id="p-s-1-4-4" data-practice="s-1-4"><label for="p-s-1-4-4"><span class="task-do">เปลี่ยนรหัสผ่านจากเมนูโปรไฟล์</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>เข้าสู่ระบบด้วยรหัสใหม่ได้</span></label></li></ol></section></section></article><article class="chapter" id="ch-2" data-spy><header class="ch-h"><span class="ch-eyebrow">บทที่ 2 · Demo 1</span><h2><a class="anchor" href="#ch-2">ดึงข้อมูลจาก TRCloud</a></h2></header><div class="ch-intro" data-search data-title="2. ดึงข้อมูลจาก TRCloud" data-crumb="บทที่ 2" id="ch-2-intro"><div class="goal"><span class="goal-l">เป้าหมายของบทนี้</span><p>ดึงข้อมูลสินค้า QO และผู้ชำระเงินจาก TRCloud ได้ และรู้ว่าต้องทำอะไรเมื่อ Sync ไม่สำเร็จ</p></div><p>สินค้า (SKU) ใบเสนอราคา (QO) และผู้ชำระเงิน (Contact) มาจาก TRCloud ระบบนี้แสดงข้อมูลเหล่านี้แบบอ่านอย่างเดียว ถ้าต้องแก้ ให้แก้ที่ TRCloud แล้ว Sync เข้ามาใหม่ ระบบ Sync ให้อัตโนมัติตามเวลาที่ตั้งไว้ (ดู <a class="xref" href="#s-8-5">8.5</a>) และกด Sync เองได้ทุกเมื่อ</p></div><section class="sub" id="s-2-1" data-spy data-search data-comment-targetdata-title="2.1 Sync สินค้า (SKU)" data-crumb="บทที่ 2"><h3 class="sub-h"><a class="anchor" href="#s-2-1"><span class="sn">2.1</span>Sync สินค้า (SKU)</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>แก้ข้อมูลสินค้าใน TRCloud แล้วอยากให้ระบบเห็นทันที ไม่ต้องรอรอบอัตโนมัติ</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ไปที่เมนู สินค้า SKU ใต้หัวตารางจะเห็นเวลา Sync ล่าสุดและสถานะ</li><li>กด <span class="ui">Sync จาก TRCloud</span></li><li>ระหว่างทำงาน ระบบแสดงแถบ <span class="ui">กำลัง Sync</span> พร้อมเวลาที่เริ่มและชื่อคนที่กด สถานะอัปเดตเองโดยไม่ต้องรีเฟรช</li><li>เมื่อเสร็จ ระบบแสดง <span class="ui">Sync สินค้าเสร็จแล้ว</span> พร้อมจำนวนรายการที่เปลี่ยน เพิ่มใหม่ และพักการขาย กด <span class="ui">ดูใน Audit log</span> เพื่อดูรายละเอียด</li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: Sync สินค้า"><img src="img/06.webp" alt="Sync สินค้า" width="1023" height="852" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 2.1</span>Sync สินค้า</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ชื่อสินค้า หน่วย กลุ่มสินค้า หมวด ขนาด ภาษี และสถานะ มาจาก TRCloud ทั้งหมด รูปสินค้าเป็นข้อมูลเดียวที่จัดการในระบบนี้ (ดู<a class="xref" href="#ch-5">บทที่ 5</a>)</li><li>หมวดและขนาดอ่านจาก tag ใน TRCloud และกลุ่มสินค้าตัดจากรหัส SKU ตามกฎที่ตั้งไว้ (ดู <a class="xref" href="#s-8-4">8.4</a>)</li><li>สินค้าที่ TRCloud พักการขายจะแสดงเป็น <span class="ui">งดจำหน่าย</span> ร้านค้าสั่งไม่ได้</li><li>ใช้แท็บ <span class="ui">ยังไม่มีรูป</span> และ <span class="ui">ไม่มี tag หมวด</span> เพื่อตามเก็บสินค้าที่ข้อมูลยังไม่ครบ</li></ul></section><section class="sub" id="s-2-2" data-spy data-search data-comment-targetdata-title="2.2 Sync QO และดูรายละเอียด QO" data-crumb="บทที่ 2"><h3 class="sub-h"><a class="anchor" href="#s-2-2"><span class="sn">2.2</span>Sync QO และดูรายละเอียด QO</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>เพิ่งอนุมัติ QO ใน TRCloud และต้องการผูกให้ร้านค้า หรือต้องการดูว่า QO ใดใช้กับร้านไหน</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ไปที่เมนู QO ตารางแสดง เลข QO · ลูกค้า (Contact) · อนุมัติเมื่อ · ร้านค้าที่ใช้ · สถานะ</li><li>ถ้าไม่เห็น QO ที่เพิ่งอนุมัติ กด <span class="ui">Sync QO</span></li><li>คลิกที่แถวเพื่อเปิดรายละเอียดด้านขวา ดูรายการสินค้าใน QO และร้านค้าที่ใช้ QO นี้</li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: รายการ QO"><img src="img/07.webp" alt="รายการ QO" width="1039" height="739" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 2.2-1</span>รายการ QO</figcaption></figure><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: รายละเอียด QO (เบลอราคาในภาพ)"><img src="img/08.webp" alt="รายละเอียด QO (เบลอราคาในภาพ)" width="909" height="647" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 2.2-2</span>รายละเอียด QO (เบลอราคาในภาพ)</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ระบบแสดงเฉพาะ QO ที่อนุมัติแล้ว</li><li>สถานะ <span class="ui">ใหม่ล่าสุด</span> คือใบล่าสุดของลูกค้ารายนั้น · <span class="ui">ใช้งานอยู่</span> คือมีร้านใช้อยู่ · <span class="ui">มีใบใหม่กว่า</span> คือลูกค้ารายเดียวกันมี QO ที่อนุมัติแล้วใบใหม่กว่า ควรตรวจว่าร้านต้องเปลี่ยนไปใช้ใบใหม่หรือไม่ (ดู <a class="xref" href="#s-4-4">4.4</a>) · <span class="ui">ไม่ได้ใช้</span> คือไม่มีร้านใช้แล้ว เช่นถูกแทนด้วยใบใหม่</li><li>QO แก้ในระบบนี้ไม่ได้ ถ้าต้องเปลี่ยนรายการหรือราคา ให้ออก QO ใบใหม่ใน TRCloud</li><li>ราคาใน QO คือราคาที่ใช้สร้างใบสั่งขายของร้านที่ใช้ QO นั้น</li><li>การผูกหรือเปลี่ยน QO ของร้านค้าทำที่เมนู ร้านค้า แท็บ QO และราคา (ดู <a class="xref" href="#s-3-3">3.3</a> และ <a class="xref" href="#s-4-4">4.4</a>)</li></ul></section><section class="sub" id="s-2-3" data-spy data-search data-comment-targetdata-title="2.3 Sync ผู้ชำระเงิน (Contact)" data-crumb="บทที่ 2"><h3 class="sub-h"><a class="anchor" href="#s-2-3"><span class="sn">2.3</span>Sync ผู้ชำระเงิน (Contact)</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>มีลูกค้ารายใหม่ใน TRCloud ที่ต้องใช้เป็นผู้ชำระเงินของร้านค้า หรือข้อมูลลูกค้าใน TRCloud เปลี่ยน</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ไปที่เมนู Contact ตารางแสดง รหัส · ชื่อ · เลขผู้เสียภาษี · ร้านค้าที่ผูก · อัปเดตล่าสุด</li><li>กด <span class="ui">Sync จาก TRCloud</span></li><li>คลิกที่แถวเพื่อดูรายละเอียด Contact และร้านค้าที่ผูกทั้งหมด</li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: รายการ Contact"><img src="img/09.webp" alt="รายการ Contact" width="1039" height="739" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 2.3</span>รายการ Contact</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>Contact หนึ่งรายผูกกับร้านค้าได้หลายสาขา</li><li>ข้อมูล Contact อ่านอย่างเดียว ถ้าต้องแก้ ให้แก้ที่ TRCloud แล้ว Sync</li><li>การผูกหรือเปลี่ยน Contact ของร้านค้าทำที่เมนู ร้านค้า เมนูสามจุด แก้ไข ช่อง <span class="ui">ผู้ชำระเงิน</span> (ดู <a class="xref" href="#s-4-2">4.2</a>)</li></ul></section><section class="sub" id="s-2-4" data-spy data-search data-comment-targetdata-title="2.4 เมื่อ Sync ไม่สำเร็จ" data-crumb="บทที่ 2"><h3 class="sub-h"><a class="anchor" href="#s-2-4"><span class="sn">2.4</span>เมื่อ Sync ไม่สำเร็จ</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>เห็นแถบ <span class="ui">Sync ไม่สำเร็จ</span> หรือได้รับแจ้งเตือนว่า Sync ไม่สำเร็จ</span></p><p>เมื่อ Sync ไม่สำเร็จ ระบบจะ</p><ul><li>แสดงสาเหตุบนหน้านั้น เช่น <span class="ui">TRCloud ตอบกลับ 401 (API key หมดอายุ)</span> และบอกว่าข้อมูลที่เห็นเป็นของรอบที่สำเร็จล่าสุด</li><li>เปิดเรื่องในเมนูแจ้งปัญหาให้อัตโนมัติ (ประเภท ระบบ) และส่งแจ้งเตือนกระดิ่ง</li><li>บันทึกเหตุการณ์ไว้ใน Audit log</li></ul><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>เปิดเรื่องที่ระบบสร้าง (ที่หน้าแจ้งปัญหา ใช้ตัวกรองด่วน <span class="ui">เรื่องจากระบบ</span>) เพื่อดูสาเหตุ</li><li>ถ้าสาเหตุเป็นการเชื่อมต่อหรือ API key แจ้ง Super admin ให้ตรวจที่ ตั้งค่าระบบ แล้วกด <span class="ui">ทดสอบการเชื่อมต่อ</span> (ดู <a class="xref" href="#s-8-4">8.4</a>)</li><li>เมื่อแก้แล้ว กด Sync อีกครั้ง</li><li>ปิดเรื่องพร้อมระบุผลการดำเนินการ (ดู <a class="xref soon-ref" href="#ch-6" title="มาพร้อม Demo 2">6.4</a>)</li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: Sync ไม่สำเร็จ"><img src="img/10.webp" alt="Sync ไม่สำเร็จ" width="963" height="802" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 2.4</span>Sync ไม่สำเร็จ</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ระหว่างที่ Sync ไม่สำเร็จ ร้านค้ายังสั่งซื้อได้ตามปกติด้วยข้อมูลรอบล่าสุดที่สำเร็จ</li><li>อาการและวิธีแก้ที่พบบ่อยอยู่ใน <a class="xref" href="#s-9-2">9.2</a></li></ul><section class="practice" aria-label="ฝึกทำ"><header class="practice-h"><span class="practice-l">ฝึกทำ</span><span class="practice-t">ใช้บัญชีทดลอง (ช่วงทดลองใช้ข้อมูลตัวอย่าง ตัวเลขอาจต่างจากระบบจริง)</span><span class="practice-n" data-practice-count="s-2-4"></span></header><ol class="tasks" data-practice-list="s-2-4"><li class="task"><input type="checkbox" id="p-s-2-4-1" data-practice="s-2-4"><label for="p-s-2-4-1"><span class="task-do">กด Sync สินค้า</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>เห็นสรุปจำนวนที่เปลี่ยน และเหตุการณ์ใน Audit log</span></label></li><li class="task"><input type="checkbox" id="p-s-2-4-2" data-practice="s-2-4"><label for="p-s-2-4-2"><span class="task-do">เปิด QO ที่มีสถานะ <span class="ui">มีใบใหม่กว่า</span></span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>บอกได้ว่าร้านไหนใช้อยู่ และใบใหม่คือใบไหน</span></label></li><li class="task"><input type="checkbox" id="p-s-2-4-3" data-practice="s-2-4"><label for="p-s-2-4-3"><span class="task-do">ค้น Contact ของลูกค้าตัวอย่าง</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>เห็นร้านที่ผูกทั้งหมด</span></label></li><li class="task"><input type="checkbox" id="p-s-2-4-4" data-practice="s-2-4"><label for="p-s-2-4-4"><span class="task-do">เปิดเรื่องจากระบบที่เกิดจาก Sync ไม่สำเร็จ</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>บอกสาเหตุและคนที่ต้องแก้ได้</span></label></li></ol></section></section></article><article class="chapter" id="ch-3" data-spy><header class="ch-h"><span class="ch-eyebrow">บทที่ 3 · Demo 1</span><h2><a class="anchor" href="#ch-3">เปิดร้านค้าใหม่ให้พร้อมสั่ง</a></h2></header><div class="ch-intro" data-search data-title="3. เปิดร้านค้าใหม่ให้พร้อมสั่ง" data-crumb="บทที่ 3" id="ch-3-intro"><div class="goal"><span class="goal-l">เป้าหมายของบทนี้</span><p>เปิดร้านใหม่จนลูกค้าสั่งเองได้ โดยไม่ต้องมีใครช่วย</p></div><p>ร้านค้าหนึ่งร้านคือสาขาหนึ่งสาขา ก่อนเริ่ม ให้ตรวจว่ามีผู้ชำระเงิน (Contact) และ QO ที่อนุมัติแล้วของลูกค้ารายนี้ในระบบแล้ว (ถ้ายังไม่มี ดู<a class="xref" href="#ch-2">บทที่ 2</a>) จากนั้นทำตามลำดับ <a class="xref" href="#s-3-1">3.1</a> ถึง <a class="xref" href="#s-3-5">3.5</a></p></div><section class="sub" id="s-3-1" data-spy data-search data-comment-targetdata-title="3.1 เพิ่มร้านค้า" data-crumb="บทที่ 3"><h3 class="sub-h"><a class="anchor" href="#s-3-1"><span class="sn">3.1</span>เพิ่มร้านค้า</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ลูกค้าเปิดสาขาใหม่ หรือมีลูกค้ารายใหม่ที่จะสั่งผ่านระบบ</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ไปที่เมนู ร้านค้า แล้วกด <span class="ui">+ เพิ่มร้านค้า</span></li><li>กรอก <span class="ui">ชื่อร้าน</span> และ <span class="ui">ชื่อสาขา</span> ชื่อที่แสดงในระบบคือชื่อร้านต่อด้วยชื่อสาขา</li><li>กรอก <span class="ui">ที่อยู่จัดส่ง</span> ผู้ติดต่อหน้าร้าน และเบอร์โทร</li><li>เลือก <span class="ui">ผู้ชำระเงิน (Contact จาก TRCloud)</span></li><li>เลือก <span class="ui">ทีมขายที่ดูแล</span></li><li>กด <span class="ui">สร้างร้านค้า</span></li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: เพิ่มร้านค้า"><img src="img/11.webp" alt="เพิ่มร้านค้า" width="1039" height="739" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 3.1</span>เพิ่มร้านค้า</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ช่องที่มี * ต้องกรอก ถ้าขาด ระบบแจ้งว่ามีกี่ช่องที่ต้องตรวจและไฮไลต์ช่องนั้น</li><li>ชื่อร้านและที่อยู่จัดส่งถูกส่งเป็นที่อยู่จัดส่งในใบสั่งขาย จึงควรกรอกให้ตรงกับที่ใช้ส่งของจริง</li><li>sale ที่เลือกเป็นทีมขายที่ดูแล จะถูกตั้งเป็นผู้ดูแลเรื่องแจ้งปัญหาของร้านนี้ให้อัตโนมัติ และร้านค้าเห็นชื่อและเบอร์มือถือของ sale คนนี้สำหรับติดต่อ</li><li>ร้านใหม่ได้กฎวันส่งเริ่มต้นจากตั้งค่าระบบ ตรวจและแก้ให้ตรงกับที่ตกลงกับลูกค้าใน <a class="xref" href="#s-3-2">3.2</a></li></ul></section><section class="sub" id="s-3-2" data-spy data-search data-comment-targetdata-title="3.2 ตั้งกฎวันส่งและยอดสั่งซื้อขั้นต่ำ" data-crumb="บทที่ 3"><h3 class="sub-h"><a class="anchor" href="#s-3-2"><span class="sn">3.2</span>ตั้งกฎวันส่งและยอดสั่งซื้อขั้นต่ำ</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>เปิดร้านใหม่ หรือตกลงเงื่อนไขการส่งของกับลูกค้าแล้ว</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ที่เมนู ร้านค้า กดเมนูสามจุดของร้าน แล้วเลือก <span class="ui">แก้ไข</span></li><li>เปิดแท็บ <span class="ui">กฎวันส่ง</span></li><li><span class="ui">วันที่รับของได้</span> ติ๊กวันในสัปดาห์ที่ร้านรับของได้</li><li><span class="ui">เวลาปิดรับ (cutoff)</span> ตั้งเวลาและนับจากวันก่อนวันส่ง เช่น 18:00 ของวันก่อนวันส่ง 1 วัน</li><li><span class="ui">สั่งล่วงหน้าได้สูงสุด</span> ใส่จำนวนวัน</li><li><span class="ui">ยอดสั่งซื้อขั้นต่ำต่อคำสั่งซื้อ</span> ใส่ยอดเป็นบาท หรือเว้นว่างถ้าไม่มีขั้นต่ำ</li><li>ดูปฏิทิน <span class="ui">ตัวอย่างสิ่งที่ลูกค้าเห็น</span> ว่าวันที่เลือกได้ตรงกับที่ตั้งใจ แล้วกด <span class="ui">บันทึกกฎ</span></li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: กฎวันส่ง"><img src="img/12.webp" alt="กฎวันส่ง" width="1034" height="739" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 3.2</span>กฎวันส่ง</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ร้านค้าเลือกวันส่งเองได้ภายใต้กฎนี้เท่านั้น ส่วน sale สั่งนอกกฎแทนร้านได้ (ดู<a class="xref" href="#part-3">ส่วนที่ 3</a>)</li><li>ร้านต้องยืนยันคำสั่งซื้อก่อนเวลาปิดรับ ถ้าเลยเวลา ร้านสั่งเองไม่ได้และต้องแจ้งปัญหา <span class="ui">ขอสั่งนอกเวลา</span></li><li>ยอดขั้นต่ำเทียบกับยอดรวมสุดท้ายที่รวม VAT แล้ว ถ้าไม่ถึง ร้านยืนยันไม่ได้ แต่ sale สั่งนอกกฎได้</li><li>วันหยุดบริษัทไม่ต้องตั้งที่ร้าน ตั้งครั้งเดียวที่เมนู วันหยุด แล้วมีผลกับทุกร้าน (ดู<a class="xref" href="#ch-7">บทที่ 7</a>)</li><li>ถ้าแก้กฎของร้านที่มีคำสั่งซื้ออยู่แล้ว ดู <a class="xref" href="#s-4-3">4.3</a></li></ul></section><section class="sub" id="s-3-3" data-spy data-search data-comment-targetdata-title="3.3 ผูก QO ให้ร้านค้า" data-crumb="บทที่ 3"><h3 class="sub-h"><a class="anchor" href="#s-3-3"><span class="sn">3.3</span>ผูก QO ให้ร้านค้า</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ร้านใหม่ยังไม่มีสินค้าให้สั่ง</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ที่เมนู ร้านค้า กดเมนูสามจุดของร้าน เลือก <span class="ui">แก้ไข</span> แล้วเปิดแท็บ <span class="ui">QO และราคา</span></li><li>ร้านที่ยังไม่มี QO จะขึ้นว่า <span class="ui">ร้านค้านี้ยังไม่ได้ผูก QO</span> กด <span class="ui">เลือก QO</span></li><li>ระบบแสดง QO ที่อนุมัติแล้วของผู้ชำระเงินของร้านนี้ พร้อมจำนวนรายการและร้านค้าที่ใช้อยู่ เลือก QO ที่ต้องการ</li><li>กด <span class="ui">ผูก QO นี้</span></li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: ร้านที่ยังไม่ผูก QO"><img src="img/13.webp" alt="ร้านที่ยังไม่ผูก QO" width="909" height="647" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 3.3-1</span>ร้านที่ยังไม่ผูก QO</figcaption></figure><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: เลือก QO"><img src="img/14.webp" alt="เลือก QO" width="1039" height="739" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 3.3-2</span>เลือก QO</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>เมื่อผูกแล้ว ร้านค้าเห็นสินค้าและราคาตาม QO ทันที</li><li>ถ้าไม่เห็น QO ที่เพิ่งอนุมัติ กด <span class="ui">Sync QO</span> ในหน้าต่างเดียวกัน ถ้ายังไม่มี QO ต้องออกและอนุมัติใน TRCloud ก่อน</li><li>QO หนึ่งใบใช้กับหลายร้านของผู้ชำระเงินเดียวกันได้</li></ul></section><section class="sub" id="s-3-4" data-spy data-search data-comment-targetdata-title="3.4 เชิญผู้ดูแลร้านคนแรก" data-crumb="บทที่ 3"><h3 class="sub-h"><a class="anchor" href="#s-3-4"><span class="sn">3.4</span>เชิญผู้ดูแลร้านคนแรก</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ร้านพร้อมแล้วและต้องการให้ร้านเริ่มใช้งาน</span></p><p>ผู้ใช้ของร้านค้าจัดการที่เมนู ผู้ใช้ ภายในร้านค้า ทีม Shinsen จึงต้องเข้าร้านค้าก่อนเพื่อเพิ่มผู้ดูแลร้านคนแรก หลังจากนั้นผู้ดูแลร้านเพิ่มคนในร้านเองได้</p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ที่เมนู ร้านค้า คลิกที่แถวของร้าน (หรือในหน้ารายละเอียดร้าน กด <span class="ui">เข้าร้านค้าเพื่อจัดการผู้ใช้</span>) ระบบพาเข้าร้านค้าในโหมดผู้ดูแล</li><li>ไปที่เมนู ผู้ใช้ แล้วกด <span class="ui">+ เพิ่มผู้ใช้</span></li><li>กรอกอีเมลของผู้ดูแลร้าน และเลือก Role <span class="ui">ผู้ดูแลร้าน</span></li><li>กด <span class="ui">เพิ่มและส่งคำเชิญ</span></li><li>กลับไปที่ระบบหลังบ้านด้วยตัวสลับ Workspace</li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: เพิ่มผู้ใช้ของร้าน"><img src="img/15.webp" alt="เพิ่มผู้ใช้ของร้าน" width="974" height="693" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 3.4</span>เพิ่มผู้ใช้ของร้าน</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ถ้าอีเมลยังไม่มีบัญชี ระบบสร้างบัญชีและส่งอีเมลเชิญให้ตั้งรหัสผ่าน ลิงก์มีอายุ 72 ชั่วโมง</li><li>ถ้าอีเมลมีบัญชีอยู่แล้ว (เช่นดูแลอีกสาขาหนึ่ง) ระบบผูกร้านนี้เพิ่มให้ทันที อีเมลเดียวใช้ได้หลายร้าน</li><li>ทีม Shinsen ที่เข้าร้านในโหมดผู้ดูแลไม่ปรากฏในรายชื่อผู้ใช้ของร้าน และทุกการเปลี่ยนแปลงบันทึกใน Audit log</li></ul></section><section class="sub" id="s-3-5" data-spy data-search data-comment-targetdata-title="3.5 ตรวจว่าร้านพร้อมสั่ง" data-crumb="บทที่ 3"><h3 class="sub-h"><a class="anchor" href="#s-3-5"><span class="sn">3.5</span>ตรวจว่าร้านพร้อมสั่ง</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ก่อนแจ้งลูกค้าว่าเริ่มสั่งผ่านระบบได้</span></p><p>ตรวจที่เมนู ร้านค้า และหน้ารายละเอียดของร้านให้ครบทุกข้อ</p><ul class="checks"><li>สถานะร้านเป็น <span class="ui">ใช้งาน</span></li><li>เลือกผู้ชำระเงินและทีมขายที่ดูแลแล้ว</li><li>กฎวันส่งมีวันที่รับของได้ เวลาปิดรับ และยอดขั้นต่ำตรงกับที่ตกลงกับลูกค้า</li><li>ผูก QO แล้ว และ QO มีสินค้าที่ร้านต้องสั่ง</li><li>สินค้าที่ร้านสั่งบ่อยมีรูปแล้ว (ไม่บังคับ แต่ช่วยให้ร้านเลือกสินค้าได้ง่าย)</li><li>มีผู้ดูแลร้านอย่างน้อย 1 คน และเขาตั้งรหัสผ่านจากอีเมลเชิญแล้ว</li></ul><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ตารางร้านค้ามีคอลัมน์ วันส่ง ปิดรับ สินค้า และบัญชีผู้ใช้ ใช้ดูภาพรวมได้เร็ว</li><li>ถ้าร้านยังขาดข้อมูลที่จำเป็น ร้านจะสั่งซื้อไม่ได้ และเห็นข้อความว่าร้านค้ายังไม่พร้อมสั่ง</li></ul><section class="practice" aria-label="ฝึกทำ"><header class="practice-h"><span class="practice-l">ฝึกทำ</span><span class="practice-t">เปิดร้านทดลอง 1 ร้านตั้งแต่ต้นจนจบ</span><span class="practice-n" data-practice-count="s-3-5"></span></header><ol class="tasks" data-practice-list="s-3-5"><li class="task"><input type="checkbox" id="p-s-3-5-1" data-practice="s-3-5"><label for="p-s-3-5-1"><span class="task-do">เพิ่มร้าน <span class="ui">ร้านทดลอง</span> สาขาชื่อคุณ</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>ร้านขึ้นในรายการ สถานะใช้งาน</span></label></li><li class="task"><input type="checkbox" id="p-s-3-5-2" data-practice="s-3-5"><label for="p-s-3-5-2"><span class="task-do">ตั้งกฎ: ส่งได้ จ. พ. ศ. · ปิดรับ 18:00 วันก่อนส่ง · ล่วงหน้า 7 วัน · ขั้นต่ำ 3,000 บาท</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>ปฏิทินตัวอย่างแสดงเฉพาะวันจันทร์ พุธ ศุกร์</span></label></li><li class="task"><input type="checkbox" id="p-s-3-5-3" data-practice="s-3-5"><label for="p-s-3-5-3"><span class="task-do">ผูก QO ของผู้ชำระเงินตัวอย่าง</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>แท็บ QO และราคามีรายการสินค้า</span></label></li><li class="task"><input type="checkbox" id="p-s-3-5-4" data-practice="s-3-5"><label for="p-s-3-5-4"><span class="task-do">เชิญอีเมลทดลองเป็นผู้ดูแลร้าน</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>อีเมลเชิญเข้ากล่องจดหมาย</span></label></li><li class="task"><input type="checkbox" id="p-s-3-5-5" data-practice="s-3-5"><label for="p-s-3-5-5"><span class="task-do">ไล่ตรวจตาม <a class="xref" href="#s-3-5">3.5</a></span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>ผ่านครบทุกข้อ</span></label></li></ol></section></section></article><article class="chapter" id="ch-4" data-spy><header class="ch-h"><span class="ch-eyebrow">บทที่ 4 · Demo 1</span><h2><a class="anchor" href="#ch-4">ดูแลร้านค้าที่มีอยู่</a></h2></header><div class="ch-intro" data-search data-title="4. ดูแลร้านค้าที่มีอยู่" data-crumb="บทที่ 4" id="ch-4-intro"><div class="goal"><span class="goal-l">เป้าหมายของบทนี้</span><p>แก้ข้อมูลร้าน กฎวันส่ง QO และระงับร้านได้ โดยรู้ผลกระทบต่อคำสั่งซื้อที่มีอยู่</p></div></div><section class="sub" id="s-4-1" data-spy data-search data-comment-targetdata-title="4.1 ค้นหาและเปิดร้านค้า" data-crumb="บทที่ 4"><h3 class="sub-h"><a class="anchor" href="#s-4-1"><span class="sn">4.1</span>ค้นหาและเปิดร้านค้า</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ต้องการดูหรือแก้ข้อมูลของร้านใดร้านหนึ่ง</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ไปที่เมนู ร้านค้า เลือกแท็บ ทั้งหมด ใช้งาน หรือ ระงับ</li><li>พิมพ์ในช่อง <span class="ui">ค้นหาชื่อร้านค้า หรืออีเมลผู้ใช้</span></li><li>เลือกสิ่งที่ต้องการทำ<ul class="nested"><li>คลิกที่แถว เพื่อเข้าร้านค้าในโหมดผู้ดูแล (เห็นหน้าจอแบบที่ร้านเห็น)</li><li>กดเมนูสามจุด แล้วเลือก <span class="ui">แก้ไข</span> เพื่อเปิดรายละเอียดร้าน ซึ่งมีแท็บ ข้อมูลร้านค้า · กฎวันส่ง · QO และราคา</li></ul></li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: รายการร้านค้า"><img src="img/16.webp" alt="รายการร้านค้า" width="966" height="706" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 4.1</span>รายการร้านค้า</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ตารางแสดง ผู้ชำระเงิน · บัญชีผู้ใช้ · วันส่ง · ปิดรับ · สินค้า · สถานะ ของแต่ละร้าน</li><li>ร้านที่ขึ้นป้าย <span class="ui">มี QO ใหม่</span> คือร้านที่ผู้ชำระเงินมี QO ใบใหม่กว่าที่ร้านใช้อยู่ (ดู <a class="xref" href="#s-4-4">4.4</a>)</li><li>ค้นหาร้านจากหน้าไหนก็ได้ด้วยค้นหาด่วน Ctrl+K</li></ul></section><section class="sub" id="s-4-2" data-spy data-search data-comment-targetdata-title="4.2 แก้ไขข้อมูลร้านค้า" data-crumb="บทที่ 4"><h3 class="sub-h"><a class="anchor" href="#s-4-2"><span class="sn">4.2</span>แก้ไขข้อมูลร้านค้า</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ร้านเปลี่ยนที่อยู่ ผู้ติดต่อ ผู้ชำระเงิน หรือ sale ที่ดูแล</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ที่เมนู ร้านค้า กดเมนูสามจุดของร้าน แล้วเลือก <span class="ui">แก้ไข</span></li><li>ในแท็บ <span class="ui">ข้อมูลร้านค้า</span> แก้ช่องที่ต้องการ</li><li>กดบันทึก</li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: ข้อมูลร้านค้า"><img src="img/17.webp" alt="ข้อมูลร้านค้า" width="974" height="693" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 4.2</span>ข้อมูลร้านค้า</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ชื่อร้านและที่อยู่ถูกส่งเป็นที่อยู่จัดส่งตอนสร้างใบสั่งขาย การแก้จึงมีผลกับใบสั่งขายที่สร้างหลังบันทึก</li><li>เปลี่ยน sale ที่ดูแลแล้ว เรื่องแจ้งปัญหาใหม่ของร้านจะตั้ง sale คนใหม่เป็นผู้ดูแลเรื่อง และร้านเห็นช่องทางติดต่อของ sale คนใหม่</li><li>บัญชีผู้ใช้ของร้านไม่ได้แก้ที่นี่ ให้จัดการที่เมนู ผู้ใช้ ภายในร้านค้า (ดู <a class="xref" href="#s-3-4">3.4</a>)</li></ul></section><section class="sub" id="s-4-3" data-spy data-search data-comment-targetdata-title="4.3 แก้กฎวันส่ง และเมื่อกฎใหม่กระทบคำสั่งซื้อที่มีอยู่" data-crumb="บทที่ 4"><h3 class="sub-h"><a class="anchor" href="#s-4-3"><span class="sn">4.3</span>แก้กฎวันส่ง และเมื่อกฎใหม่กระทบคำสั่งซื้อที่มีอยู่</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ร้านขอเปลี่ยนวันรับของ เวลาปิดรับ สั่งล่วงหน้าสูงสุด หรือยอดขั้นต่ำ</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>เปิดรายละเอียดร้าน แล้วไปที่แท็บ <span class="ui">กฎวันส่ง</span></li><li>แก้กฎตามที่ตกลงกับลูกค้า แล้วกด <span class="ui">บันทึกกฎ</span></li><li>ถ้ากฎใหม่กระทบคำสั่งซื้อที่มีอยู่ ระบบขึ้นหน้าต่าง <span class="ui">บันทึกกฎวันส่งใหม่?</span> บอกผลกระทบ เช่น ปิดรับวันเสาร์ แต่มีคำสั่งซื้อที่ยืนยันแล้ว 2 รายการส่งวันเสาร์</li><li>อ่านผลกระทบ แล้วกด <span class="ui">บันทึกกฎ</span> เพื่อยืนยัน หรือ <span class="ui">ยกเลิก</span></li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: ยืนยันกฎวันส่งใหม่"><img src="img/18.webp" alt="ยืนยันกฎวันส่งใหม่" width="969" height="693" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 4.3</span>ยืนยันกฎวันส่งใหม่</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><aside class="callout warn" role="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.2v.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div><strong class="callout-label">ระวัง</strong> คำสั่งซื้อที่ยืนยันแล้วไม่ถูกเปลี่ยนตามกฎใหม่ ถ้าต้องยกเลิก sale ต้องทำเองจากหน้าคำสั่งซื้อ (ดู<a class="xref" href="#ch-21">บทที่ 21</a>)</div></aside><ul class="notes"><li>ร่างคำสั่งซื้อที่เลือกวันส่งซึ่งใช้ไม่ได้แล้ว ร้านจะถูกขอให้เลือกวันส่งใหม่เมื่อเปิดหน้าสั่งซื้อ</li><li>ควรแจ้งร้านก่อนเปลี่ยนกฎ โดยเฉพาะเมื่อมีคำสั่งซื้อที่ได้รับผล</li></ul></section><section class="sub" id="s-4-4" data-spy data-search data-comment-targetdata-title="4.4 เปลี่ยนเป็น QO ใหม่" data-crumb="บทที่ 4"><h3 class="sub-h"><a class="anchor" href="#s-4-4"><span class="sn">4.4</span>เปลี่ยนเป็น QO ใหม่</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ลูกค้ามี QO ใบใหม่ที่อนุมัติแล้ว เช่น ปรับราคาหรือเพิ่มสินค้า</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>เปิดรายละเอียดร้าน แล้วไปที่แท็บ <span class="ui">QO และราคา</span></li><li>ถ้ามีใบใหม่ จะเห็นแถบ <span class="ui">มี QO ใหม่</span> พร้อมจำนวนรายการที่ราคาเปลี่ยน เพิ่ม และนำออก กด <span class="ui">ดูสิ่งที่เปลี่ยนและเปลี่ยน QO</span> (หรือกด <span class="ui">เปลี่ยน QO</span> เพื่อเลือกใบเอง)</li><li>ตรวจรายการที่ราคาเปลี่ยน เพิ่ม และนำออก ในหน้าต่างยืนยัน</li><li>ถ้าต้องการเปลี่ยนให้ร้านอื่นที่ใช้ QO ใบเดิมพร้อมกัน ให้ติ๊กช่องเปลี่ยนให้ร้านค้าอื่น</li><li>กด <span class="ui">เปลี่ยนเป็น QO ใหม่</span></li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: เปลี่ยนเป็น QO ใหม่ (เบลอราคาในภาพ)"><img src="img/19.webp" alt="เปลี่ยนเป็น QO ใหม่ (เบลอราคาในภาพ)" width="823" height="715" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 4.4</span>เปลี่ยนเป็น QO ใหม่ (เบลอราคาในภาพ)</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><aside class="callout warn" role="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.2v.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div><strong class="callout-label">ระวัง</strong> เปลี่ยนแล้ว ตะกร้าและร่างคำสั่งซื้อของร้านใช้ราคาใหม่ทันที และสินค้าที่ถูกนำออกจาก QO ใหม่จะสั่งไม่ได้ (ร้านเห็นป้าย <span class="ui">สั่งไม่ได้แล้ว</span>) ควรแจ้งร้านก่อนเปลี่ยน</div></aside><ul class="notes"><li>ร้านยังสั่งด้วย QO เดิมได้จนกว่าจะเปลี่ยน</li><li>คำสั่งซื้อที่สร้างใบสั่งขายแล้วไม่เปลี่ยน</li><li>ดูใบที่เคยใช้ได้ที่ <span class="ui">ประวัติ QO</span> และทุกการเปลี่ยนบันทึกใน Audit log</li></ul></section><section class="sub" id="s-4-5" data-spy data-search data-comment-targetdata-title="4.5 ระงับร้านค้า" data-crumb="บทที่ 4"><h3 class="sub-h"><a class="anchor" href="#s-4-5"><span class="sn">4.5</span>ระงับร้านค้า</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ร้านปิดสาขา หยุดสั่ง หรือต้องหยุดการสั่งซื้อชั่วคราว</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ที่เมนู ร้านค้า กดเมนูสามจุดของร้าน แล้วเลือก <span class="ui">ระงับร้านค้า</span> (หรือกด <span class="ui">ระงับร้านค้า</span> ในหน้ารายละเอียดร้าน)</li><li>กรอกเหตุผล ซึ่งจะบันทึกใน Audit log</li><li>กดยืนยัน</li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: ระงับร้านค้า"><img src="img/20.webp" alt="ระงับร้านค้า" width="966" height="706" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 4.5</span>ระงับร้านค้า</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><aside class="callout warn" role="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.2v.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div><strong class="callout-label">ระวัง</strong> ระงับแล้ว ผู้ใช้ของร้านเข้าสั่งซื้อและดูประวัติไม่ได้ทันที</div></aside><ul class="notes"><li>คำสั่งซื้อที่สร้างใบสั่งขายแล้วไม่ถูกยกเลิก</li><li>ร้านที่ระงับอยู่ในแท็บ <span class="ui">ระงับ</span> และเปิดใช้งานกลับได้ภายหลัง</li><li>ผู้ใช้ที่มีแต่ร้านนี้ เมื่อเข้าสู่ระบบจะเห็นว่าบัญชียังไม่มีร้านค้าที่ใช้งานได้</li></ul><section class="practice" aria-label="ฝึกทำ"><header class="practice-h"><span class="practice-l">ฝึกทำ</span><span class="practice-t">ใช้ร้านทดลองจาก<a class="xref" href="#ch-3">บทที่ 3</a></span><span class="practice-n" data-practice-count="s-4-5"></span></header><ol class="tasks" data-practice-list="s-4-5"><li class="task"><input type="checkbox" id="p-s-4-5-1" data-practice="s-4-5"><label for="p-s-4-5-1"><span class="task-do">ค้นร้านทดลองด้วยอีเมลผู้ใช้</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>เจอร้านในผลค้นหา</span></label></li><li class="task"><input type="checkbox" id="p-s-4-5-2" data-practice="s-4-5"><label for="p-s-4-5-2"><span class="task-do">เปลี่ยน sale ที่ดูแล แล้วเปิดเรื่องใหม่แทนร้าน (<a class="xref soon-ref" href="#ch-6" title="มาพร้อม Demo 2">6.5</a>)</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>ผู้ดูแลเรื่องเป็น sale คนใหม่</span></label></li><li class="task"><input type="checkbox" id="p-s-4-5-3" data-practice="s-4-5"><label for="p-s-4-5-3"><span class="task-do">ปิดรับวันศุกร์ในกฎวันส่ง</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>อ่านหน้าต่างผลกระทบก่อนยืนยัน</span></label></li><li class="task"><input type="checkbox" id="p-s-4-5-4" data-practice="s-4-5"><label for="p-s-4-5-4"><span class="task-do">ระงับร้านทดลอง แล้วเปิดใช้งานกลับ</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>เห็นเหตุผลใน Audit log</span></label></li></ol></section></section></article><article class="chapter" id="ch-5" data-spy><header class="ch-h"><span class="ch-eyebrow">บทที่ 5 · Demo 1</span><h2><a class="anchor" href="#ch-5">สินค้าและรูปสินค้า</a></h2></header><div class="ch-intro" data-search data-title="5. สินค้าและรูปสินค้า" data-crumb="บทที่ 5" id="ch-5-intro"><div class="goal"><span class="goal-l">เป้าหมายของบทนี้</span><p>ดูแลรูปสินค้าได้ทั้งทีละรายการและทีละมาก และอ่านข้อผิดพลาดตอนนำเข้าเป็น</p></div><p>ข้อมูลสินค้ามาจาก TRCloud (ดู <a class="xref" href="#s-2-1">2.1</a>) ส่วนรูปสินค้าจัดการในระบบนี้ รูปที่ตั้งไว้จะแสดงในหน้าสั่งซื้อของทุกร้านที่มีสินค้านั้น</p></div><section class="sub" id="s-5-1" data-spy data-search data-comment-targetdata-title="5.1 ดูรายละเอียดสินค้าและร้านค้าที่ใช้" data-crumb="บทที่ 5"><h3 class="sub-h"><a class="anchor" href="#s-5-1"><span class="sn">5.1</span>ดูรายละเอียดสินค้าและร้านค้าที่ใช้</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ต้องการดูข้อมูลสินค้า หรือดูว่าสินค้านี้อยู่ในร้านไหนบ้าง</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ไปที่เมนู สินค้า SKU ตารางแสดง ชื่อสินค้า · กลุ่มสินค้า · หมวด · ขนาด · ภาษี · สถานะ · จำนวนร้านที่ใช้</li><li>ค้นหาหรือเลือกแท็บ ทั้งหมด · ขายอยู่ · งดจำหน่าย · ยังไม่มีรูป · ไม่มี tag หมวด</li><li>คลิกที่แถว ระบบเปิดรายละเอียดด้านขวา มีรูปสินค้า ข้อมูลจาก TRCloud และรายชื่อร้านค้าที่ใช้ (กด <span class="ui">ดูทั้งหมด</span> เพื่อดูครบ)</li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: สินค้า SKU"><img src="img/21.webp" alt="สินค้า SKU" width="903" height="752" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 5.1</span>สินค้า SKU</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ชื่อ หน่วย และ tag แก้ที่นี่ไม่ได้ ให้แก้ที่ TRCloud แล้วกด Sync</li><li>สินค้าที่ร้านสั่งได้มาจาก QO ที่ร้านผูกไว้ ไม่ได้เลือกจากหน้านี้</li></ul></section><section class="sub" id="s-5-2" data-spy data-search data-comment-targetdata-title="5.2 เปลี่ยนรูปสินค้าทีละรายการ" data-crumb="บทที่ 5"><h3 class="sub-h"><a class="anchor" href="#s-5-2"><span class="sn">5.2</span>เปลี่ยนรูปสินค้าทีละรายการ</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>สินค้ายังไม่มีรูป หรือต้องการเปลี่ยนรูปบางรายการ</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ที่เมนู สินค้า SKU คลิกที่แถวของสินค้า</li><li>ในส่วน <span class="ui">รูปสินค้า</span> ลากรูปมาวาง หรือคลิกเพื่อเลือกไฟล์</li><li>กดบันทึก</li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: เปลี่ยนรูปสินค้า"><img src="img/22.webp" alt="เปลี่ยนรูปสินค้า" width="846" height="686" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 5.2</span>เปลี่ยนรูปสินค้า</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ไฟล์ JPG PNG หรือ WebP ไม่เกิน 5 MB แนะนำขนาด 800×800 ระบบย่อรูปให้เอง</li><li>ถ้าไฟล์ใหญ่เกินหรือเป็นชนิดที่ไม่รองรับ (เช่น .heic จาก iPhone) ระบบแจ้ง <span class="ui">อัปโหลดไม่ได้</span> และรูปเดิมยังอยู่</li><li>รูปใหม่แสดงให้ทุกร้านที่มีสินค้านี้</li></ul></section><section class="sub" id="s-5-3" data-spy data-search data-comment-targetdata-title="5.3 นำเข้ารูปหลายรายการด้วย Excel + ZIP" data-crumb="บทที่ 5"><h3 class="sub-h"><a class="anchor" href="#s-5-3"><span class="sn">5.3</span>นำเข้ารูปหลายรายการด้วย Excel + ZIP</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ต้องการใส่รูปสินค้าครั้งละหลายรายการ เช่นตอนเริ่มใช้ระบบ</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ที่เมนู สินค้า SKU กด <span class="ui">Import Excel + รูป</span></li><li>กด <span class="ui">ดาวน์โหลดไฟล์ตัวอย่าง</span> หรือใช้ไฟล์ที่ Export จากหน้านี้ (ดู <a class="xref" href="#s-5-4">5.4</a>)</li><li>ใน Excel กรอก <span class="ui">รหัส SKU</span> และ <span class="ui">ชื่อไฟล์รูป</span> ของแต่ละรายการ</li><li>รวมรูปทั้งหมดเป็นไฟล์ ZIP ชื่อไฟล์ใน ZIP ต้องตรงกับคอลัมน์ชื่อไฟล์รูป</li><li>เลือกไฟล์ Excel และไฟล์ ZIP แล้วเริ่มนำเข้า</li><li>ระบบตรวจทุกแถวก่อน ถ้าผ่านทั้งหมดจึงนำเข้า ระหว่างนั้นปิดหน้านี้ได้ ระบบแจ้งเตือนเมื่อเสร็จ</li><li>อ่านสรุปผล จำนวนแถวที่นำเข้า รูปที่อัปเดต และไฟล์รูปที่ไม่ได้ใช้</li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: นำเข้ารูปสินค้า"><img src="img/23.webp" alt="นำเข้ารูปสินค้า" width="906" height="735" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 5.3</span>นำเข้ารูปสินค้า</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ถ้ามีแถวผิดแม้แถวเดียว ระบบไม่นำเข้าทั้งไฟล์ และแสดงรายการปัญหาตามแถว แก้ไฟล์แล้วอัปโหลดใหม่ทั้งชุด (ดู <a class="xref" href="#s-9-3">9.3</a>)</li><li>รูปที่มีในระบบแล้ว ใส่ชื่อไฟล์เดิมได้โดยไม่ต้องใส่ใน ZIP ซ้ำ</li><li>ไฟล์รูปใน ZIP ที่ไม่ตรงกับแถวใด จะขึ้นในสรุปว่าไม่ได้ใช้ ให้ตรวจว่าชื่อไฟล์พิมพ์ตรงกันหรือไม่</li><li>การนำเข้าทุกครั้งบันทึกใน Audit log</li></ul></section><section class="sub" id="s-5-4" data-spy data-search data-comment-targetdata-title="5.4 ส่งออกรายการสินค้าเป็น Excel" data-crumb="บทที่ 5"><h3 class="sub-h"><a class="anchor" href="#s-5-4"><span class="sn">5.4</span>ส่งออกรายการสินค้าเป็น Excel</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ต้องการตรวจรายการสินค้าใน Excel หรือใช้เป็นไฟล์ตั้งต้นสำหรับนำเข้ารูป</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ที่เมนู สินค้า SKU กด <span class="ui">Export Excel</span></li><li>ระบบเตรียมไฟล์ เมื่อพร้อมจะขึ้นแจ้งให้กด <span class="ui">ดาวน์โหลดไฟล์</span></li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: ส่งออก Excel"><img src="img/24.webp" alt="ส่งออก Excel" width="843" height="701" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 5.4</span>ส่งออก Excel</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ไฟล์ที่เตรียมไว้ดาวน์โหลดได้ 24 ชั่วโมง</li><li>ไฟล์ที่ Export แก้แล้วนำกลับมา Import ได้ทันที</li></ul><section class="practice" aria-label="ฝึกทำ"><header class="practice-h"><span class="practice-l">ฝึกทำ</span><span class="practice-t"></span><span class="practice-n" data-practice-count="s-5-4"></span></header><ol class="tasks" data-practice-list="s-5-4"><li class="task"><input type="checkbox" id="p-s-5-4-1" data-practice="s-5-4"><label for="p-s-5-4-1"><span class="task-do">ใช้แท็บ <span class="ui">ยังไม่มีรูป</span> เลือกสินค้า 1 รายการแล้วใส่รูป</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>รูปขึ้นในรายการ จำนวนในแท็บลดลง</span></label></li><li class="task"><input type="checkbox" id="p-s-5-4-2" data-practice="s-5-4"><label for="p-s-5-4-2"><span class="task-do">ลองอัปโหลดไฟล์ .heic หรือไฟล์ใหญ่กว่า 5 MB</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>ระบบแจ้งว่าอัปโหลดไม่ได้ รูปเดิมยังอยู่</span></label></li><li class="task"><input type="checkbox" id="p-s-5-4-3" data-practice="s-5-4"><label for="p-s-5-4-3"><span class="task-do">Export Excel แล้วนำเข้ารูป 3 รายการด้วย Excel + ZIP</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>สรุปผลแสดงรูปที่อัปเดต 3 รูป</span></label></li><li class="task"><input type="checkbox" id="p-s-5-4-4" data-practice="s-5-4"><label for="p-s-5-4-4"><span class="task-do">พิมพ์รหัส SKU ผิด 1 แถวแล้วนำเข้า</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>ระบบไม่นำเข้าทั้งไฟล์ และบอกแถวที่ผิด</span></label></li></ol></section></section></article><article class="chapter deferred upcoming" id="ch-6" data-spy data-search data-title="6. เรื่องแจ้งปัญหาจากร้านค้า" data-crumb="บทที่ 6 · มาพร้อม Demo 2"><header class="ch-h"><span class="ch-eyebrow">บทที่ 6</span><h2><a class="anchor" href="#ch-6">เรื่องแจ้งปัญหาจากร้านค้า</a></h2></header><div class="soon-card"><p class="soon"><span class="chip d2">มาพร้อม Demo 2 · พฤ. 12 พ.ย.</span> เนื้อหาบทนี้จะเพิ่มหลัง Demo 2 ตอนนี้ดูหัวข้อที่จะมีได้ก่อน</p><ul><li><span class="sn">6.1</span>ดูเรื่องของทุกร้านค้าและกรอง</li><li><span class="sn">6.2</span>ดาวน์โหลดรายการเป็น CSV</li><li><span class="sn">6.3</span>รับเรื่อง: ตั้งผู้ดูแลเรื่องและบันทึกการดำเนินการ</li><li><span class="sn">6.4</span>ปิดเรื่องและเปิดเรื่องอีกครั้ง</li><li><span class="sn">6.5</span>เปิดเรื่องใหม่แทนร้านค้า</li><li><span class="sn">6.6</span>แจ้งเตือนเมื่อมีเรื่องใหม่</li></ul></div></article><template id="later-ch-6" data-release="Demo 2"><article class="chapter" id="ch-6" data-spy><header class="ch-h"><span class="ch-eyebrow">บทที่ 6 · Demo 2</span><h2><a class="anchor" href="#ch-6">เรื่องแจ้งปัญหาจากร้านค้า</a></h2></header><div class="ch-intro" data-search data-title="6. เรื่องแจ้งปัญหาจากร้านค้า" data-crumb="บทที่ 6" id="ch-6-intro"><div class="goal"><span class="goal-l">เป้าหมายของบทนี้</span><p>รับเรื่องจากร้าน บันทึกการดำเนินการ และปิดเรื่องพร้อมผลที่ลูกค้าอ่านเข้าใจได้</p></div><p>ร้านค้าใช้เมนูแจ้งปัญหาเมื่อต้องการให้ทีม Shinsen ช่วย เช่น ขอสั่งหลังเวลาปิดรับ ขอแก้หรือยกเลิกคำสั่งซื้อ ขอเพิ่มสินค้า หรือขอเพิ่มบัญชี ระบบยังเปิดเรื่องให้เองเมื่อมีเหตุขัดข้อง เช่น Sync หรือสร้างใบสั่งขายไม่สำเร็จ</p><h3 class="minor">ประเภทเรื่อง</h3><div class="tbl-wrap"><table class="tbl"><thead><tr><th>กลุ่ม</th><th>ประเภท</th><th>ใช้เมื่อ</th></tr></thead><tbody><tr><td>ปัญหาเกี่ยวกับคำสั่งซื้อ</td><td>ขอสั่งนอกเวลา</td><td>สั่งหลังเวลาปิดรับ หรือต้องการวันส่งที่ไม่อยู่ในกฎ</td></tr><tr><td></td><td>ขอแก้ไข / ยกเลิกคำสั่งซื้อ</td><td>คำสั่งซื้อที่ยืนยันแล้ว (ล็อก)</td></tr><tr><td>ปัญหาเกี่ยวกับสินค้า</td><td>ขอเพิ่ม / ยกเลิกสินค้า (SKU)</td><td>ปรับรายการสินค้าที่ร้านสั่งได้</td></tr><tr><td>ปัญหาเกี่ยวกับบัญชี</td><td>ขอเปลี่ยน / เพิ่มบัญชี</td><td>เปลี่ยนอีเมลผู้ใช้ของร้าน</td></tr><tr><td></td><td>ขอเพิ่มร้านค้า</td><td>เปิดร้านหรือสาขาใหม่ให้สั่งผ่านระบบ</td></tr><tr><td>ปัญหาอื่นๆ</td><td>เรื่องอื่นๆ</td><td>เรื่องที่ไม่อยู่ในประเภทด้านบน</td></tr><tr><td>ระบบ</td><td>(ระบบเปิดเอง)</td><td>Sync ไม่สำเร็จ หรือสร้างใบสั่งขายไม่สำเร็จ</td></tr></tbody></table></div></div><section class="sub" id="s-6-1" data-spy data-search data-comment-targetdata-title="6.1 ดูเรื่องของทุกร้านค้าและกรอง" data-crumb="บทที่ 6"><h3 class="sub-h"><a class="anchor" href="#s-6-1"><span class="sn">6.1</span>ดูเรื่องของทุกร้านค้าและกรอง</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ต้องการดูว่ามีเรื่องใดรอดำเนินการอยู่</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ไปที่เมนู แจ้งปัญหา ตารางแสดง เลขที่ · ประเภท · เรื่อง / แจ้งโดย · ร้านค้า · อ้างอิง · สร้างเมื่อ · สถานะ · ผู้ดูแล</li><li>เลือกแท็บสถานะ ทั้งหมด · ใหม่ · กำลังคุย · ปิดแล้ว</li><li>กรองด้วย ประเภท ร้านค้า คน หรือช่วงวันที่ หรือพิมพ์ค้นหาเลขที่ เรื่อง หรือเลขคำสั่งซื้อ</li><li>ใช้ตัวกรองด่วน ยังไม่มีผู้ดูแล · ของฉัน · เรื่องจากระบบ · เกี่ยวกับคำสั่งซื้อ เพื่อดูเรื่องที่ต้องทำก่อน</li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: หน้าแจ้งปัญหา"><img src="img/25.webp" alt="หน้าแจ้งปัญหา" width="948" height="714" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 6.1</span>หน้าแจ้งปัญหา</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ถ้าไม่พบเรื่องตามตัวกรอง กด <span class="ui">ล้างตัวกรอง</span> เพื่อเริ่มใหม่</li><li>เรื่องที่ร้านแจ้งจะตั้ง sale ที่ดูแลร้านเป็นผู้ดูแลเรื่องให้อัตโนมัติ ตัวกรอง <span class="ui">ของฉัน</span> จึงเห็นเรื่องของร้านที่คุณดูแล</li><li>เมื่อมีคนเริ่มดำเนินการ สถานะเปลี่ยนจาก ใหม่ เป็น กำลังคุย และบันทึกไว้ในเรื่อง</li></ul></section><section class="sub" id="s-6-2" data-spy data-search data-comment-targetdata-title="6.2 ดาวน์โหลดรายการเป็น CSV" data-crumb="บทที่ 6"><h3 class="sub-h"><a class="anchor" href="#s-6-2"><span class="sn">6.2</span>ดาวน์โหลดรายการเป็น CSV</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ต้องการสรุปเรื่องแจ้งปัญหาใน Excel หรือ Google Sheets</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ที่หน้าแจ้งปัญหา ตั้งตัวกรองและคำค้นตามที่ต้องการ</li><li>กด <span class="ui">ดาวน์โหลด CSV</span></li><li>เปิดไฟล์ด้วย Excel หรือ Google Sheets</li></ol><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ไฟล์มีทุกเรื่องตามตัวกรองที่เลือกอยู่ตอนกด รวมทุกหน้า ไม่ใช่แค่หน้าที่เห็น</li><li>มี 9 คอลัมน์ เลขที่ · ประเภท · เรื่อง · แจ้งโดย · ร้านค้า · อ้างอิงคำสั่งซื้อ · สร้างเมื่อ · สถานะ · ผู้ดูแล</li><li>เปิดใน Excel หรือ Google Sheets แล้วภาษาไทยไม่เพี้ยน ถ้าเปิดด้วยโปรแกรมแก้ข้อความจะเห็นค่าคั่นด้วยจุลภาค</li></ul></section><section class="sub" id="s-6-3" data-spy data-search data-comment-targetdata-title="6.3 รับเรื่อง: ตั้งผู้ดูแลเรื่องและบันทึกการดำเนินการ" data-crumb="บทที่ 6"><h3 class="sub-h"><a class="anchor" href="#s-6-3"><span class="sn">6.3</span>รับเรื่อง: ตั้งผู้ดูแลเรื่องและบันทึกการดำเนินการ</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>เริ่มดูแลเรื่อง หรือต้องการส่งต่อให้คนอื่น</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>คลิกที่แถวของเรื่อง ระบบเปิดรายละเอียดด้านขวา มี คำสั่งซื้ออ้างอิง · ผู้แจ้ง · วันส่งที่ต้องการ · ข้อความจากลูกค้า · ตะกร้าที่แนบ</li><li>ตรวจ <span class="ui">ผู้ดูแลเรื่อง</span> ถ้าต้องการเปลี่ยน กดที่ชื่อแล้วเลือกคนใหม่ 1 คน</li><li>เมื่อติดต่อลูกค้าหรือดำเนินการแล้ว กด <span class="ui">เพิ่มบันทึก…</span> ในส่วน <span class="ui">บันทึกการดำเนินการ</span></li><li>พิมพ์บันทึก เลือกประเภทได้ถ้าต้องการ (ติดต่อลูกค้า · ดำเนินการภายใน · อื่นๆ) แล้วกด <span class="ui">บันทึก</span></li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: รายละเอียดเรื่อง"><img src="img/26.webp" alt="รายละเอียดเรื่อง" width="948" height="714" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 6.3-1</span>รายละเอียดเรื่อง</figcaption></figure><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: เพิ่มบันทึกการดำเนินการ"><img src="img/27.webp" alt="เพิ่มบันทึกการดำเนินการ" width="885" height="666" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 6.3-2</span>เพิ่มบันทึกการดำเนินการ</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>บันทึกการดำเนินการเป็นข้อมูลภายในทีม ลูกค้าไม่เห็น</li><li>คนที่ถูกตั้งเป็นผู้ดูแลเรื่องได้รับแจ้งเตือนกระดิ่ง</li><li>ติ๊ก <span class="ui">ปิดเรื่องหลังบันทึก</span> เพื่อบันทึกแล้วไปต่อที่การปิดเรื่องทันที</li><li>เรื่องที่ต้องสั่งแทนร้าน เช่น ขอสั่งนอกเวลา กด <span class="ui">เข้าร้านค้าเพื่อสั่งนอกกฎ</span> (ดู<a class="xref" href="#part-3">ส่วนที่ 3</a>)</li></ul></section><section class="sub" id="s-6-4" data-spy data-search data-comment-targetdata-title="6.4 ปิดเรื่องและเปิดเรื่องอีกครั้ง" data-crumb="บทที่ 6"><h3 class="sub-h"><a class="anchor" href="#s-6-4"><span class="sn">6.4</span>ปิดเรื่องและเปิดเรื่องอีกครั้ง</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ดำเนินการเสร็จแล้ว หรือตัดสินใจไม่ดำเนินการ</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ในรายละเอียดเรื่อง กด <span class="ui">ปิดเรื่อง</span></li><li>เลือกผล <span class="ui">ดำเนินการแล้ว</span> (ทำตามที่ลูกค้าขอแล้ว) หรือ <span class="ui">ไม่ดำเนินการ</span></li><li>กรอก <span class="ui">ผลการดำเนินการ</span> ถ้าไม่ดำเนินการให้ระบุเหตุผล</li><li>ถ้ามีคำสั่งซื้อที่เกี่ยวข้อง เช่นคำสั่งซื้อที่สั่งแทนให้ ใส่ในช่อง <span class="ui">คำสั่งซื้อที่เกี่ยวข้อง</span></li><li>กดปิดเรื่อง</li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: หน้าต่างปิดเรื่อง"><img src="img/28.webp" alt="หน้าต่างปิดเรื่อง" width="885" height="666" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 6.4-1</span>หน้าต่างปิดเรื่อง</figcaption></figure><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: เรื่องที่ปิดแล้ว และปุ่มเปิดเรื่องอีกครั้ง"><img src="img/29.webp" alt="เรื่องที่ปิดแล้ว และปุ่มเปิดเรื่องอีกครั้ง" width="885" height="666" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 6.4-2</span>เรื่องที่ปิดแล้ว และปุ่มเปิดเรื่องอีกครั้ง</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><aside class="callout warn" role="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.2v.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div><strong class="callout-label">ระวัง</strong> <span class="ui">ผลการดำเนินการ</span> ลูกค้าเห็นในรายละเอียดเรื่องฝั่งร้าน และผู้แจ้งได้รับแจ้งเตือนกระดิ่ง เขียนให้ลูกค้าอ่านเข้าใจ และห้ามใส่ข้อมูลภายใน</div></aside><ul class="notes"><li>เรื่องที่ปิดแล้วแก้ไขไม่ได้ แสดงผล คนที่ปิด และเวลาที่ปิด</li><li>ถ้าต้องทำต่อ กด <span class="ui">เปิดเรื่องอีกครั้ง</span></li></ul></section><section class="sub" id="s-6-5" data-spy data-search data-comment-targetdata-title="6.5 เปิดเรื่องใหม่แทนร้านค้า" data-crumb="บทที่ 6"><h3 class="sub-h"><a class="anchor" href="#s-6-5"><span class="sn">6.5</span>เปิดเรื่องใหม่แทนร้านค้า</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ร้านแจ้งทางโทรศัพท์หรือช่องทางอื่น และต้องการบันทึกเรื่องไว้ในระบบ</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ที่หน้าแจ้งปัญหา กด <span class="ui">+ แจ้งปัญหา</span> ระบบเปิดหน้าต่าง <span class="ui">แจ้งปัญหาใหม่</span></li><li>เลือก <span class="ui">ร้านค้า</span> ระบบตั้ง sale ที่ดูแลร้านเป็นผู้ดูแลเรื่องให้ (เปลี่ยนได้)</li><li>เลือกประเภทเรื่อง</li><li>ใส่เลขคำสั่งซื้ออ้างอิง (ถ้ามี) และรายละเอียด</li><li>กด <span class="ui">แจ้งปัญหา</span></li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: แจ้งปัญหาใหม่"><img src="img/30.webp" alt="แจ้งปัญหาใหม่" width="908" height="735" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 6.5</span>แจ้งปัญหาใหม่</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>เรื่องที่เปิดแทนแสดงในเมนูแจ้งปัญหาของร้านด้วย ร้านติดตามผลได้เหมือนเปิดเอง</li></ul></section><section class="sub" id="s-6-6" data-spy data-search data-comment-targetdata-title="6.6 แจ้งเตือนเมื่อมีเรื่องใหม่" data-crumb="บทที่ 6"><h3 class="sub-h"><a class="anchor" href="#s-6-6"><span class="sn">6.6</span>แจ้งเตือนเมื่อมีเรื่องใหม่</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>เห็นตัวเลขบนกระดิ่งแจ้งเตือน</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>คลิกกระดิ่งแจ้งเตือน</li><li>คลิกรายการเพื่อเปิดเรื่องนั้น หรือกด <span class="ui">อ่านทั้งหมด</span></li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: แจ้งเตือน"><img src="img/31.webp" alt="แจ้งเตือน" width="948" height="714" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 6.6</span>แจ้งเตือน</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>แจ้งเตือนมี เรื่องใหม่จากร้านค้า · เรื่องที่คุณถูกตั้งเป็นผู้ดูแล · เหตุขัดข้องของระบบ · เรื่องที่ถูกปิด</li><li>ระบบไม่ส่งแจ้งเตือนทางอีเมล อีเมลใช้เฉพาะลืมรหัสผ่านและเชิญผู้ใช้ ควรเปิดดูกระดิ่งเป็นประจำ</li></ul><section class="practice" aria-label="ฝึกทำ"><header class="practice-h"><span class="practice-l">ฝึกทำ</span><span class="practice-t"></span><span class="practice-n" data-practice-count="s-6-6"></span></header><ol class="tasks" data-practice-list="s-6-6"><li class="task"><input type="checkbox" id="p-s-6-6-1" data-practice="s-6-6"><label for="p-s-6-6-1"><span class="task-do">กรองเรื่อง <span class="ui">ยังไม่มีผู้ดูแล</span> และ <span class="ui">ของฉัน</span></span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>เห็นรายการตามที่กรอง</span></label></li><li class="task"><input type="checkbox" id="p-s-6-6-2" data-practice="s-6-6"><label for="p-s-6-6-2"><span class="task-do">รับเรื่องตัวอย่าง ตั้งตัวเองเป็นผู้ดูแล และบันทึก <span class="ui">ติดต่อลูกค้า</span></span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>สถานะเป็น กำลังคุย</span></label></li><li class="task"><input type="checkbox" id="p-s-6-6-3" data-practice="s-6-6"><label for="p-s-6-6-3"><span class="task-do">ปิดเรื่องแบบ <span class="ui">ดำเนินการแล้ว</span> พร้อมผลที่ลูกค้าอ่านเข้าใจ</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>เรื่องย้ายไปแท็บ ปิดแล้ว</span></label></li><li class="task"><input type="checkbox" id="p-s-6-6-4" data-practice="s-6-6"><label for="p-s-6-6-4"><span class="task-do">เปิดเรื่องแทนร้านทดลอง ประเภท ขอเพิ่ม / ยกเลิกสินค้า</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>sale ที่ดูแลร้านได้แจ้งเตือนกระดิ่ง</span></label></li><li class="task"><input type="checkbox" id="p-s-6-6-5" data-practice="s-6-6"><label for="p-s-6-6-5"><span class="task-do">ดาวน์โหลด CSV เรื่องที่ปิดแล้วในเดือนนี้</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>เปิดใน Excel แล้วภาษาไทยไม่เพี้ยน</span></label></li></ol></section></section></article></template><article class="chapter" id="ch-7" data-spy><header class="ch-h"><span class="ch-eyebrow">บทที่ 7 · Demo 1</span><h2><a class="anchor" href="#ch-7">วันหยุดบริษัท</a></h2></header><div class="ch-intro" data-search data-title="7. วันหยุดบริษัท" data-crumb="บทที่ 7" id="ch-7-intro"><div class="goal"><span class="goal-l">เป้าหมายของบทนี้</span><p>ประกาศ แก้ และลบวันหยุดบริษัทได้ และรู้ว่าต้องทำอะไรเมื่อวันหยุดตรงกับคำสั่งซื้อ</p></div><p>วันหยุดตั้งครั้งเดียวที่เมนู วันหยุด แล้วมีผลกับทุกร้านทันทีที่บันทึก ร้านจะเห็นจุดแดง <span class="ui">วันหยุดนักขัตฤกษ์</span> ในปฏิทินวันส่ง แต่ยังเลือกวันนั้นเป็นวันส่งและสั่งซื้อได้ตามปกติ</p></div><section class="sub" id="s-7-1" data-spy data-search data-comment-targetdata-title="7.1 เพิ่มวันหยุด" data-crumb="บทที่ 7"><h3 class="sub-h"><a class="anchor" href="#s-7-1"><span class="sn">7.1</span>เพิ่มวันหยุด</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ประกาศวันหยุดบริษัทหรือวันหยุดราชการที่จะถึง</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ไปที่เมนู วันหยุด จะเห็นปฏิทินและรายการ <span class="ui">วันหยุดที่จะถึง</span></li><li>กด <span class="ui">+ เพิ่มวันหยุด</span></li><li>เลือก <span class="ui">วันที่เริ่ม</span> ถ้าหยุดหลายวันให้เลือก <span class="ui">ถึงวันที่</span> ด้วย</li><li>กรอก <span class="ui">ชื่อวันหยุด</span> และเลือกประเภท วันหยุดบริษัท หรือ วันหยุดราชการ</li><li>กด <span class="ui">บันทึกวันหยุด</span></li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: เพิ่มวันหยุด"><img src="img/32.webp" alt="เพิ่มวันหยุด" width="974" height="693" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 7.1</span>เพิ่มวันหยุด</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>บันทึกแล้วมีผลกับทุกร้านทันที ไม่ต้องตั้งทีละร้าน</li><li>วันหยุดไม่ปิดการสั่งซื้อ ร้านยังเลือกวันนั้นเป็นวันส่งได้ จุดแดงมีไว้เตือนให้ร้านวางแผนสั่งของล่วงหน้า</li><li>ถ้าวันที่เพิ่มมีคำสั่งซื้อส่งตรงวันอยู่แล้ว ระบบจะเตือนก่อนบันทึก (ดู <a class="xref" href="#s-7-3">7.3</a>)</li></ul></section><section class="sub" id="s-7-2" data-spy data-search data-comment-targetdata-title="7.2 แก้ไขและลบวันหยุด" data-crumb="บทที่ 7"><h3 class="sub-h"><a class="anchor" href="#s-7-2"><span class="sn">7.2</span>แก้ไขและลบวันหยุด</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>วันหยุดเลื่อน เปลี่ยนชื่อ หรือยกเลิกวันหยุด</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ที่เมนู วันหยุด คลิกวันหยุดในรายการหรือในปฏิทิน ระบบเปิดหน้าต่าง <span class="ui">แก้ไขวันหยุด</span></li><li>แก้วันที่ ชื่อ หรือประเภท แล้วกดบันทึก</li><li>ถ้าไม่หยุดแล้ว กดไอคอนถังขยะท้ายรายการใน <span class="ui">วันหยุดที่จะถึง</span> หรือกด <span class="ui">ลบวันหยุด</span> ในหน้าต่างแก้ไข</li></ol><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ลบแล้วจุดแดงหายจากปฏิทินวันส่งของทุกร้านทันที</li></ul></section><section class="sub" id="s-7-3" data-spy data-search data-comment-targetdata-title="7.3 เมื่อวันหยุดตรงกับวันที่มีคำสั่งซื้อแล้ว" data-crumb="บทที่ 7"><h3 class="sub-h"><a class="anchor" href="#s-7-3"><span class="sn">7.3</span>เมื่อวันหยุดตรงกับวันที่มีคำสั่งซื้อแล้ว</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>บันทึกวันหยุดแล้วระบบขึ้นหน้าต่าง <span class="ui">มีคำสั่งซื้อที่ส่งตรงวันหยุดนี้ … รายการ</span></span></p><p>ในวันหยุด Supplier ไม่ทำงาน จึงสั่งเพิ่มหรือแก้ยอดสินค้าไม่ได้ หน้าต่างนี้แสดงคำสั่งซื้อที่ส่งตรงวันหยุด พร้อมชื่อร้าน วันส่ง และ sale ที่ดูแลร้าน</p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>อ่านรายการคำสั่งซื้อที่กระทบ ถ้ามีมาก กด <span class="ui">ส่งออกรายการเป็น Excel</span></li><li>ถ้าวันหยุดถูกต้อง กด <span class="ui">ยืนยันเพิ่มวันหยุด</span> ถ้าต้องแก้วันที่ กด <span class="ui">กลับไปแก้</span></li><li>แจ้ง sale ที่ดูแลร้านแต่ละราย ให้บอกลูกค้าสั่งของสำรองให้พอใช้ก่อนถึงวันหยุด</li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: คำสั่งซื้อที่ส่งตรงวันหยุด"><img src="img/33.webp" alt="คำสั่งซื้อที่ส่งตรงวันหยุด" width="974" height="693" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 7.3</span>คำสั่งซื้อที่ส่งตรงวันหยุด</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><aside class="callout warn" role="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.2v.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div><strong class="callout-label">ระวัง</strong> ระบบไม่เปลี่ยนหรือยกเลิกคำสั่งซื้อที่ส่งตรงวันหยุดให้เอง ถ้าต้องเปลี่ยน sale ดำเนินการต่อกับร้าน (ดู<a class="xref" href="#part-3">ส่วนที่ 3</a>)</div></aside><section class="practice" aria-label="ฝึกทำ"><header class="practice-h"><span class="practice-l">ฝึกทำ</span><span class="practice-t"></span><span class="practice-n" data-practice-count="s-7-3"></span></header><ol class="tasks" data-practice-list="s-7-3"><li class="task"><input type="checkbox" id="p-s-7-3-1" data-practice="s-7-3"><label for="p-s-7-3-1"><span class="task-do">เพิ่มวันหยุดบริษัท 1 วันในเดือนหน้า</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>เห็นในรายการ <span class="ui">วันหยุดที่จะถึง</span> และจุดแดงในปฏิทินวันส่งของร้านทดลอง</span></label></li><li class="task"><input type="checkbox" id="p-s-7-3-2" data-practice="s-7-3"><label for="p-s-7-3-2"><span class="task-do">เพิ่มวันหยุดตรงวันที่มีคำสั่งซื้อ (ถ้ามีในข้อมูลทดลอง)</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>เห็นหน้าต่างเตือน และส่งออกรายการเป็น Excel ได้</span></label></li><li class="task"><input type="checkbox" id="p-s-7-3-3" data-practice="s-7-3"><label for="p-s-7-3-3"><span class="task-do">ลบวันหยุดที่เพิ่ม</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>จุดแดงหายจากปฏิทิน</span></label></li></ol></section></section></article><article class="chapter" id="ch-8" data-spy><header class="ch-h"><span class="ch-eyebrow">บทที่ 8 · Demo 1</span><h2><a class="anchor" href="#ch-8">สำหรับผู้ดูแลระบบ</a></h2></header><div class="ch-intro" data-search data-title="8. สำหรับผู้ดูแลระบบ" data-crumb="บทที่ 8" id="ch-8-intro"><div class="goal"><span class="goal-l">เป้าหมายของบทนี้</span><p>(สำหรับ Super admin) จัดการผู้ดูแลและ Role ตรวจ Audit log และดูแลการเชื่อมต่อ TRCloud ได้</p></div><p>บทนี้สำหรับ Super admin หรือผู้ที่ได้รับสิทธิ์เมนูกลุ่ม ระบบ ได้แก่ ผู้ดูแล · Role · Audit log · ตั้งค่าระบบ</p></div><section class="sub" id="s-8-1" data-spy data-search data-comment-targetdata-title="8.1 เชิญ ระงับ และส่งลิงก์ตั้งรหัสผ่านให้ผู้ดูแล" data-crumb="บทที่ 8"><h3 class="sub-h"><a class="anchor" href="#s-8-1"><span class="sn">8.1</span>เชิญ ระงับ และส่งลิงก์ตั้งรหัสผ่านให้ผู้ดูแล</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>มีพนักงาน Shinsen เข้าใหม่ ย้ายหน้าที่ ลาออก หรือลืมรหัสผ่าน</span></p><h5 class="lbl lbl-steps">ขั้นตอน · เชิญผู้ดูแล</h5><ol class="steps"><li>ไปที่เมนู ผู้ดูแล แล้วกด <span class="ui">เชิญผู้ดูแล</span></li><li>กรอก <span class="ui">ชื่อที่แสดง</span> <span class="ui">อีเมล</span> และ <span class="ui">เบอร์มือถือ</span></li><li>เลือก Role</li><li>กด <span class="ui">ส่งคำเชิญ</span></li></ol><h5 class="lbl lbl-steps">ขั้นตอน · จัดการผู้ดูแลที่มีอยู่</h5><ol class="steps"><li>ที่เมนู ผู้ดูแล กดเมนูสามจุดท้ายแถว</li><li>เลือก <span class="ui">แก้ไขข้อมูล / เปลี่ยน Role</span> · <span class="ui">ส่งลิงก์ตั้งรหัสผ่านใหม่</span> · <span class="ui">ดูประวัติใน Audit log</span> หรือ <span class="ui">ระงับการใช้งาน</span></li><li>ถ้าเลือกระงับ ระบบถามยืนยันอีกครั้ง กด <span class="ui">ระงับการใช้งาน</span></li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: เชิญผู้ดูแล"><img src="img/34.webp" alt="เชิญผู้ดูแล" width="974" height="693" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 8.1-1</span>เชิญผู้ดูแล</figcaption></figure><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: เมนูสามจุดของผู้ดูแล"><img src="img/35.webp" alt="เมนูสามจุดของผู้ดูแล" width="909" height="647" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 8.1-2</span>เมนูสามจุดของผู้ดูแล</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><aside class="callout warn" role="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.2v.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div><strong class="callout-label">ระวัง</strong> ผู้ดูแลที่ถูกระงับจะออกจากระบบทันที และเข้าไม่ได้จนกว่าจะกด <span class="ui">เปิดใช้งานอีกครั้ง</span> จากเมนูสามจุด ประวัติใน Audit log ยังอยู่ครบ</div></aside><ul class="notes"><li>ลิงก์ในอีเมลเชิญมีอายุ 72 ชั่วโมง ถ้าหมดอายุใช้ <span class="ui">ส่งลิงก์ตั้งรหัสผ่านใหม่</span></li><li>เบอร์มือถือของผู้ดูแลแสดงให้ลูกค้าในร้านที่คนนั้นดูแล</li><li>ถ้าอีเมลเป็นผู้ดูแลอยู่แล้ว ระบบจะแจ้ง ถ้าคนนั้นถูกระงับไว้ ให้ใช้ <span class="ui">เปิดใช้งานอีกครั้ง</span> จากเมนูสามจุดแทนการเชิญใหม่</li><li>ผู้ใช้ของร้านค้าไม่อยู่ในเมนูนี้ ผู้ดูแลร้านจัดการเองในเว็บสั่งซื้อ และทีม Shinsen ทำแทนได้ (ดู <a class="xref" href="#s-3-4">3.4</a>)</li></ul></section><section class="sub" id="s-8-2" data-spy data-search data-comment-targetdata-title="8.2 Role และสิทธิ์รายเมนู" data-crumb="บทที่ 8"><h3 class="sub-h"><a class="anchor" href="#s-8-2"><span class="sn">8.2</span>Role และสิทธิ์รายเมนู</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ต้องการกำหนดว่าผู้ดูแลแต่ละกลุ่มเห็นและทำอะไรได้บ้าง</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ไปที่เมนู Role</li><li>กด <span class="ui">สร้าง Role</span> หรือคลิกที่แถวเพื่อแก้ Role ที่มีอยู่</li><li>กรอก <span class="ui">ชื่อ Role</span> และ <span class="ui">คำอธิบาย</span></li><li>ติ๊กสิทธิ์ <span class="ui">ดู</span> หรือ <span class="ui">จัดการ</span> ทีละเมนู</li><li>กด <span class="ui">สร้าง Role</span> หรือ <span class="ui">บันทึก</span></li></ol><h3 class="minor">สิทธิ์ที่กำหนดได้</h3><div class="tbl-wrap"><table class="tbl"><thead><tr><th>กลุ่ม</th><th>เมนู</th></tr></thead><tbody><tr><td>งานประจำวัน</td><td>แจ้งปัญหา · ร้านค้า (ข้อมูล กฎวันส่ง สินค้าของร้านค้า) · วันหยุดบริษัท</td></tr><tr><td>ในร้านค้า (โหมดผู้ดูแล)</td><td>เข้าร้านค้าและสั่งแทนลูกค้า · สั่งนอกกฎ · ปลดล็อก / ยกเลิก / แก้ไขข้อความถึงร้าน · ผู้ใช้และ Role ของร้านค้า</td></tr><tr><td>ข้อมูลหลัก</td><td>สินค้า SKU และรูปสินค้า · Contact และการ Sync</td></tr><tr><td>ระบบ</td><td>Audit log (ดูอย่างเดียว) · ผู้ดูแลและ Role · ตั้งค่าระบบ</td></tr></tbody></table></div><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: แก้ไข Role"><img src="img/36.webp" alt="แก้ไข Role" width="974" height="693" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 8.2</span>แก้ไข Role</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><aside class="callout warn" role="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.2v.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div><strong class="callout-label">ระวัง</strong> ลบ Role แล้วย้อนกลับไม่ได้ ถ้า Role ยังมีผู้ดูแลใช้อยู่ ระบบให้เลือก Role ใหม่ให้คนเหล่านั้นก่อน แล้วกด <span class="ui">ย้ายผู้ดูแลและลบ Role</span></div></aside><ul class="notes"><li>Super admin เป็น Role ตั้งต้น ทำได้ทุกอย่างในระบบหลังบ้านและทุกร้านค้า แก้สิทธิ์ไม่ได้และลบไม่ได้</li><li>Role ที่สร้างใหม่เริ่มจากไม่มีสิทธิ์ใด ตัวอย่าง Role ที่ใช้บ่อยดูที่<a class="xref" href="#app-a">ภาคผนวก ก</a></li></ul></section><section class="sub" id="s-8-3" data-spy data-search data-comment-targetdata-title="8.3 Audit log" data-crumb="บทที่ 8"><h3 class="sub-h"><a class="anchor" href="#s-8-3"><span class="sn">8.3</span>Audit log</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ต้องการตรวจว่าใครทำอะไร เมื่อไร หรือดูสาเหตุที่งานกับ TRCloud ไม่สำเร็จ</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ไปที่เมนู Audit log</li><li>เลือกช่วงเวลา หมวด ผลลัพธ์ และร้านค้า หรือค้นหาด้วยข้อความ ผู้ทำ หรือเลขอ้างอิง</li><li>คลิกที่แถวเพื่อดูรายละเอียด มี การกระทำ · ผลลัพธ์ · อ้างอิง · IP / อุปกรณ์ · รายละเอียด · ข้อมูลทางเทคนิค</li><li>กด <span class="ui">เปิดคำสั่งซื้อ</span> หรือ <span class="ui">เปิดเรื่อง</span> เพื่อไปที่รายการที่เกี่ยวข้อง</li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: Audit log"><img src="img/37.webp" alt="Audit log" width="974" height="693" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 8.3</span>Audit log</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ระบบบันทึกอัตโนมัติ แก้ไขหรือลบไม่ได้</li><li>บันทึกเช่น การ Sync · การสร้างใบสั่งขายใน TRCloud · การสั่งนอกกฎ · การเปลี่ยน QO · การระงับร้าน · การนำเข้ารูป · การเปลี่ยนผู้ใช้และ Role</li><li>ถ้าต้องแจ้งทีมพัฒนา กด <span class="ui">คัดลอก</span> ที่ข้อมูลทางเทคนิคแล้วแนบไปด้วย</li></ul></section><section class="sub" id="s-8-4" data-spy data-search data-comment-targetdata-title="8.4 ตั้งค่าการเชื่อมต่อ TRCloud" data-crumb="บทที่ 8"><h3 class="sub-h"><a class="anchor" href="#s-8-4"><span class="sn">8.4</span>ตั้งค่าการเชื่อมต่อ TRCloud</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ตั้งค่าครั้งแรก เปลี่ยน API Key หรือปรับค่ากลางของระบบ</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ไปที่เมนู ตั้งค่าระบบ แท็บ <span class="ui">ทั่วไปและการเชื่อมต่อ TRCloud</span></li><li>ในส่วน <span class="ui">การเชื่อมต่อ TRCloud</span> กรอก API Base URL · Company / Branch ID · Timeout (วินาที) · API Key · API Secret</li><li>กด <span class="ui">ทดสอบการเชื่อมต่อ</span> ต้องขึ้น <span class="ui">เชื่อมต่อสำเร็จ</span> พร้อมเวลา</li><li>ตรวจส่วนอื่นในแท็บเดียวกันตามตารางด้านล่าง</li><li>กด <span class="ui">บันทึกการตั้งค่า</span></li></ol><div class="tbl-wrap"><table class="tbl"><thead><tr><th>ส่วน</th><th>ใช้ทำอะไร</th></tr></thead><tbody><tr><td>การเชื่อมต่อ TRCloud</td><td>ใช้ Sync สินค้า QO Contact และสร้างหรือยกเลิกใบสั่งขาย</td></tr><tr><td>การแปลงข้อมูลสินค้าจาก TRCloud</td><td>กำหนดคำนำหน้า tag ที่ใช้จัดหมวดและขนาด และการรวม SKU เป็นสินค้าเดียวกัน เช่น tag menu-ผัก เป็นหมวด <span class="ui">ผัก</span> tag size-500ก เป็นขนาด <span class="ui">500 ก.</span></td></tr><tr><td>ค่าเริ่มต้นเมื่อสร้างร้านค้าใหม่</td><td>วันส่ง เวลาปิดรับ และสั่งล่วงหน้าสูงสุด ที่ร้านใหม่ได้ตอนสร้าง</td></tr><tr><td>อีเมลระบบ</td><td>อีเมลและชื่อผู้ส่ง ใช้ส่งลืมรหัสผ่านและเชิญผู้ใช้เท่านั้น</td></tr><tr><td>อื่นๆ</td><td>อัตรา VAT · เกณฑ์เตือนเมื่อร้านสั่งสูงหรือต่ำกว่าค่าเฉลี่ย (เท่า) · เบอร์กลางที่แสดงให้ลูกค้า</td></tr></tbody></table></div><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: ตั้งค่าการเชื่อมต่อ TRCloud"><img src="img/38.webp" alt="ตั้งค่าการเชื่อมต่อ TRCloud" width="938" height="829" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 8.4</span>ตั้งค่าการเชื่อมต่อ TRCloud</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><aside class="callout warn" role="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.2v.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div><strong class="callout-label">ระวัง</strong> API Key และ API Secret เป็นข้อมูลลับ อย่าส่งต่อทางแชทหรืออีเมล และค่าที่แก้จะมีผลกับการ Sync และการสร้างใบสั่งขายของทุกร้าน</div></aside><ul class="notes"><li>ถ้าทดสอบไม่สำเร็จ เช่น <span class="ui">HTTP 401 Unauthorized</span> แปลว่า API Key หรือ API Secret ไม่ถูกต้องหรือหมดอายุ ตรวจใน TRCloud แล้วทดสอบอีกครั้ง</li><li>ค่าที่แก้ยังไม่ถูกบันทึกจนกว่าจะกด <span class="ui">บันทึกการตั้งค่า</span></li><li>ช่วงทดลองใช้ยังไม่เชื่อม TRCloud จริง การตั้งค่าส่วนนี้จะทำร่วมกันในช่วง UAT</li></ul></section><section class="sub" id="s-8-5" data-spy data-search data-comment-targetdata-title="8.5 ตั้งเวลา Sync อัตโนมัติ" data-crumb="บทที่ 8"><h3 class="sub-h"><a class="anchor" href="#s-8-5"><span class="sn">8.5</span>ตั้งเวลา Sync อัตโนมัติ</a></h3><p class="when"><span class="when-l">ใช้เมื่อ</span><span>ต้องการเปลี่ยนเวลาหรือความถี่ที่ระบบดึงข้อมูลจาก TRCloud</span></p><h5 class="lbl lbl-steps">ขั้นตอน</h5><ol class="steps"><li>ไปที่เมนู ตั้งค่าระบบ แท็บ <span class="ui">ตั้งเวลา Sync</span> มี 3 ส่วน สินค้า (SKU) · ใบเสนอราคา (QO) · Contact / ผู้ชำระเงิน</li><li>แต่ละส่วนตั้ง เปิดใช้งาน · ความถี่ · เวลา และดู รอบถัดไป · รอบล่าสุด · ผลล่าสุด</li><li>เมื่อแก้ จะมีจุดแดงที่แท็บบอกว่ายังไม่บันทึก กด <span class="ui">บันทึกการตั้งค่า</span> (หรือ <span class="ui">ยกเลิกการแก้ไข</span>)</li><li>ระบบแจ้ง <span class="ui">บันทึกการตั้งค่าแล้ว</span> พร้อมเวลารอบถัดไป</li></ol><figure class="shot"><button type="button" class="shot-btn" aria-label="ขยายภาพ: ตั้งเวลา Sync"><img src="img/39.webp" alt="ตั้งเวลา Sync" width="947" height="806" loading="lazy" decoding="async"><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ขยาย</span></button><figcaption><span class=fig-n>ภาพ 8.5</span>ตั้งเวลา Sync</figcaption></figure><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>กด <span class="ui">Sync ตอนนี้</span> เพื่อดึงทันทีได้ ถ้ามีรอบที่กำลังทำงานอยู่ ปุ่มจะกดไม่ได้และแสดงว่าใครเริ่มไว้</li><li>ถ้าออกจากหน้าโดยยังไม่บันทึก ระบบถามยืนยันก่อน เลือก <span class="ui">อยู่ต่อ</span> เพื่อกลับไปบันทึก</li><li>ถ้า Sync ล้มเหลว ระบบบันทึกผลใน Audit log และเปิดเรื่องในเมนูแจ้งปัญหา (ประเภท ระบบ) ให้ทีมเห็นทันที</li><li>ราคาสำหรับร้านค้ามาพร้อมการ Sync QO ควรตั้งให้ Sync เสร็จก่อนช่วงที่ร้านสั่งของมาก เช่นช่วงเช้ามืด</li></ul><section class="practice" aria-label="ฝึกทำ"><header class="practice-h"><span class="practice-l">ฝึกทำ</span><span class="practice-t">ห้ามแก้ค่าการเชื่อมต่อ TRCloud ระหว่างอบรม</span><span class="practice-n" data-practice-count="s-8-5"></span></header><ol class="tasks" data-practice-list="s-8-5"><li class="task"><input type="checkbox" id="p-s-8-5-1" data-practice="s-8-5"><label for="p-s-8-5-1"><span class="task-do">สร้าง Role <span class="ui">ทดลอง</span> ที่ดูแจ้งปัญหาได้อย่างเดียว</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>Role ขึ้นในรายการ</span></label></li><li class="task"><input type="checkbox" id="p-s-8-5-2" data-practice="s-8-5"><label for="p-s-8-5-2"><span class="task-do">เชิญอีเมลทดลองด้วย Role นั้น แล้วเข้าสู่ระบบ</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>เห็นเฉพาะเมนูแจ้งปัญหา</span></label></li><li class="task"><input type="checkbox" id="p-s-8-5-3" data-practice="s-8-5"><label for="p-s-8-5-3"><span class="task-do">ระงับผู้ดูแลทดลอง แล้วเปิดใช้งานอีกครั้ง</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>เห็นทั้งสองเหตุการณ์ใน Audit log</span></label></li><li class="task"><input type="checkbox" id="p-s-8-5-4" data-practice="s-8-5"><label for="p-s-8-5-4"><span class="task-do">ลบ Role <span class="ui">ทดลอง</span></span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>ระบบให้ย้ายผู้ดูแลที่ใช้อยู่ก่อนลบ</span></label></li><li class="task"><input type="checkbox" id="p-s-8-5-5" data-practice="s-8-5"><label for="p-s-8-5-5"><span class="task-do">เปิดแท็บตั้งเวลา Sync</span><span class="task-ok"><span class="task-ok-l">ผลที่ควรเห็น</span>บอกได้ว่า Sync สินค้ารอบถัดไปจะเกิดเมื่อไร</span></label></li></ol></section></section></article><article class="chapter" id="ch-9" data-spy><header class="ch-h"><span class="ch-eyebrow">บทที่ 9 · Demo 1</span><h2><a class="anchor" href="#ch-9">เมื่อเจอปัญหาในระบบหลังบ้าน</a></h2></header><div class="ch-intro" data-search data-title="9. เมื่อเจอปัญหาในระบบหลังบ้าน" data-crumb="บทที่ 9" id="ch-9-intro"><div class="goal"><span class="goal-l">เป้าหมายของบทนี้</span><p>แก้ปัญหาที่พบบ่อยได้เอง และรู้ว่าเมื่อไรต้องแจ้ง Super admin หรือทีมพัฒนา</p></div></div><section class="sub" id="s-9-1" data-spy data-search data-comment-targetdata-title="9.1 ไม่เห็นเมนู หรือขึ้นว่าไม่มีสิทธิ์" data-crumb="บทที่ 9"><h3 class="sub-h"><a class="anchor" href="#s-9-1"><span class="sn">9.1</span>ไม่เห็นเมนู หรือขึ้นว่าไม่มีสิทธิ์</a></h3><div class="tbl-wrap"><table class="tbl"><thead><tr><th>อาการ</th><th>สาเหตุ</th><th>ทำอย่างไร</th></tr></thead><tbody><tr><td>ไม่เห็นเมนูที่คนอื่นเห็น</td><td>Role ของคุณไม่มีสิทธิ์เมนูนั้น</td><td>ขอให้ Super admin ตรวจ Role (<a class="xref" href="#s-8-2">8.2</a>) หรือเปลี่ยน Role ให้ (<a class="xref" href="#s-8-1">8.1</a>)</td></tr><tr><td>ขึ้นหน้า <span class="ui">ไม่มีสิทธิ์เข้าถึงหน้านี้</span></td><td>เปิดลิงก์หน้าที่เกินสิทธิ์ของ Role</td><td>กด <span class="ui">กลับหน้าแจ้งปัญหา</span> ถ้าต้องใช้หน้านั้นจริง ติดต่อ Super admin</td></tr><tr><td>เข้าสู่ระบบไม่ได้ ทั้งที่รหัสถูก</td><td>บัญชีถูกระงับ</td><td>ขอให้ Super admin กด <span class="ui">เปิดใช้งานอีกครั้ง</span></td></tr><tr><td>เข้าสู่ระบบไม่ได้หลังใส่รหัสผิดหลายครั้ง</td><td>ใส่ผิด 5 ครั้งติดกัน ระบบพักอีเมลนั้น 15 นาที</td><td>รอ 15 นาที หรือใช้ <span class="ui">ลืมรหัสผ่าน?</span></td></tr><tr><td>ลิงก์ตั้งรหัสผ่านใช้ไม่ได้</td><td>ลิงก์หมดอายุหรือถูกใช้แล้ว (ลืมรหัสผ่าน 30 นาที · อีเมลเชิญ 72 ชั่วโมง)</td><td>กด <span class="ui">ขอลิงก์ใหม่</span></td></tr></tbody></table></div></section><section class="sub" id="s-9-2" data-spy data-search data-comment-targetdata-title="9.2 Sync ค้างหรือไม่สำเร็จ" data-crumb="บทที่ 9"><h3 class="sub-h"><a class="anchor" href="#s-9-2"><span class="sn">9.2</span>Sync ค้างหรือไม่สำเร็จ</a></h3><div class="tbl-wrap"><table class="tbl"><thead><tr><th>อาการ</th><th>สาเหตุที่พบบ่อย</th><th>ทำอย่างไร</th></tr></thead><tbody><tr><td>ขึ้น 401 หรือ <span class="ui">API key หมดอายุ</span></td><td>API Key หรือ API Secret ไม่ถูกต้องหรือหมดอายุ</td><td>Super admin ออกค่าใหม่ใน TRCloud ใส่ที่ตั้งค่าระบบ ทดสอบการเชื่อมต่อ แล้ว Sync อีกครั้ง (<a class="xref" href="#s-8-4">8.4</a>)</td></tr><tr><td>ขึ้นว่า TRCloud ไม่ตอบกลับภายในเวลาที่กำหนด</td><td>TRCloud ช้าหรือไม่พร้อมชั่วคราว</td><td>รอสักครู่แล้ว Sync อีกครั้ง ถ้าเกิดซ้ำบ่อย แจ้งทีมพัฒนา</td></tr><tr><td>สถานะ <span class="ui">กำลัง Sync</span> ค้างนาน และกด Sync ไม่ได้</td><td>มีรอบที่กำลังทำงานอยู่ จากรอบอัตโนมัติหรือคนอื่นกด</td><td>รอให้รอบนั้นเสร็จ สถานะอัปเดตเอง</td></tr><tr><td>Sync สำเร็จแต่ไม่เห็นรายการที่ต้องการ</td><td>QO ยังไม่อนุมัติ หรือรหัสและ tag ใน TRCloud ไม่ตรงตามกฎ</td><td>ตรวจใน TRCloud และกฎการแปลงข้อมูลสินค้า (<a class="xref" href="#s-8-4">8.4</a>)</td></tr></tbody></table></div><h5 class="lbl lbl-notes">ข้อควรรู้</h5><ul class="notes"><li>ทุกครั้งที่ Sync ไม่สำเร็จ ระบบเปิดเรื่องประเภท ระบบ ให้ เมื่อแก้แล้วให้ปิดเรื่องด้วย ทีมจะได้รู้ว่าแก้แล้ว</li><li>ระหว่างนั้นร้านยังสั่งได้ด้วยข้อมูลรอบล่าสุดที่สำเร็จ</li><li>ถ้าต้องแจ้งทีมพัฒนา ให้คัดลอกข้อมูลทางเทคนิคจาก Audit log แนบไปด้วย (<a class="xref" href="#s-8-3">8.3</a>)</li></ul></section><section class="sub" id="s-9-3" data-spy data-search data-comment-targetdata-title="9.3 นำเข้า Excel หรืออัปโหลดรูปไม่ผ่าน" data-crumb="บทที่ 9"><h3 class="sub-h"><a class="anchor" href="#s-9-3"><span class="sn">9.3</span>นำเข้า Excel หรืออัปโหลดรูปไม่ผ่าน</a></h3><div class="tbl-wrap"><table class="tbl"><thead><tr><th>ข้อความที่เห็น</th><th>ทำอย่างไร</th></tr></thead><tbody><tr><td><span class="ui">ตรวจพบข้อผิดพลาด … แถว — ระบบจะไม่นำเข้าไฟล์นี้ทั้งไฟล์</span></td><td>แก้แถวตามรายการปัญหา แล้วอัปโหลดใหม่ทั้งไฟล์ แถวที่ถูกต้องยังไม่ถูกบันทึกจนกว่าไฟล์จะผ่านทั้งหมด</td></tr><tr><td><span class="ui">ไม่พบรหัส SKU นี้ในระบบ</span></td><td>ตรวจว่าพิมพ์รหัสถูก หรือ Sync สินค้าก่อนนำเข้า</td></tr><tr><td><span class="ui">ไม่พบไฟล์รูปใน ZIP และไม่มีรูปนี้ในระบบ</span></td><td>ตรวจว่าชื่อไฟล์ใน Excel ตรงกับชื่อไฟล์ใน ZIP รวมนามสกุลไฟล์</td></tr><tr><td><span class="ui">นามสกุลไฟล์ไม่รองรับ</span> เช่น .heic</td><td>แปลงรูปเป็น JPG PNG หรือ WebP</td></tr><tr><td><span class="ui">อัปโหลดไม่ได้ … ใหญ่เกิน 5 MB</span></td><td>ย่อรูปให้เล็กกว่า 5 MB (แนะนำ 800×800)</td></tr><tr><td>สรุปผลมี <span class="ui">ไฟล์รูปที่ไม่ได้ใช้</span></td><td>รูปเหล่านั้นไม่ตรงกับแถวใด ตรวจชื่อไฟล์แล้วนำเข้าเฉพาะส่วนที่ขาด</td></tr></tbody></table></div><section class="practice quizbox" aria-label="ฝึกคิด"><header class="practice-h"><span class="practice-l">ฝึกคิด</span><span class="practice-t">ตอบแล้วเทียบกับหัวข้อในวงเล็บ</span></header><ol class="quiz"><li class="q"><p class="q-ask">sale คนใหม่บอกว่าไม่เห็นเมนู ร้านค้า</p><div class="q-ans"><button type="button" class="q-reveal">ดูคำตอบ</button><p class="q-text">ให้ Super admin ตรวจ Role ของคนนั้น (<a class="xref" href="#s-9-1">9.1</a>)</p></div></li><li class="q"><p class="q-ask">Sync สินค้าขึ้น 401</p><div class="q-ans"><button type="button" class="q-reveal">ดูคำตอบ</button><p class="q-text">Super admin ตรวจ API Key แล้วทดสอบการเชื่อมต่อ (<a class="xref" href="#s-9-2">9.2</a>)</p></div></li><li class="q"><p class="q-ask">นำเข้ารูปแล้วขึ้น ตรวจพบข้อผิดพลาด 2 แถว</p><div class="q-ans"><button type="button" class="q-reveal">ดูคำตอบ</button><p class="q-text">แก้ 2 แถวนั้น แล้วนำเข้าทั้งไฟล์ใหม่ (<a class="xref" href="#s-9-3">9.3</a>)</p></div></li></ol></section></section></section><section class="part upcoming-part" id="part-2" data-spy><header class="part-h"><span class="part-eyebrow">ส่วนที่ 2</span><h2>ร้านค้า</h2><p class="part-for">สำหรับ ผู้ดูแลร้านและผู้ซื้อของร้าน</p><p class="soon"><span class="chip d2">มาพร้อม Demo 2 · พฤ. 12 พ.ย.</span> เนื้อหาส่วนนี้จะเพิ่มหลัง Demo 2 ตอนนี้ดูหัวข้อที่จะมีได้ก่อน</p></header><div class="soon-grid"><article class="soon-card upcoming" id="ch-10" data-spy data-search data-title="10. เริ่มต้นใช้งาน" data-crumb="ส่วนที่ 2 · มาพร้อม Demo 2"><h3><span class="chn">10</span>เริ่มต้นใช้งาน</h3><ul><li><span class="sn">10.1</span>ตั้งรหัสผ่านจากอีเมลเชิญ</li><li><span class="sn">10.2</span>เข้าสู่ระบบ ลืมรหัสผ่าน และเปลี่ยนรหัสผ่าน</li><li><span class="sn">10.3</span>เลือกและสลับร้านค้า</li><li><span class="sn">10.4</span>ติดต่อ sale</li></ul></article><article class="soon-card upcoming" id="ch-11" data-spy data-search data-title="11. สั่งซื้อ" data-crumb="ส่วนที่ 2 · มาพร้อม Demo 2"><h3><span class="chn">11</span>สั่งซื้อ</h3><ul><li><span class="sn">11.1</span>หน้าสั่งซื้อและรายการที่เติมจากครั้งก่อน</li><li><span class="sn">11.2</span>ค้นหาสินค้าและขอเพิ่มสินค้า</li><li><span class="sn">11.3</span>ทวนตะกร้า</li><li><span class="sn">11.4</span>เลือกวันส่ง</li><li><span class="sn">11.5</span>ยืนยันคำสั่งซื้อ</li><li><span class="sn">11.6</span>สั่งครั้งแรก</li><li><span class="sn">11.7</span>ร่างคำสั่งซื้อ</li></ul></article><article class="soon-card upcoming" id="ch-12" data-spy data-search data-title="12. เมื่อสั่งไม่ได้" data-crumb="ส่วนที่ 2 · มาพร้อม Demo 2"><h3><span class="chn">12</span>เมื่อสั่งไม่ได้</h3><ul><li><span class="sn">12.1</span>เลยเวลาปิดรับ และขอสั่งนอกเวลา</li><li><span class="sn">12.2</span>ยอดไม่ถึงขั้นต่ำ</li><li><span class="sn">12.3</span>มีสินค้างดจำหน่ายในตะกร้า</li><li><span class="sn">12.4</span>ยังไม่ได้ใส่จำนวน</li><li><span class="sn">12.5</span>สั่งซื้อไม่สำเร็จ</li><li><span class="sn">12.6</span>ร้านค้ายังไม่พร้อมสั่ง</li></ul></article><article class="soon-card upcoming" id="ch-13" data-spy data-search data-title="13. หลังสั่งซื้อ" data-crumb="ส่วนที่ 2 · มาพร้อม Demo 2"><h3><span class="chn">13</span>หลังสั่งซื้อ</h3><ul><li><span class="sn">13.1</span>ประวัติคำสั่งซื้อและสถานะ</li><li><span class="sn">13.2</span>กรองด้วยป้าย</li><li><span class="sn">13.3</span>รายละเอียดคำสั่งซื้อและเลขที่ใบสั่งขาย</li><li><span class="sn">13.4</span>ข้อความจาก sale</li><li><span class="sn">13.5</span>ขอแก้ไขหรือยกเลิกคำสั่งซื้อ</li></ul></article><article class="soon-card upcoming" id="ch-14" data-spy data-search data-title="14. แจ้งปัญหา" data-crumb="ส่วนที่ 2 · มาพร้อม Demo 2"><h3><span class="chn">14</span>แจ้งปัญหา</h3><ul><li><span class="sn">14.1</span>แจ้งเรื่องใหม่</li><li><span class="sn">14.2</span>ติดตามเรื่องและผลการดำเนินการ</li></ul></article><article class="soon-card upcoming" id="ch-15" data-spy data-search data-title="15. แจ้งเตือน" data-crumb="ส่วนที่ 2 · มาพร้อม Demo 2"><h3><span class="chn">15</span>แจ้งเตือน</h3></article><article class="soon-card upcoming" id="ch-16" data-spy data-search data-title="16. สำหรับผู้ดูแลร้าน" data-crumb="ส่วนที่ 2 · มาพร้อม Demo 2"><h3><span class="chn">16</span>สำหรับผู้ดูแลร้าน</h3><ul><li><span class="sn">16.1</span>เพิ่มผู้ใช้</li><li><span class="sn">16.2</span>เปลี่ยน Role ระงับ และนำผู้ใช้ออก</li><li><span class="sn">16.3</span>Role ของร้านและสร้าง Role เอง</li><li><span class="sn">16.4</span>ร้านค้าของฉัน</li></ul></article><article class="soon-card upcoming" id="ch-17" data-spy data-search data-title="17. เมื่อเจอปัญหาในเว็บสั่งซื้อ" data-crumb="ส่วนที่ 2 · มาพร้อม Demo 2"><h3><span class="chn">17</span>เมื่อเจอปัญหาในเว็บสั่งซื้อ</h3><ul><li><span class="sn">17.1</span>เซสชันหมดอายุ</li><li><span class="sn">17.2</span>ไม่มีอินเทอร์เน็ต</li><li><span class="sn">17.3</span>ไม่มีสิทธิ์หรือไม่พบหน้า</li><li><span class="sn">17.4</span>ระบบขัดข้อง</li><li><span class="sn">17.5</span>เข้าสู่ระบบได้แต่ไม่มีร้านค้า</li></ul></article></div></section><section class="part upcoming-part" id="part-3" data-spy><header class="part-h"><span class="part-eyebrow">ส่วนที่ 3</span><h2>sale ทำแทนร้านค้า</h2><p class="part-for">สำหรับ sale</p><p class="soon"><span class="chip d3">มาพร้อม Demo 3 · พฤ. 19 พ.ย.</span> เนื้อหาส่วนนี้จะเพิ่มหลัง Demo 3 ตอนนี้ดูหัวข้อที่จะมีได้ก่อน</p></header><div class="soon-grid"><article class="soon-card upcoming" id="ch-18" data-spy data-search data-title="18. เข้าร้านค้าแทนลูกค้า" data-crumb="ส่วนที่ 3 · มาพร้อม Demo 3"><h3><span class="chn">18</span>เข้าร้านค้าแทนลูกค้า</h3><ul><li><span class="sn">18.1</span>สลับ Workspace และเลือกร้านค้า</li><li><span class="sn">18.2</span>สิ่งที่ต่างจากหน้าจอของร้านค้า</li></ul></article><article class="soon-card upcoming" id="ch-19" data-spy data-search data-title="19. สั่งซื้อแทนร้านค้า" data-crumb="ส่วนที่ 3 · มาพร้อม Demo 3"><h3><span class="chn">19</span>สั่งซื้อแทนร้านค้า</h3></article><article class="soon-card upcoming" id="ch-20" data-spy data-search data-title="20. สั่งนอกกฎ" data-crumb="ส่วนที่ 3 · มาพร้อม Demo 3"><h3><span class="chn">20</span>สั่งนอกกฎ</h3><ul><li><span class="sn">20.1</span>หลังเวลาปิดรับ</li><li><span class="sn">20.2</span>ยอดไม่ถึงขั้นต่ำ</li><li><span class="sn">20.3</span>กรณีที่สั่งนอกกฎไม่ได้</li></ul></article><article class="soon-card upcoming" id="ch-21" data-spy data-search data-title="21. จัดการคำสั่งซื้อที่ยืนยันแล้ว" data-crumb="ส่วนที่ 3 · มาพร้อม Demo 3"><h3><span class="chn">21</span>จัดการคำสั่งซื้อที่ยืนยันแล้ว</h3><ul><li><span class="sn">21.1</span>ปลดล็อกกลับเป็นร่าง</li><li><span class="sn">21.2</span>ยกเลิกคำสั่งซื้อ</li><li><span class="sn">21.3</span>ต้องแก้หลังเวลาปิดรับ</li></ul></article><article class="soon-card upcoming" id="ch-22" data-spy data-search data-title="22. ข้อความถึงร้าน" data-crumb="ส่วนที่ 3 · มาพร้อม Demo 3"><h3><span class="chn">22</span>ข้อความถึงร้าน</h3><ul><li><span class="sn">22.1</span>เขียนและแก้ข้อความ</li><li><span class="sn">22.2</span>สิ่งที่ห้ามใส่</li><li><span class="sn">22.3</span>ร้านเห็นอย่างไร</li></ul></article><article class="soon-card upcoming" id="ch-23" data-spy data-search data-title="23. จัดการผู้ใช้และ Role แทนผู้ดูแลร้าน" data-crumb="ส่วนที่ 3 · มาพร้อม Demo 3"><h3><span class="chn">23</span>จัดการผู้ใช้และ Role แทนผู้ดูแลร้าน</h3></article><article class="soon-card upcoming" id="ch-24" data-spy data-search data-title="24. รับเรื่องแล้วทำแทน" data-crumb="ส่วนที่ 3 · มาพร้อม Demo 3"><h3><span class="chn">24</span>รับเรื่องแล้วทำแทน</h3><ul><li><span class="sn">24.1</span>ขอสั่งนอกเวลา</li><li><span class="sn">24.2</span>ขอแก้ไขหรือยกเลิกคำสั่งซื้อ</li><li><span class="sn">24.3</span>หาสินค้าทดแทน</li></ul></article></div></section><section class="part appendix" id="appendix" data-spy><header class="part-h"><span class="part-eyebrow">ภาคผนวก</span><h2>ข้อมูลอ้างอิง</h2><p class="part-for">ใช้ได้ทุกรอบ</p></header></article><article class="chapter app" id="app-a" data-spy data-search data-title="ก. สิ่งที่แต่ละ Role ทำได้" data-crumb="ภาคผนวก"><header class="ch-h"><span class="ch-eyebrow">ภาคผนวก ก</span><h2><a class="anchor" href="#app-a">สิ่งที่แต่ละ Role ทำได้</a></h2></header><p><strong>ระบบหลังบ้าน (ทีม Shinsen)</strong> สิทธิ์กำหนดที่เมนู Role (ดู <a class="xref" href="#s-8-2">8.2</a>) ตารางนี้เป็น Role ตั้งต้นและตัวอย่าง Role ที่แนะนำ</p><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Role</th><th>เหมาะกับ</th><th>ทำได้</th></tr></thead><tbody><tr><td>Super admin (Role ตั้งต้น)</td><td>ผู้ดูแลระบบ</td><td>ทุกเมนูในระบบหลังบ้าน · เข้าทุกร้านค้า · สั่งนอกกฎ ปลดล็อก ยกเลิก · แก้สิทธิ์และลบไม่ได้</td></tr><tr><td>ทีมขาย (ตัวอย่าง)</td><td>sale ที่ดูแลลูกค้าประจำวัน</td><td>แจ้งปัญหา · ร้านค้า · สินค้า SKU · เข้าร้านค้า สั่งแทนและสั่งนอกกฎได้ · ไม่มีตั้งค่าระบบ</td></tr><tr><td>ดูอย่างเดียว (ตัวอย่าง)</td><td>ผู้บริหาร ฝ่ายบัญชี</td><td>ดูแจ้งปัญหา ร้านค้า และ Audit log แก้ไม่ได้</td></tr></tbody></table></div><p><strong>เว็บสั่งซื้อ (ร้านค้า)</strong> Role ของร้าน เช่น ผู้ดูแลร้าน และผู้ซื้อ จะเพิ่มพร้อม<a class="xref" href="#part-2">ส่วนที่ 2</a></p></article><article class="chapter app" id="app-b" data-spy data-search data-title="ข. คำศัพท์" data-crumb="ภาคผนวก"><header class="ch-h"><span class="ch-eyebrow">ภาคผนวก ข</span><h2><a class="anchor" href="#app-b">คำศัพท์</a></h2></header><div class="tbl-wrap"><table class="tbl"><thead><tr><th>คำ</th><th>ความหมาย</th></tr></thead><tbody><tr><td>ร้านค้า</td><td>สาขาหนึ่งของลูกค้าที่สั่งซื้อผ่านระบบ ชื่อแสดงเป็น ชื่อร้าน + ชื่อสาขา</td></tr><tr><td>Contact (ผู้ชำระเงิน)</td><td>ลูกค้าใน TRCloud ที่ออกบิล หนึ่ง Contact มีได้หลายร้าน</td></tr><tr><td>QO (ใบเสนอราคา)</td><td>ใบเสนอราคาที่อนุมัติแล้วใน TRCloud กำหนดสินค้าและราคาที่ร้านสั่งได้</td></tr><tr><td>SO (ใบสั่งขาย)</td><td>เอกสารใน TRCloud ที่ระบบสร้างให้เมื่อร้านยืนยันคำสั่งซื้อ</td></tr><tr><td>SKU</td><td>รหัสสินค้าแต่ละขนาดใน TRCloud</td></tr><tr><td>Sync</td><td>ดึงข้อมูลล่าสุดจาก TRCloud มาที่ระบบ</td></tr><tr><td>tag หมวด / ขนาด</td><td>ป้ายที่ติดสินค้าใน TRCloud ระบบใช้จัดหมวดและขนาดให้ร้านหาสินค้าง่าย</td></tr><tr><td>งดจำหน่าย</td><td>สินค้าที่ TRCloud พักการขาย ร้านสั่งไม่ได้</td></tr><tr><td>เวลาปิดรับ (cutoff)</td><td>เวลาสุดท้ายที่ร้านยืนยันคำสั่งซื้อสำหรับวันส่งนั้นได้เอง</td></tr><tr><td>ยอดสั่งซื้อขั้นต่ำ</td><td>ยอดรวม (รวม VAT) ต่ำสุดที่ร้านยืนยันคำสั่งซื้อเองได้</td></tr><tr><td>สั่งนอกกฎ</td><td>sale สั่งแทนร้านโดยข้ามเวลาปิดรับหรือยอดขั้นต่ำ</td></tr><tr><td>Workspace</td><td>พื้นที่ทำงาน คือระบบหลังบ้าน หรือร้านค้าหนึ่งร้าน</td></tr><tr><td>โหมดผู้ดูแล</td><td>ทีม Shinsen เข้าร้านค้าเพื่อทำแทนลูกค้า ทุกการกระทำบันทึกใน Audit log</td></tr><tr><td>Role</td><td>ชุดสิทธิ์ที่กำหนดว่าเห็นเมนูอะไรและทำอะไรได้</td></tr><tr><td>ผู้ดูแลเรื่อง</td><td>คนในทีมที่รับผิดชอบเรื่องแจ้งปัญหา</td></tr><tr><td>#RQ / #OR</td><td>เลขที่เรื่องแจ้งปัญหา / เลขคำสั่งซื้อ</td></tr><tr><td>Audit log</td><td>บันทึกทุกการกระทำในระบบ แก้หรือลบไม่ได้</td></tr></tbody></table></div></article><article class="chapter app" id="app-c" data-spy data-search data-title="ค. แผนอบรมก่อนใช้งานจริง" data-crumb="ภาคผนวก"><header class="ch-h"><span class="ch-eyebrow">ภาคผนวก ค</span><h2><a class="anchor" href="#app-c">แผนอบรมก่อนใช้งานจริง</a></h2></header><h3 class="minor">ก่อนอบรม</h3><ul><li>บัญชีทดลองคนละ 1 อีเมล ตาม Role ที่จะใช้จริง</li><li>ร้านทดลองและข้อมูลตัวอย่างในระบบทดสอบ (ทีมพัฒนาเตรียมให้)</li><li>ผู้เข้าอบรมเปิดคู่มือคู่กับระบบ</li></ul><h3 class="minor">ลำดับการอบรม (แนะนำ)</h3><div class="tbl-wrap"><table class="tbl"><thead><tr><th>รอบ</th><th>ผู้เข้าอบรม</th><th>เนื้อหา</th><th>เวลาโดยประมาณ</th></tr></thead><tbody><tr><td>1</td><td>ทีม Shinsen ทุกคน</td><td><a class="xref" href="#ch-1">บทที่ 1</a> · เจอเรื่องนี้ ทำอะไร · <a class="xref" href="#ch-6">บทที่ 6</a> · <a class="xref" href="#ch-7">บทที่ 7</a></td><td>60 นาที</td></tr><tr><td>2</td><td>sale และผู้ดูแลข้อมูลร้านค้า</td><td><a class="xref" href="#ch-2">บทที่ 2</a>–5</td><td>90 นาที</td></tr><tr><td>3</td><td>Super admin</td><td><a class="xref" href="#ch-8">บทที่ 8</a>–9</td><td>45 นาที</td></tr><tr><td>4</td><td>ผู้ดูแลร้านของลูกค้า</td><td><a class="xref" href="#part-2">ส่วนที่ 2</a> (เพิ่มพร้อม Demo 2)</td><td>–</td></tr><tr><td>5</td><td>sale</td><td><a class="xref" href="#part-3">ส่วนที่ 3</a> (เพิ่มพร้อม Demo 3)</td><td>–</td></tr></tbody></table></div><h3 class="minor">วิธีสอนแต่ละบท</h3><ol><li>ผู้สอนเล่าเป้าหมายของบท</li><li>สาธิตตามขั้นตอน โดยชี้ตามเลขบนภาพ</li><li>ผู้เข้าอบรมทำ <span class="ui">ฝึกทำ</span> ท้ายบทเอง แล้วเทียบกับผลที่ควรเห็น</li><li>ทวนกล่อง <span class="ui">ระวัง</span> ของบทนั้น</li></ol><p><strong>ผ่านการอบรมเมื่อ</strong> ทำ <span class="ui">ฝึกทำ</span> ของบทที่เกี่ยวกับงานตัวเองได้ครบ โดยไม่ต้องถาม</p></article></section>
+      <footer class="doc-f">ข้อมูลในภาพและตัวอย่างเป็นข้อมูลตัวอย่าง · คู่มือนี้ปรับตามรอบ Demo</footer>
+    </div>
+  </main>
+</div>
+
+<button class="totop" id="totop" type="button" aria-label="กลับขึ้นบน" hidden>↑</button>
+
+<div class="pal" id="pal" hidden>
+  <div class="pal-scrim" data-close-pal></div>
+  <div class="pal-box" role="dialog" aria-modal="true" aria-label="ค้นหาในคู่มือ">
+    <div class="pal-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="pal-q" type="search" placeholder="พิมพ์คำที่ต้องการหา เช่น ปิดรับ" autocomplete="off" spellcheck="false" aria-controls="pal-res"><kbd>Esc</kbd></div>
+    <div class="pal-res" id="pal-res" role="listbox" aria-label="ผลการค้นหา"></div>
+    <div class="pal-foot"><span><kbd>↑</kbd><kbd>↓</kbd> เลือก</span><span><kbd>Enter</kbd> เปิด</span><span><kbd>Esc</kbd> ปิด</span></div>
+  </div>
+</div>
+
+<div class="team" id="team" hidden>
+  <div class="pal-scrim" data-close-team></div>
+  <div class="team-box" role="dialog" aria-modal="true" aria-labelledby="team-h">
+    <header class="team-hd"><div><h2 id="team-h">ภาพรวมการทดลอง</h2><p class="team-sub" id="team-sub"></p></div><button class="x-btn" type="button" data-close-team aria-label="ปิดภาพรวม">×</button></header>
+    <div class="team-stats" id="team-stats"></div>
+    <div class="team-ctl">
+      <div class="seg" role="tablist" aria-label="มุมมอง"><button type="button" role="tab" data-tab="topics" aria-selected="true">รายหัวข้อ</button><button type="button" role="tab" data-tab="people" aria-selected="false">รายคน</button></div>
+      <div class="seg" id="team-filter" aria-label="กรองหัวข้อ"><button type="button" data-filter="all" aria-pressed="true">ทั้งหมด</button><button type="button" data-filter="issue" aria-pressed="false">มีประเด็น</button><button type="button" data-filter="cm" aria-pressed="false">มีความเห็น</button><button type="button" data-filter="none" aria-pressed="false">ยังไม่มีใครลอง</button></div>
+    </div>
+    <div class="team-body" id="team-body" role="tabpanel"></div>
+    <p class="team-foot">กดหัวข้อหรือความเห็นเพื่อเปิดหัวข้อนั้นในคู่มือ</p>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="ภาพหน้าจอขนาดใหญ่">
+  <div class="lb-bar"><span class="lb-cap" id="lb-cap"></span><span class="lb-count" id="lb-count"></span><button class="lb-x" type="button" data-lb="close" aria-label="ปิดภาพ">×</button></div>
+  <div class="lb-stage" id="lb-stage"><img id="lb-img" alt=""></div>
+  <button class="lb-nav prev" type="button" data-lb="prev" aria-label="ภาพก่อนหน้า">‹</button>
+  <button class="lb-nav next" type="button" data-lb="next" aria-label="ภาพถัดไป">›</button>
+</div>
+
+<script>
+(function(){
+'use strict';
+var root=document.documentElement; root.classList.add('js');
+var ORDER=["about", "quick", "ch-1", "ch-2", "ch-3", "ch-4", "ch-5", "ch-7", "ch-8", "ch-9", "app-a", "app-b", "app-c"];
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+var store={get:function(k){try{var v=localStorage.getItem(k);return v?JSON.parse(v):null}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+var lastFocus=null;
+var isMac=/Mac|iPhone|iPad/.test(navigator.platform||'');
+if(isMac){$$('.k-mod').forEach(function(k){k.textContent='⌘K'})}
+
+/* ---------- prev / next at chapter ends ---------- */
+ORDER.forEach(function(id,i){
+  var el=document.getElementById(id); if(!el) return;
+  function title(x){var h=x&&x.querySelector('h2');return h?h.textContent.trim():''}
+  var prev=document.getElementById(ORDER[i-1]), next=document.getElementById(ORDER[i+1]);
+  var nav=document.createElement('nav'); nav.className='pn'; nav.setAttribute('aria-label','บทก่อนหน้าและถัดไป');
+  var h='';
+  if(prev&&i>0) h+='<a class="prev" href="#'+prev.id+'"><small>ก่อนหน้า</small><b>'+(title(prev)||'เกี่ยวกับคู่มือนี้')+'</b></a>';
+  if(next) h+='<a class="next" href="#'+next.id+'"><small>ถัดไป</small><b>'+title(next)+'</b></a>';
+  if(!h) return; nav.innerHTML=h; el.appendChild(nav);
+});
+
+/* ---------- table of contents + scrollspy ---------- */
+var toc=$('.toc'), totop=$('#totop');
+var linkMap={}; $$('.toc a[href^="#"]').forEach(function(a){linkMap[a.getAttribute('href').slice(1)]=a});
+var spies=$$('[data-spy]'), current='';
+function activate(id){
+  if(!id||id===current) return; current=id;
+  var a=linkMap[id], el=document.getElementById(id);
+  while(!a&&el){el=el.parentElement&&el.parentElement.closest('[data-spy]'); if(el) a=linkMap[el.id]}
+  $$('.toc a.on').forEach(function(x){x.classList.remove('on');x.removeAttribute('aria-current')});
+  if(!a) return;
+  a.classList.add('on'); a.setAttribute('aria-current','location');
+  var ch=a.closest('.toc-ch');
+  $$('.toc-ch.open').forEach(function(c){if(c!==ch) c.classList.remove('open')});
+  if(ch) ch.classList.add('open');
+  var nr=toc.getBoundingClientRect(), r=a.getBoundingClientRect();
+  if(r.top<nr.top+40||r.bottom>nr.bottom-40){toc.scrollTop+=(r.top-nr.top)-nr.height/3}
+}
+var ticking=false;
+function onScroll(){
+  if(ticking) return; ticking=true;
+  requestAnimationFrame(function(){
+    ticking=false; var best=null, lim=window.innerWidth<=960?110:90;
+    for(var i=0;i<spies.length;i++){ if(spies[i].getBoundingClientRect().top<=lim) best=spies[i]; }
+    activate(best?best.id:'about');
+    totop.hidden=window.scrollY<900;
+  });
+}
+window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+totop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+
+/* ---------- mobile drawer ---------- */
+var menuBtn=$('.menu-btn');
+function setNav(open){root.classList.toggle('nav-open',open); if(menuBtn) menuBtn.setAttribute('aria-expanded',open?'true':'false')}
+if(menuBtn) menuBtn.addEventListener('click',function(){setNav(!root.classList.contains('nav-open'))});
+$('[data-close-nav]').addEventListener('click',function(){setNav(false)});
+toc.addEventListener('click',function(e){if(e.target.closest('a')) setNav(false)});
+$('.brand').addEventListener('click',function(){setNav(false)});
+
+/* ---------- jump + flash ---------- */
+function flash(el){ if(!el) return; var t=el.querySelector('h2,h3')||el; t.classList.remove('flash'); void t.offsetWidth; t.classList.add('flash'); setTimeout(function(){t.classList.remove('flash')},1900) }
+function go(id){
+  var el=document.getElementById(id); if(!el) return;
+  if(location.hash==='#'+id) el.scrollIntoView(); else location.hash=id;
+  flash(el);
+}
+window.addEventListener('hashchange',function(){flash(document.getElementById(location.hash.slice(1)))});
+
+/* ---------- search ---------- */
+function norm(s){return (s||'').toLowerCase().replace(/[​‌‍]/g,'').replace(/\s+/g,' ').trim()}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var INDEX=$$('[data-search]').map(function(el){
+  var txt=(el.innerText||el.textContent||'').replace(/\s+/g,' ').trim();
+  var title=el.getAttribute('data-title')||'';
+  if(txt.indexOf(title)===0) txt=txt.slice(title.length).trim();
+  return {id:el.id.replace(/-intro$/,''),title:title,crumb:el.getAttribute('data-crumb')||'',soon:el.classList.contains('upcoming'),text:txt,ntext:norm(txt),ntitle:norm(title)};
+});
+function search(q){
+  var toks=norm(q).split(' ').filter(Boolean); if(!toks.length) return [];
+  var out=[];
+  INDEX.forEach(function(it){
+    var hay=it.ntitle+' '+it.ntext;
+    for(var i=0;i<toks.length;i++){ if(hay.indexOf(toks[i])<0) return; }
+    var sc=0;
+    toks.forEach(function(t){ if(it.ntitle.indexOf(t)>=0) sc+=12; var c=0,p=0; while((p=it.ntext.indexOf(t,p))>=0&&c<15){c++;p+=t.length} sc+=c });
+    if(it.soon) sc-=6;
+    out.push({it:it,sc:sc});
+  });
+  out.sort(function(a,b){return b.sc-a.sc});
+  return out.slice(0,40).map(function(r){return r.it});
+}
+function hl(s,toks){
+  var e=esc(s); if(!toks.length) return e;
+  var re=new RegExp('('+toks.map(function(t){return esc(t).replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}).join('|')+')','gi');
+  return e.replace(re,'<mark>$1</mark>');
+}
+function snippet(it,toks){
+  var low=it.text.toLowerCase(), pos=-1;
+  toks.forEach(function(t){var p=low.indexOf(t); if(p>=0&&(pos<0||p<pos)) pos=p});
+  if(pos<0) return it.text.slice(0,120)+(it.text.length>120?'…':'');
+  var s=Math.max(0,pos-40), e=Math.min(it.text.length,pos+110);
+  return (s>0?'…':'')+it.text.slice(s,e)+(e<it.text.length?'…':'');
+}
+var pal=$('#pal'), q=$('#pal-q'), resBox=$('#pal-res'), results=[], sel=-1;
+var SUGG=['เปิดร้านค้าใหม่','ปิดรับ','QO ใหม่','วันหยุด','Sync ไม่สำเร็จ','ลืมรหัสผ่าน','ปิดเรื่อง','Role','รูปสินค้า','Audit log'];
+function renderEmpty(){
+  results=[]; sel=-1;
+  resBox.innerHTML='<p class="pal-hint">ลองค้นด้วยคำเหล่านี้ หรือเริ่มที่ <a class="xref" href="#quick" data-go="quick">เจอเรื่องนี้ ทำอะไร</a></p><div class="pal-sugg">'+SUGG.map(function(s){return '<button type="button" data-sugg="'+esc(s)+'">'+esc(s)+'</button>'}).join('')+'</div>';
+}
+function render(){
+  var toks=norm(q.value).split(' ').filter(Boolean);
+  if(!toks.length){renderEmpty();return}
+  results=search(q.value);
+  if(!results.length){resBox.innerHTML='<p class="pal-empty">ไม่พบ “'+esc(q.value)+'” ลองคำที่สั้นลง หรือพิมพ์ชื่อปุ่มตามที่เห็นบนหน้าจอ</p>';sel=-1;return}
+  resBox.innerHTML=results.map(function(it,i){
+    return '<a class="pal-item" role="option" id="opt-'+i+'" href="#'+it.id+'" data-i="'+i+'"><span class="pal-crumb">'+esc(it.crumb)+(it.soon?' · <em>ยังไม่มีเนื้อหา</em>':'')+'</span><span class="pal-title">'+hl(it.title,toks)+'</span><span class="pal-snip">'+hl(snippet(it,toks),toks)+'</span></a>';
+  }).join('');
+  setSel(0);
+}
+function setSel(i){
+  var items=$$('.pal-item',resBox); if(!items.length) return;
+  sel=(i+items.length)%items.length;
+  items.forEach(function(x,k){x.classList.toggle('sel',k===sel); x.setAttribute('aria-selected',k===sel?'true':'false')});
+  q.setAttribute('aria-activedescendant','opt-'+sel);
+  items[sel].scrollIntoView({block:'nearest'});
+}
+function openPal(prefill){
+  lastFocus=document.activeElement; setNav(false);
+  pal.hidden=false; if(typeof prefill==='string') q.value=prefill;
+  render(); q.focus(); q.select();
+}
+function closePal(){ pal.hidden=true; if(lastFocus&&lastFocus.focus) lastFocus.focus() }
+$$('[data-open-search]').forEach(function(b){b.addEventListener('click',function(){openPal()})});
+$('[data-close-pal]').addEventListener('click',closePal);
+q.addEventListener('input',render);
+q.addEventListener('keydown',function(e){
+  if(e.key==='ArrowDown'){e.preventDefault();setSel(sel+1)}
+  else if(e.key==='ArrowUp'){e.preventDefault();setSel(sel-1)}
+  else if(e.key==='Enter'){ if(results[sel]){e.preventDefault(); var id=results[sel].id; closePal(); go(id)} }
+  else if(e.key==='Escape'){e.preventDefault();closePal()}
+});
+resBox.addEventListener('click',function(e){
+  var s=e.target.closest('[data-sugg]'); if(s){q.value=s.getAttribute('data-sugg');render();q.focus();return}
+  var a=e.target.closest('a[href^="#"]'); if(a){e.preventDefault(); var id=a.getAttribute('href').slice(1); closePal(); go(id)}
+});
+resBox.addEventListener('mousemove',function(e){var a=e.target.closest('.pal-item'); if(a&&+a.getAttribute('data-i')!==sel) setSel(+a.getAttribute('data-i'))});
+
+/* ---------- screenshots lightbox ---------- */
+var shots=$$('figure.shot'), lb=$('#lb'), lbImg=$('#lb-img'), lbCap=$('#lb-cap'), lbCount=$('#lb-count'), li=0;
+function showLb(i){
+  li=(i+shots.length)%shots.length; var img=$('img',shots[li]);
+  lbImg.src=img.currentSrc||img.src; lbImg.alt=img.alt;
+  var cap=$('figcaption',shots[li]); lbCap.textContent=cap?cap.textContent:img.alt;
+  lbCount.textContent=(li+1)+' / '+shots.length; lb.classList.remove('zoomed'); $('#lb-stage').scrollTop=0;
+}
+function openLb(i){ lastFocus=document.activeElement; showLb(i); lb.hidden=false; $('.lb-x',lb).focus() }
+function closeLb(){ lb.hidden=true; if(lastFocus&&lastFocus.focus) lastFocus.focus() }
+shots.forEach(function(f,i){$('.shot-btn',f).addEventListener('click',function(){openLb(i)})});
+lb.addEventListener('click',function(e){
+  var b=e.target.closest('[data-lb]');
+  if(b){var a=b.getAttribute('data-lb'); if(a==='close') closeLb(); else showLb(li+(a==='next'?1:-1)); return}
+  if(e.target===lbImg){lb.classList.toggle('zoomed');return}
+  if(e.target.id==='lb-stage') closeLb();
+});
+
+/* ---------- keyboard ---------- */
+document.addEventListener('keydown',function(e){
+  var typing=/^(INPUT|TEXTAREA|SELECT)$/.test((e.target&&e.target.tagName)||'');
+  if((e.key==='k'||e.key==='K')&&(e.metaKey||e.ctrlKey)){e.preventDefault(); if(pal.hidden) openPal(); else closePal(); return}
+  if(e.key==='/'&&!typing&&pal.hidden&&lb.hidden){e.preventDefault();openPal();return}
+  if(!team.hidden){ if(e.key==='Escape'){e.preventDefault();closeTeam()} return }
+  if(!lb.hidden){
+    if(e.key==='Escape') closeLb(); else if(e.key==='ArrowRight') showLb(li+1); else if(e.key==='ArrowLeft') showLb(li-1);
+    return;
+  }
+  if(e.key==='Escape'&&root.classList.contains('nav-open')) setNav(false);
+});
+
+/* ---------- practice checklists ---------- */
+var KEY='shinsen-manual-practice', saved=store.get(KEY)||{};
+var cids={};
+$$('input[data-practice]').forEach(function(b){
+  var cid=b.getAttribute('data-practice'); cids[cid]=1; b.checked=!!saved[b.id];
+  b.addEventListener('change',function(){saved[b.id]=b.checked; store.set(KEY,saved); count(cid)});
+});
+function count(cid){
+  var boxes=$$('input[data-practice="'+cid+'"]'), n=boxes.filter(function(b){return b.checked}).length;
+  var el=$('[data-practice-count="'+cid+'"]'); if(el) el.textContent='ทำแล้ว '+n+'/'+boxes.length;
+}
+Object.keys(cids).forEach(count);
+$$('.q-reveal').forEach(function(b){b.addEventListener('click',function(){b.closest('.q').classList.add('revealed')})});
+
+/* ---------- tryout tracking ----------
+   Each viewer's entries live in one db doc tried/<their id>: {v, t:{topicId:{d,i,c,at}}, label, u}
+   d = tried this topic, i = has an issue, c = their comment on the topic (plain text).
+   Everyone admitted reads the whole collection (team overview); each viewer writes only their own.
+   Without db (signed out, public link) or without write access, entries stay in this browser only. */
+var team=$('#team');
+var TH_MON=['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+var MAXC=1000;
+var IC={
+  done:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>',
+  issue:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4.5L17 13H5"/></svg>',
+  send:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3 10 14"/><path d="M21 3 14.5 21l-4-7.5L3 9.5 21 3Z"/></svg>',
+  cmt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-5 4V5.5Z"/></svg>'
+};
+var TOPICS=$$('section.sub').map(function(s){
+  var h=$('.sub-h',s), sn=$('.sn',h), n=sn?sn.textContent.trim():'';
+  var title=h.textContent.trim().slice(n.length).trim();
+  var ch=s.closest('article.chapter'), chn=ch?ch.id.replace('ch-',''):'', h2=ch&&$('h2',ch);
+  return {id:s.id,n:n,title:title,ch:chn,chTitle:h2?h2.textContent.trim():'',el:s};
+});
+var TID={}; TOPICS.forEach(function(t){TID[t.id]=t});
+var CHAPS=[]; TOPICS.forEach(function(t){ if(CHAPS.indexOf(t.ch)<0) CHAPS.push(t.ch) });
+var LKEY='shinsen-manual-tried', NKEY='shinsen-manual-name', SKEY='shinsen-manual-sent';
+/* Google Form for viewers whose entries can't reach the team (signed out, public link, view-only) */
+var FORM={url:'https://docs.google.com/forms/d/e/1FAIpQLSdFlsmHCsqk_-jztNjsZTL2yizlzHAggmRq7_hqFAL6QZsoug/viewform',name:'entry.906037358',topic:'entry.1554316427',status:'entry.1671836812',comment:'entry.419828758',max:7000};
+/* หลังเผยแพร่ชีต 10 เป็นเว็บ (CSV) ให้ใส่ลิงก์ตรงนี้ เพื่อให้ทุกคนเห็นสถานะร่วมกัน */
+var SHEET_CSV='';
+var SENT=store.get(SKEY)||{};
+var T={mode:'loading',reason:'',myId:null,mine:{t:{},label:''},all:{},loaded:false,db:null,user:null,ref:null,writing:false,dirty:false,retried:false,timer:0,tab:'topics',filter:'all'};
+
+/* bars + heading chips (made here so the search index above stays clean) */
+TOPICS.forEach(function(t){
+  var bar=document.createElement('div'); bar.className='tb'; bar.setAttribute('data-topic',t.id); bar.setAttribute('data-uncommentable','');
+  bar.innerHTML='<p class="tb-q">ลองทำหัวข้อนี้ในระบบแล้วหรือยัง</p><div class="tb-acts">'+
+    '<button type="button" class="tb-btn tb-done" data-act="done" aria-pressed="false">'+IC.done+'ทดลองแล้ว</button>'+
+    '<button type="button" class="tb-btn tb-issue" data-act="issue" aria-pressed="false">'+IC.issue+'มีประเด็น</button></div>'+
+    '<label class="tb-cl" for="cm-'+t.id+'">ความเห็นหรือประเด็นที่เจอ <span>(ถ้ามี)</span></label>'+
+    '<textarea class="tb-ta" id="cm-'+t.id+'" rows="2" maxlength="'+MAXC+'" placeholder="เช่น กดแล้วไม่มีอะไรเกิดขึ้น · ไม่เข้าใจขั้นตอนที่ 3 · อยากให้หน้านี้แสดง…"></textarea>'+
+    '<div class="tb-foot"><span class="tb-cs" aria-live="polite"></span><span class="tb-fa"><button type="button" class="tb-save" data-act="save" hidden>บันทึกความเห็น</button>'+
+    '<button type="button" class="tb-btn tb-send" data-act="send" hidden>'+IC.send+'ส่งถึงทีม</button></span></div>'+
+    '<p class="tb-meta"></p>';
+  t.el.appendChild(bar); t.bar=bar; t.ta=$('.tb-ta',bar); t.cs=$('.tb-cs',bar); t.sv=$('.tb-save',bar); t.dirtyText=false; t.tt=0; t.send=$('.tb-send',bar);
+  var st=document.createElement('span'); st.className='chip sub-st'; st.hidden=true; $('.sub-h',t.el).appendChild(st); t.st=st;
+});
+
+function nowIso(){return new Date().toISOString()}
+function fmtTime(iso){var d=new Date(iso); if(isNaN(d)) return ''; var m=d.getMinutes(); return d.getDate()+' '+TH_MON[d.getMonth()]+' '+d.getHours()+':'+(m<10?'0':'')+m}
+function clip(s){return String(s||'').replace(/\r/g,'').trim().slice(0,MAXC)}
+function clean(x){
+  if(!x||typeof x!=='object') return null;
+  var src=(x.t&&typeof x.t==='object')?x.t:{}, t={};
+  Object.keys(src).forEach(function(k){
+    var v=src[k]; if(!TID[k]||!v||typeof v!=='object') return;
+    var c=typeof v.c==='string'?clip(v.c):'';
+    if(v.d||v.i||c) t[k]={d:(v.d||v.i)?1:0,i:v.i?1:0,c:c,at:typeof v.at==='string'?v.at:''};
+  });
+  return {t:t,label:typeof x.label==='string'?x.label.slice(0,60):'',u:typeof x.u==='string'?x.u:'',src:x.src==='form'?'form':''};
+}
+var lsx=clean(store.get(LKEY)); if(lsx) T.mine={t:lsx.t,label:lsx.label};
+
+var toastEl=$('#toast'), toastT=0;
+function toast(msg){ toastEl.textContent=msg; toastEl.hidden=false; clearTimeout(toastT); toastT=setTimeout(function(){toastEl.hidden=true},3200) }
+function grow(ta){ ta.style.height='auto'; ta.style.height=Math.max(64,ta.scrollHeight+2)+'px' }
+
+/* people map used for counts and the overview; your own entry follows what you just did */
+function people(){
+  var p={}; Object.keys(T.all).forEach(function(u){p[u]=T.all[u]});
+  if(T.mode==='db'&&T.myId) p[T.myId]={t:T.mine.t,label:T.mine.label,u:(T.all[T.myId]&&T.all[T.myId].u)||nowIso()};
+  return p;
+}
+function perTopic(p){
+  var r={}; TOPICS.forEach(function(t){r[t.id]={done:[],issue:[],cm:[]}});
+  Object.keys(p).forEach(function(u){ var tt=p[u].t; Object.keys(tt).forEach(function(k){
+    var x=r[k], v=tt[k]; if(!x) return;
+    if(v.d) x.done.push(u); if(v.i) x.issue.push(u); if(v.c) x.cm.push({u:u,c:v.c,i:v.i,at:v.at||''});
+  }) });
+  Object.keys(r).forEach(function(k){ r[k].cm.sort(function(a,b){return b.at.localeCompare(a.at)}) });
+  return r;
+}
+
+function myName(){ var v=$('#try-name'); return v?v.value.replace(/\s+/g,' ').trim().slice(0,60):'' }
+function formUrl(t){
+  var c=T.mine.t[t.id]||{}, txt=t.dirtyText?clip(t.ta.value):(c.c||'');
+  var st=c.i?'มีประเด็น':c.d?'ทดลองแล้ว':txt?'ยังไม่ได้ลอง มีแค่ความเห็น':'';
+  var base=FORM.url+'?usp=pp_url&'+FORM.topic+'='+encodeURIComponent(t.n+' '+t.title)+(st?'&'+FORM.status+'='+encodeURIComponent(st):'')+(myName()?'&'+FORM.name+'='+encodeURIComponent(myName()):'');
+  if(!txt) return base;
+  var n=txt.length, u=base+'&'+FORM.comment+'='+encodeURIComponent(txt);
+  while(u.length>FORM.max&&n>0){ n=Math.floor(n*0.85); u=base+'&'+FORM.comment+'='+encodeURIComponent(txt.slice(0,n)+'…') }
+  return u;
+}
+function setCs(t,state){
+  t.sv.hidden=state!=='dirty';
+  t.cs.className='tb-cs'+(state==='saved'?' ok':'');
+  t.cs.textContent=state==='dirty'?'ยังไม่บันทึก':state==='saved'?(T.mode==='db'?'บันทึกแล้ว · ทีมเห็นแล้ว':'บันทึกไว้ในเครื่องนี้ · กด “ส่งถึงทีม” เพื่อส่ง'):state==='cleared'?'ลบความเห็นแล้ว':'';
+}
+function renderTopic(t,pt){
+  var c=T.mine.t[t.id]||{}, d=!!c.d, i=!!c.i;
+  $('.tb-done',t.bar).setAttribute('aria-pressed',d?'true':'false');
+  $('.tb-issue',t.bar).setAttribute('aria-pressed',i?'true':'false');
+  t.st.hidden=!d; t.st.className='chip sub-st '+(i?'warn':'ok'); t.st.textContent=i?'มีประเด็น':'ทดลองแล้ว';
+  var a=linkMap[t.id]; if(a){a.classList.toggle('tried',d&&!i); a.classList.toggle('flag',i)}
+  if(document.activeElement!==t.ta&&!t.dirtyText){ var want=c.c||''; if(t.ta.value!==want){t.ta.value=want; grow(t.ta)} }
+  var local=T.mode==='local';
+  t.send.hidden=!local;
+  var sn=$('.tb-sent',t.bar);
+  if(local&&SENT[t.id]){ if(!sn){sn=document.createElement('p');sn.className='tb-sent';t.bar.insertBefore(sn,$('.tb-meta',t.bar))} sn.textContent='ส่งถึงทีมแล้ว '+fmtTime(SENT[t.id])+' · แก้ไขแล้วกด “ส่งถึงทีม” อีกครั้งได้' } else if(sn) sn.remove();
+  var meta=$('.tb-meta',t.bar);
+  if(T.loaded&&pt){ var x=pt[t.id], nd=x.done.length, ni=x.issue.length, nc=x.cm.length;
+    meta.textContent=(nd?'ทดลองแล้ว '+nd+' คน':'ยังไม่มีใครกดทดลองหัวข้อนี้')+(ni?' · มีประเด็น '+ni:'')+(nc?' · ความเห็น '+nc:'');
+  } else meta.textContent='';
+}
+function renderToc(){
+  CHAPS.forEach(function(ch){
+    var a=linkMap['ch-'+ch]; if(!a) return;
+    var list=TOPICS.filter(function(t){return t.ch===ch}), n=list.filter(function(t){var v=T.mine.t[t.id];return v&&v.d}).length;
+    var tc=$('.tc',a); if(!tc){tc=document.createElement('span');tc.className='tc';a.appendChild(tc)}
+    tc.textContent=n?n+'/'+list.length:''; tc.classList.toggle('full',n===list.length);
+  });
+}
+var NOTES={
+  loading:'กำลังเชื่อมต่อ…',
+  db:'บันทึกให้ทีมเห็นแล้ว',
+  slow:'ยังเชื่อมต่อไม่ได้ จะบันทึกเมื่อเชื่อมต่อได้',
+  nodb:'กด “ส่งถึงทีม” ท้ายหัวข้อเพื่อส่งให้ทีม (สิ่งที่กดเก็บไว้ในเครื่องนี้ด้วย)',
+  readonly:'บันทึกไว้ในเครื่องนี้ กด “ส่งถึงทีม” ท้ายหัวข้อเพื่อส่งให้ทีม',
+  error:'บันทึกไม่สำเร็จ เก็บไว้ในเครื่องนี้ก่อน'
+};
+function renderProgress(){
+  var n=TOPICS.filter(function(t){var v=T.mine.t[t.id];return v&&v.d}).length;
+  $('#prog').hidden=false;
+  $('#prog-n').textContent=n+'/'+TOPICS.length+' หัวข้อ';
+  $('#prog-fill').style.width=(TOPICS.length?100*n/TOPICS.length:0)+'%';
+  var key=T.mode==='local'?T.reason:(T.mode==='db'&&!T.loaded?'loading':T.mode);
+  if(T.mode==='db'&&T.slow&&!T.loaded) key='slow';
+  $('#prog-note').textContent=(key==='db'&&!n)?'กด “ทดลองแล้ว” ท้ายหัวข้อที่ลองทำ ทีมจะเห็นทันที':(NOTES[key]||'');
+  $('#try-local').hidden=T.mode!=='local';
+  var canTeam=!!(SHEET_CSV&&T.loaded);
+  $$('[data-open-team]').forEach(function(b){b.hidden=!canTeam});
+}
+function renderAll(){
+  var pt=T.loaded?perTopic(people()):null;
+  TOPICS.forEach(function(t){renderTopic(t,pt)});
+  renderToc(); renderProgress();
+  if(!team.hidden) renderTeam();
+}
+
+/* writes: one at a time per doc, latest state wins */
+function persist(){
+  if(T.mode!=='db'){ store.set(LKEY,T.mine); return }
+  T.dirty=true; if(!T.writing) flush();
+}
+function flush(){
+  if(!T.dirty) return; T.dirty=false; T.writing=true;
+  T.ref.set({v:1,t:T.mine.t,label:T.mine.label||'',u:nowIso()}).then(function(){
+    T.writing=false; T.retried=false; if(T.dirty) flush();
+  },function(e){
+    T.writing=false; var code=e&&e.code;
+    if(code==='unavailable'&&!T.retried){ T.retried=true; T.dirty=true; setTimeout(flush,700+Math.random()*1300); return }
+    goLocal(code==='invalid_argument'||code==='not_granted'?'readonly':'error');
+    toast(NOTES[T.reason]);
+  });
+}
+function goLocal(reason){ T.mode='local'; T.reason=reason; store.set(LKEY,T.mine); renderAll() }
+
+function setEntry(id,v){ if(v&&(v.d||v.i||v.c)) T.mine.t[id]=v; else delete T.mine.t[id]; persist(); renderAll() }
+function saveComment(t){
+  clearTimeout(t.tt);
+  if(!t.dirtyText) return;
+  t.dirtyText=false;
+  var v=clip(t.ta.value), cur=T.mine.t[t.id]||{};
+  if(v===(cur.c||'')){ setCs(t,v?'saved':''); return }
+  setEntry(t.id,{d:cur.d?1:0,i:cur.i?1:0,c:v,at:nowIso()});
+  setCs(t,v?'saved':'cleared');
+}
+document.addEventListener('click',function(e){
+  var b=e.target.closest('.tb [data-act]'); if(!b) return;
+  var t=TID[b.closest('.tb').getAttribute('data-topic')]; if(!t) return;
+  var act=b.getAttribute('data-act');
+  if(act==='save'){ saveComment(t); return }
+  if(act==='send'){ saveComment(t); submitForm(t); return }
+  saveComment(t);
+  var c=T.mine.t[t.id]||{}, txt=c.c||'';
+  if(act==='done'){
+    if(c.d){ setEntry(t.id,{d:0,i:0,c:txt,at:nowIso()}); toast('ยกเลิก “ทดลองแล้ว” หัวข้อ '+t.n) }
+    else { setEntry(t.id,{d:1,i:c.i?1:0,c:txt,at:nowIso()}); toast('บันทึกว่าทดลองหัวข้อ '+t.n+' แล้ว') }
+  } else if(act==='issue'){
+    if(c.i){ setEntry(t.id,{d:1,i:0,c:txt,at:nowIso()}); toast('เอาเครื่องหมายมีประเด็นของหัวข้อ '+t.n+' ออกแล้ว') }
+    else { setEntry(t.id,{d:1,i:1,c:txt,at:nowIso()}); if(!txt){ t.ta.focus(); toast('พิมพ์รายละเอียดของประเด็นในช่องความเห็นได้เลย') } else toast('ทำเครื่องหมายมีประเด็นแล้ว') }
+  }
+});
+document.addEventListener('input',function(e){
+  var ta=e.target; if(!ta.classList||!ta.classList.contains('tb-ta')) return;
+  var t=TID[ta.closest('.tb').getAttribute('data-topic')]; if(!t) return;
+  t.dirtyText=true; grow(ta); setCs(t,'dirty'); 
+  clearTimeout(t.tt); t.tt=setTimeout(function(){saveComment(t)},1500);
+});
+document.addEventListener('focusout',function(e){
+  var ta=e.target; if(!ta.classList||!ta.classList.contains('tb-ta')) return;
+  var t=TID[ta.closest('.tb').getAttribute('data-topic')]; if(t) saveComment(t);
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Enter'&&(e.metaKey||e.ctrlKey)&&e.target.classList&&e.target.classList.contains('tb-ta')){
+    e.preventDefault(); var t=TID[e.target.closest('.tb').getAttribute('data-topic')]; if(t){t.dirtyText=true; saveComment(t)}
+  }
+});
+window.addEventListener('pagehide',function(){ TOPICS.forEach(function(t){ if(t.dirtyText) saveComment(t) }) });
+
+/* team overview */
+function nameOf(u,ps,idx){ var p=ps[u]||{}, e=T.all[u]||{}; return p.name||(u===T.myId?T.mine.label:e.label)||('ผู้ทดลอง '+(idx+1)) }
+function cmHtml(text){ return esc(text) }
+function renderTeam(){
+  var p=people(), ids=Object.keys(p).filter(function(u){return Object.keys(p[u].t).length||u===T.myId});
+  var pr=T.user?T.user.profiles(ids):Promise.resolve({});
+  pr.then(function(ps){
+    ps=ps||{}; var pt=perTopic(p);
+    ids.sort(function(a,b){return (p[b].u||'').localeCompare(p[a].u||'')});
+    var nm={}; ids.forEach(function(u,i){nm[u]=nameOf(u,ps,i)});
+    var active=ids.filter(function(u){return Object.keys(p[u].t).length});
+    var tried=TOPICS.filter(function(t){return pt[t.id].done.length}).length, issues=TOPICS.filter(function(t){return pt[t.id].issue.length}).length;
+    var ncm=TOPICS.reduce(function(s,t){return s+pt[t.id].cm.length},0);
+    $('#team-sub').textContent='อัปเดตทุก 1 นาที · '+TOPICS.length+' หัวข้อของส่วนที่ 1';
+    $('#team-stats').innerHTML='<div class="stat"><b>'+active.length+'</b><span>คนที่เริ่มทดลอง</span></div><div class="stat"><b>'+tried+'<small>/'+TOPICS.length+'</small></b><span>หัวข้อที่มีคนลองแล้ว</span></div><div class="stat'+(issues?' warn':'')+'"><b>'+issues+'</b><span>หัวข้อที่มีประเด็น</span></div><div class="stat"><b>'+ncm+'</b><span>ความเห็นทั้งหมด</span></div>';
+    $$('[data-tab]',team).forEach(function(b){b.setAttribute('aria-selected',b.getAttribute('data-tab')===T.tab?'true':'false')});
+    $('#team-filter').hidden=T.tab!=='topics';
+    $$('[data-filter]',team).forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-filter')===T.filter?'true':'false')});
+    var body=$('#team-body'), h='';
+    if(T.tab==='topics'){
+      CHAPS.forEach(function(ch){
+        var rows=TOPICS.filter(function(t){ if(t.ch!==ch) return false; var x=pt[t.id];
+          return T.filter==='all'||(T.filter==='issue'?x.issue.length:T.filter==='cm'?x.cm.length:!x.done.length) });
+        if(!rows.length) return;
+        h+='<p class="tm-ch">บทที่ '+esc(ch)+' · '+esc(rows[0].chTitle)+'</p>';
+        rows.forEach(function(t){
+          var x=pt[t.id], who='';
+          var ok=x.done.filter(function(u){return x.issue.indexOf(u)<0}).map(function(u){return esc(nm[u])});
+          if(x.issue.length) who+='มีประเด็น: '+x.issue.map(function(u){return '<span class="w">'+esc(nm[u])+'</span>'}).join(' ');
+          if(ok.length) who+=(who?' · ':'')+'ทดลองแล้ว: '+ok.join(', ');
+          if(!who) who='ยังไม่มีใครกดทดลอง';
+          var cms=x.cm.length?'<span class="tm-cms">'+x.cm.map(function(m){return '<span class="tm-cm'+(m.i?' w':'')+'"><b>'+esc(nm[m.u])+(m.at?' · '+esc(fmtTime(m.at)):'')+'</b>'+cmHtml(m.c)+'</span>'}).join('')+'</span>':'';
+          h+='<a class="tm-row" href="#'+t.id+'" data-go-topic="'+t.id+'"><span class="tm-n">'+esc(t.n)+'</span><span class="tm-t">'+esc(t.title)+'</span><span class="tm-cnt"><span class="cnt'+(x.done.length?' ok':'')+'" title="ทดลองแล้ว">'+IC.done+x.done.length+'</span>'+(x.issue.length?'<span class="cnt warn" title="มีประเด็น">'+IC.issue+x.issue.length+'</span>':'')+(x.cm.length?'<span class="cnt" title="ความเห็น">'+IC.cmt+x.cm.length+'</span>':'')+'</span><span class="tm-who">'+who+'</span>'+cms+'</a>';
+        });
+      });
+      if(!h) h='<p class="tm-empty">'+(T.filter==='issue'?'ยังไม่มีหัวข้อที่มีประเด็น':T.filter==='cm'?'ยังไม่มีความเห็น':'ทุกหัวข้อมีคนลองแล้ว')+'</p>';
+    } else {
+      if(!ids.length) h='<p class="tm-empty">ยังไม่มีใครเริ่มทดลอง</p>';
+      ids.forEach(function(u){
+        var e=p[u], keys=Object.keys(e.t), n=keys.filter(function(k){return e.t[k].d}).length;
+        var ni=keys.filter(function(k){return e.t[k].i}).length, nc=keys.filter(function(k){return e.t[k].c}).length;
+        var its=keys.filter(function(k){return e.t[k].i||e.t[k].c}).sort(function(a,b){return TID[a].n.localeCompare(TID[b].n,undefined,{numeric:true})});
+        var prof=ps[u]||{}, me=u===T.myId;
+        h+='<div class="pp">'+(prof.avatarUrl?'<img alt="" src="'+esc(prof.avatarUrl)+'">':'<span class="pp-av" aria-hidden="true"></span>')+'<div><div class="pp-n">'+esc(nm[u])+(me?'<small>คุณ</small>':'')+(e.src==='form'?'<small>ส่งผ่านฟอร์ม</small>':'')+'</div><div class="pp-m">ทดลอง '+n+'/'+TOPICS.length+' หัวข้อ'+(ni?' · มีประเด็น '+ni:'')+(nc?' · ความเห็น '+nc:'')+(e.u&&keys.length?' · ล่าสุด '+esc(fmtTime(e.u)):'')+'</div></div>'+
+          '<div class="pp-bar" aria-hidden="true"><i style="width:'+(100*n/TOPICS.length)+'%"></i></div>'+
+          (its.length?'<div class="pp-its">'+its.map(function(k){var v=e.t[k];return '<a class="pp-it'+(v.i?' w':'')+'" href="#'+k+'" data-go-topic="'+k+'"><span class="pp-it-h">'+(v.i?'<span class="chip warn">มีประเด็น</span>':'')+esc(TID[k].n+' '+TID[k].title)+'</span>'+(v.c?'<span class="pp-it-c">'+cmHtml(v.c)+'</span>':'')+'</a>'}).join('')+'</div>':'')+
+          (me&&T.mode==='db'&&!prof.name?'<label class="pp-label">ชื่อที่ให้ทีมเห็น <input type="text" maxlength="60" data-label value="'+esc(T.mine.label||'')+'" placeholder="เช่น ชื่อเล่น · แผนก"></label>':'')+
+          '</div>';
+      });
+    }
+    var keep=document.activeElement&&document.activeElement.hasAttribute&&document.activeElement.hasAttribute('data-label');
+    if(!keep) body.innerHTML=h;
+  });
+}
+var teamLast=null;
+function openTeam(){ teamLast=document.activeElement; setNav(false); team.hidden=false; renderTeam(); $('.x-btn',team).focus() }
+function closeTeam(){ team.hidden=true; if(teamLast&&teamLast.focus) teamLast.focus() }
+$$('[data-open-team]').forEach(function(b){b.addEventListener('click',openTeam)});
+team.addEventListener('click',function(e){
+  if(e.target.closest('[data-close-team]')){closeTeam();return}
+  var tb=e.target.closest('[data-tab]'); if(tb){T.tab=tb.getAttribute('data-tab');renderTeam();return}
+  var fb=e.target.closest('[data-filter]'); if(fb){T.filter=fb.getAttribute('data-filter');renderTeam();return}
+  var g=e.target.closest('[data-go-topic]'); if(g){e.preventDefault(); var id=g.getAttribute('data-go-topic'); team.hidden=true; go(id)}
+});
+team.addEventListener('change',function(e){
+  var inp=e.target.closest('[data-label]'); if(!inp) return;
+  var v=inp.value.replace(/\s+/g,' ').trim().slice(0,60); if(v===(T.mine.label||'')) return;
+  T.mine.label=v; persist(); toast('บันทึกชื่อแล้ว');
+});
+
+/* connect */
+function onSnap(snap){
+  var all={}; snap.docs.forEach(function(d){var x=clean(d.data()); if(x) all[d.id]=x});
+  T.all=all;
+  var fresh=!snap.metadata.fromCache, own=all[T.myId], idle=!T.writing&&!T.dirty;
+  if(T.mode==='db'){
+    if(fresh&&!T.loaded&&!own&&Object.keys(T.mine.t).length) persist();   /* carry entries made in this browser before signing in */
+    else if(own&&idle&&!snap.metadata.hasPendingWrites) T.mine={t:own.t,label:own.label};
+  }
+  if(fresh){ clearTimeout(T.timer); T.slow=false; T.loaded=true }
+  renderAll();
+}
+
+function submitForm(t){
+  var nm=myName();
+  if(!nm){ toast('กรุณาใส่ชื่อของคุณ (ช่องใต้คำแนะนำด้านบน) ก่อนส่ง'); var ni=$('#try-name'); if(ni){ni.scrollIntoView({block:'center'}); ni.focus()} return }
+  var c=T.mine.t[t.id]||{}, txt=t.dirtyText?clip(t.ta.value):(c.c||'');
+  var st=c.i?'มีประเด็น':c.d?'ทดลองแล้ว':txt?'ยังไม่ได้ลอง มีแค่ความเห็น':'';
+  if(!st){ toast('กด “ทดลองแล้ว” หรือ “มีประเด็น” หรือพิมพ์ความเห็นก่อนส่ง'); return }
+  var fr=document.getElementById('hf'); if(!fr){ fr=document.createElement('iframe'); fr.name='hf'; fr.id='hf'; fr.hidden=true; fr.setAttribute('aria-hidden','true'); document.body.appendChild(fr) }
+  var f=document.createElement('form'); f.method='POST'; f.target='hf'; f.hidden=true; f.action=FORM.url.replace('/viewform','/formResponse');
+  [[FORM.name,nm],[FORM.topic,t.n+' '+t.title],[FORM.status,st],[FORM.comment,txt]].forEach(function(p){ var i=document.createElement('input'); i.type='hidden'; i.name=p[0]; i.value=p[1]; f.appendChild(i) });
+  document.body.appendChild(f); f.submit(); setTimeout(function(){f.remove()},1500);
+  SENT[t.id]=nowIso(); store.set(SKEY,SENT); toast('ส่งถึงทีมแล้ว · หัวข้อ '+t.n); renderAll();
+  if(SHEET_CSV) setTimeout(loadSheet,4000);
+}
+function parseCsv(x){
+  var rows=[],r=[],v='',q=false,i=0;
+  for(;i<x.length;i++){ var ch=x[i];
+    if(q){ if(ch==='"'){ if(x[i+1]==='"'){v+='"';i++} else q=false } else v+=ch }
+    else if(ch==='"') q=true; else if(ch===',') {r.push(v);v=''}
+    else if(ch==='\n'){r.push(v);rows.push(r);r=[];v=''} else if(ch!=='\r') v+=ch }
+  if(v||r.length){r.push(v);rows.push(r)} return rows;
+}
+function loadSheet(){
+  if(!SHEET_CSV) return;
+  fetch(SHEET_CSV+(SHEET_CSV.indexOf('?')<0?'?':'&')+'_='+Date.now()).then(function(r){return r.text()}).then(function(txt){
+    var rows=parseCsv(txt).slice(1), all={};
+    rows.forEach(function(r,i){
+      var name=(r[1]||'').trim(), top=(r[2]||'').trim(), st=(r[3]||'').trim(), cm=(r[4]||'').trim(); if(!name||!top) return;
+      var t=TOPICS.filter(function(x){return top.indexOf(x.n+' ')===0||top===x.n})[0]; if(!t) return;
+      var key=name.toLowerCase(), at=String(1e6+i), e=all[key]||(all[key]={t:{},label:name.slice(0,60),u:at,src:'form'}), cur=e.t[t.id]||{d:0,i:0,c:'',at:''};
+      var iss=st.indexOf('มีประเด็น')>=0, dn=iss||st.indexOf('ทดลองแล้ว')>=0;
+      e.t[t.id]={d:dn?1:cur.d,i:iss?1:(dn?0:cur.i),c:cm||cur.c,at:at}; e.u=at;
+    });
+    T.all={}; Object.keys(all).forEach(function(k){var x=clean(all[k]); if(x) T.all[k]=x});
+    T.loaded=true; renderAll();
+  }).catch(function(){});
+}
+function connect(){ goLocal('nodb'); loadSheet(); if(SHEET_CSV) setInterval(loadSheet,60000) }
+(function(){ var inp=$('#try-name'); try{ var v=localStorage.getItem(NKEY); if(v) inp.value=v }catch(e){}
+  inp.addEventListener('input',function(){ try{localStorage.setItem(NKEY,inp.value)}catch(e){} }); })();
+renderAll(); connect();
+
+/* ---------- open at hash ---------- */
+if(location.hash.length>1){var t=document.getElementById(location.hash.slice(1)); if(t){root.style.scrollBehavior='auto'; t.scrollIntoView(); setTimeout(function(){root.style.scrollBehavior=''},50); flash(t); onScroll()}}
+})();
+</script>
+
+
+</body></html>
