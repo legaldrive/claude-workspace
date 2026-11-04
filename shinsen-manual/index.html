@@ -481,11 +481,11 @@ table.tbl{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.6}
         <button class="hero-search" type="button" data-open-search><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>ค้นหาเรื่องที่ต้องทำ เช่น ปิดรับ, QO ใหม่, ลืมรหัสผ่าน</span><kbd class="k-mod">Ctrl K</kbd></button>
         <ol class="try-guide" aria-label="วิธีทดลองใช้ระบบไปพร้อมคู่มือ">
           <li><span><b>อ่านหัวข้อ</b> แล้วลองทำตามในระบบจริง</span></li>
-          <li><span>ท้ายหัวข้อ กด <b>ทดลองแล้ว</b> แล้วกด <b>ส่งถึงทีม</b> เพื่อให้ทีมรู้ว่าลองแล้ว</span></li>
+          <li><span>ท้ายหัวข้อ กด <b>ทดลองแล้ว</b> เพื่อให้ทีมรู้ว่าลองแล้ว</span></li>
           <li><span>ติดขัดหรือสงสัย กด <b>มีประเด็น</b> แล้วพิมพ์ในช่องความเห็นท้ายหัวข้อ</span></li>
         </ol>
         <div class="try-local" id="try-local" hidden>
-          <p>ไม่ต้องเข้าสู่ระบบใดๆ · ใส่ชื่อของคุณ กดสถานะและพิมพ์ความเห็นท้ายหัวข้อ แล้วกด <b>ส่งถึงทีม</b> ทีมจะได้รับทันทีโดยไม่ต้องออกจากหน้านี้</p>
+          <p>ไม่ต้องเข้าสู่ระบบใดๆ · ใส่ชื่อของคุณ แล้วกดสถานะหรือพิมพ์ความเห็นท้ายหัวข้อ ระบบส่งให้ทีมอัตโนมัติ ไม่ต้องกดปุ่มส่ง</p>
           <label class="try-name">ชื่อของคุณ <input type="text" id="try-name" maxlength="60" placeholder="เช่น สมชาย · ฝ่ายจัดซื้อ" autocomplete="name"></label>
         </div>
         <button class="team-open" type="button" data-open-team hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2A4.5 4.5 0 0 1 21 18.5"/></svg>ดูภาพรวมการทดลองของทุกคน</button>
@@ -818,7 +818,7 @@ function formUrl(t){
 function setCs(t,state){
   t.sv.hidden=state!=='dirty';
   t.cs.className='tb-cs'+(state==='saved'?' ok':'');
-  t.cs.textContent=state==='dirty'?'ยังไม่บันทึก':state==='saved'?(T.mode==='db'?'บันทึกแล้ว · ทีมเห็นแล้ว':'บันทึกไว้ในเครื่องนี้ · กด “ส่งถึงทีม” เพื่อส่ง'):state==='cleared'?'ลบความเห็นแล้ว':'';
+  t.cs.textContent=state==='dirty'?'ยังไม่บันทึก':state==='saved'?(T.mode==='db'?'บันทึกแล้ว · ทีมเห็นแล้ว':'บันทึกแล้ว · ส่งให้ทีมอัตโนมัติ'):state==='cleared'?'ลบความเห็นแล้ว':'';
 }
 function renderTopic(t,pt){
   var c=T.mine.t[t.id]||{}, d=!!c.d, i=!!c.i;
@@ -828,9 +828,9 @@ function renderTopic(t,pt){
   var a=linkMap[t.id]; if(a){a.classList.toggle('tried',d&&!i); a.classList.toggle('flag',i)}
   if(document.activeElement!==t.ta&&!t.dirtyText){ var want=c.c||''; if(t.ta.value!==want){t.ta.value=want; grow(t.ta)} }
   var local=T.mode==='local';
-  t.send.hidden=!local;
+  t.send.hidden=true;
   var sn=$('.tb-sent',t.bar);
-  if(local&&SENT[t.id]){ if(!sn){sn=document.createElement('p');sn.className='tb-sent';t.bar.insertBefore(sn,$('.tb-meta',t.bar))} sn.textContent='ส่งถึงทีมแล้ว '+fmtTime(SENT[t.id])+' · แก้ไขแล้วกด “ส่งถึงทีม” อีกครั้งได้' } else if(sn) sn.remove();
+  if(local&&SENT[t.id]){ if(!sn){sn=document.createElement('p');sn.className='tb-sent';t.bar.insertBefore(sn,$('.tb-meta',t.bar))} sn.textContent='ส่งถึงทีมแล้ว '+fmtTime(SENT[t.id])+' · แก้ไขแล้วระบบส่งให้ใหม่อัตโนมัติ' } else if(sn) sn.remove();
   var meta=$('.tb-meta',t.bar);
   if(T.loaded&&pt){ var x=pt[t.id], nd=x.done.length, ni=x.issue.length, nc=x.cm.length;
     meta.textContent=(nd?'ทดลองแล้ว '+nd+' คน':'ยังไม่มีใครกดทดลองหัวข้อนี้')+(ni?' · มีประเด็น '+ni:'')+(nc?' · ความเห็น '+nc:'');
@@ -848,7 +848,7 @@ var NOTES={
   loading:'กำลังเชื่อมต่อ…',
   db:'บันทึกให้ทีมเห็นแล้ว',
   slow:'ยังเชื่อมต่อไม่ได้ จะบันทึกเมื่อเชื่อมต่อได้',
-  nodb:'กด “ส่งถึงทีม” ท้ายหัวข้อเพื่อส่งให้ทีม (สิ่งที่กดเก็บไว้ในเครื่องนี้ด้วย)',
+  nodb:'ทุกอย่างที่กดหรือพิมพ์จะส่งให้ทีมอัตโนมัติ',
   readonly:'บันทึกไว้ในเครื่องนี้ กด “ส่งถึงทีม” ท้ายหัวข้อเพื่อส่งให้ทีม',
   error:'บันทึกไม่สำเร็จ เก็บไว้ในเครื่องนี้ก่อน'
 };
@@ -889,7 +889,9 @@ function flush(){
 }
 function goLocal(reason){ T.mode='local'; T.reason=reason; store.set(LKEY,T.mine); renderAll() }
 
-function setEntry(id,v){ if(v&&(v.d||v.i||v.c)) T.mine.t[id]=v; else delete T.mine.t[id]; persist(); renderAll() }
+var QT={};
+function queueSend(id){ clearTimeout(QT[id]); QT[id]=setTimeout(function(){ submitForm(TID[id],true) },1200) }
+function setEntry(id,v){ if(v&&(v.d||v.i||v.c)) T.mine.t[id]=v; else delete T.mine.t[id]; persist(); renderAll(); queueSend(id) }
 function saveComment(t){
   clearTimeout(t.tt);
   if(!t.dirtyText) return;
@@ -1015,17 +1017,18 @@ function onSnap(snap){
   renderAll();
 }
 
-function submitForm(t){
-  var nm=myName();
-  if(!nm){ toast('กรุณาใส่ชื่อของคุณ (ช่องใต้คำแนะนำด้านบน) ก่อนส่ง'); var ni=$('#try-name'); if(ni){ni.scrollIntoView({block:'center'}); ni.focus()} return }
+var NAGGED=0;
+function submitForm(t,silent){
+  var nm=myName()||'ไม่ระบุชื่อ';
+  if(silent&&!myName()&&!NAGGED){ NAGGED=1; toast('ส่งให้ทีมแล้ว · ใส่ชื่อของคุณในช่องด้านบนสุดของหน้า เพื่อให้ทีมรู้ว่าใครเป็นผู้ลอง') }
   var c=T.mine.t[t.id]||{}, txt=t.dirtyText?clip(t.ta.value):(c.c||'');
   var st=c.i?'มีประเด็น':c.d?'ทดลองแล้ว':txt?'ยังไม่ได้ลอง มีแค่ความเห็น':'';
-  if(!st){ toast('กด “ทดลองแล้ว” หรือ “มีประเด็น” หรือพิมพ์ความเห็นก่อนส่ง'); return }
+  if(!st){ if(!silent) toast('กด “ทดลองแล้ว” หรือ “มีประเด็น” หรือพิมพ์ความเห็นก่อนส่ง'); return }
   var fr=document.getElementById('hf'); if(!fr){ fr=document.createElement('iframe'); fr.name='hf'; fr.id='hf'; fr.hidden=true; fr.setAttribute('aria-hidden','true'); document.body.appendChild(fr) }
   var f=document.createElement('form'); f.method='POST'; f.target='hf'; f.hidden=true; f.action=FORM.url.replace('/viewform','/formResponse');
   [[FORM.name,nm],[FORM.topic,t.n+' '+t.title],[FORM.status,st],[FORM.comment,txt]].forEach(function(p){ var i=document.createElement('input'); i.type='hidden'; i.name=p[0]; i.value=p[1]; f.appendChild(i) });
   document.body.appendChild(f); f.submit(); setTimeout(function(){f.remove()},1500);
-  SENT[t.id]=nowIso(); store.set(SKEY,SENT); toast('ส่งถึงทีมแล้ว · หัวข้อ '+t.n); renderAll();
+  SENT[t.id]=nowIso(); store.set(SKEY,SENT); if(!silent) toast('ส่งถึงทีมแล้ว · หัวข้อ '+t.n); renderAll();
   if(SHEET_CSV) setTimeout(loadSheet,4000);
 }
 function parseCsv(x){
