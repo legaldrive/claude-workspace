@@ -53,6 +53,7 @@ kbd{font-family:var(--f-mono);font-size:11px;font-weight:500;line-height:1;paddi
 [id]{scroll-margin-top:28px}
 
 .app{display:grid;grid-template-columns:var(--rail-w) minmax(0,1fr);gap:40px;align-items:start}
+.chapter.app{display:block;grid-template-columns:none;gap:0}
 
 /* ---------- rail ---------- */
 .side{position:sticky;top:max(16px,env(safe-area-inset-top,0px));height:calc(100vh - 32px);margin-block:16px;display:flex;flex-direction:column;background:var(--rail);border:1px solid var(--line);border-radius:16px;overflow:hidden}
@@ -359,6 +360,9 @@ table.tbl{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.6}
 .sbar-row{display:flex;align-items:center;gap:10px}
 .sbar-bar{width:120px;height:6px;border-radius:99px;background:var(--line-2);overflow:hidden}.sbar-bar i{display:block;height:100%;width:0;background:var(--ok);border-radius:99px;transition:width .3s}
 @media (max-width:520px){.sbar-bar{width:64px}.sbar-sub{display:none}}
+.chapter.app .tbl-wrap,.chapter.app table{width:100%}
+.chapter.app .tbl th,.chapter.app .tbl td{vertical-align:top}
+.chapter.app .tbl td,.chapter.app .tbl th{word-break:normal;overflow-wrap:break-word}
 .rnote{margin:10px 0 0;font-size:12.5px;line-height:1.6;color:var(--ink-3)}
 .tb-next{justify-self:start;margin-top:2px;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-weight:600;font-size:13.5px;font-family:inherit;cursor:pointer;text-align:left}.tb-next:hover{border-color:var(--ink)}
 .sbar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--paper);border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(0,0,0,.06);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
