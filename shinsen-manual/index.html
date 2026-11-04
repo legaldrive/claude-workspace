@@ -354,6 +354,11 @@ table.tbl{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.6}
 .dim-note{margin:0 0 10px;padding:8px 12px;border-radius:10px;background:var(--da-soft);color:var(--ink-2);font-size:13.5px;line-height:1.5}
 .upcoming-part .soon-card,.upcoming-part .ch-h,.chapter.deferred>.ch-h,.chapter.deferred>.soon-card,.who[href="#part-2"],.who[href="#part-3"],.toc-part.is-soon{opacity:.45;filter:grayscale(.85)}
 .who[href="#part-2"]:hover,.who[href="#part-3"]:hover{opacity:.75}
+.side-f{display:none!important}
+.side{height:calc(100vh - 32px - 76px)!important}
+.sbar-row{display:flex;align-items:center;gap:10px}
+.sbar-bar{width:120px;height:6px;border-radius:99px;background:var(--line-2);overflow:hidden}.sbar-bar i{display:block;height:100%;width:0;background:var(--ok);border-radius:99px;transition:width .3s}
+@media (max-width:520px){.sbar-bar{width:64px}.sbar-sub{display:none}}
 .rnote{margin:10px 0 0;font-size:12.5px;line-height:1.6;color:var(--ink-3)}
 .tb-next{justify-self:start;margin-top:2px;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-weight:600;font-size:13.5px;font-family:inherit;cursor:pointer;text-align:left}.tb-next:hover{border-color:var(--ink)}
 .sbar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--paper);border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(0,0,0,.06);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
@@ -563,7 +568,7 @@ body{padding-bottom:84px}
 </div>
 
 <button type="button" class="theme-btn ic" id="theme-btn" title="สลับโหมดมืด/สว่าง" aria-label="สลับโหมดมืดและสว่าง"><span class="ti" aria-hidden="true">🌙</span><span class="tl"></span></button>
-<div class="sbar" id="sbar" hidden><div class="sbar-in"><div class="sbar-t"><b id="sb-n"></b><span class="sbar-sub">รอบที่ 1 · Demo 1</span></div><div class="sbar-b"><button type="button" class="r-btn" data-gonext id="sb-go">หัวข้อถัดไป</button><button type="button" class="dl-btn sm" data-dl>ดาวน์โหลดผล</button></div></div></div>
+<div class="sbar" id="sbar" hidden><div class="sbar-in"><div class="sbar-t"><div class="sbar-row"><b id="sb-n"></b><div class="sbar-bar" aria-hidden="true"><i id="sb-fill"></i></div></div><span class="sbar-sub">รอบที่ 1 · Demo 1 พฤ. 5 พ.ย. · ฉบับ 3 พ.ย. 2569</span></div><div class="sbar-b"><button type="button" class="r-btn" data-gonext id="sb-go">หัวข้อถัดไป</button><button type="button" class="dl-btn sm" data-dl>ดาวน์โหลดผล</button></div></div></div>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="ภาพหน้าจอขนาดใหญ่">
@@ -927,7 +932,7 @@ function renderRound(){
   var rn=$('#rb-n'); if(rn) rn.textContent='ทดลองแล้ว '+n+' จาก '+tot+' หัวข้อ';
   var go=$('#rb-go'); if(go) go.textContent=n===0?'เริ่มที่หัวข้อแรก':n>=tot?'ทดลองครบแล้ว · ไปขั้นตอนที่ 3':'ไปต่อ · หัวข้อที่ยังไม่ได้ทดลอง';
   var sg=$('#sb-go'); if(sg) sg.textContent=n===0?'เริ่มทดสอบ':n>=tot?'ครบแล้ว':'หัวข้อถัดไป';
-  var sb=$('#sb-n'); if(sb) sb.textContent=n+'/'+tot+' หัวข้อ';
+  var sf=$('#sb-fill'); if(sf) sf.style.width=(tot?100*n/tot:0)+'%'; var sb=$('#sb-n'); if(sb) sb.textContent=n+'/'+tot+' หัวข้อ';
   var bar=$('#sbar'); if(bar) bar.hidden=false;
   var r1=$('#rs-1'),r2=$('#rs-2'),r3=$('#rs-3'); if(r1) r1.classList.toggle('done',!!myName()); if(r2) r2.classList.toggle('done',n>=tot&&tot>0); if(r3) r3.classList.toggle('ready',any);
   TOPICS.forEach(function(t,i){ var nb=$('.tb-next',t.bar); if(nb) nb.textContent=i===TOPICS.length-1?'ครบแล้ว · ไปดาวน์โหลดผล ↓':'หัวข้อถัดไป · '+TOPICS[i+1].n+' '+TOPICS[i+1].title+' →' });
