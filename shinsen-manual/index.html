@@ -334,7 +334,7 @@ table.tbl{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.6}
 .round-hd{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:15px;color:var(--ink);margin-bottom:12px}
 .rsteps{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .rs{display:flex;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--sunk)}
-.rs.done{border-color:var(--ok);background:#f0f8f2}.rs.ready{border-color:var(--brand)}
+.rs.done{border-color:var(--ok);background:var(--ok-soft)}.rs.ready{border-color:var(--brand)}
 .rn{flex:none;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--paper);font:600 14px/28px var(--f-mono);text-align:center}
 .rs.done .rn{background:var(--ok)}.rs.done .rn::after{content:"✓"}.rs.done .rn{font-size:0}.rs.done .rn::after{font-size:15px}
 .rb{min-width:0;flex:1;font-size:14px;line-height:1.6;color:var(--ink-2)}.rb>b{color:var(--ink);font-size:15px}.rb p{margin:2px 0 8px}
@@ -343,6 +343,13 @@ table.tbl{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.6}
 .rprog{display:flex;align-items:center;gap:10px;margin:4px 0 10px}.rprog .prog-bar{flex:1;max-width:320px}.rprog span{font-size:13px;font-family:var(--f-mono);color:var(--ink)}
 .r-btn{padding:9px 14px;border-radius:10px;border:1px solid var(--ink);background:var(--paper);color:var(--ink);font-weight:600;font-size:14px;font-family:inherit;cursor:pointer}.r-btn:hover{background:var(--sunk)}
 .resbox{margin-top:12px;padding:12px;border:1px dashed var(--line);border-radius:12px;background:var(--paper)}.resbox p{margin:0 0 8px}.resbox textarea{width:100%;box-sizing:border-box;padding:10px;border:1px solid var(--line);border-radius:10px;font:13px/1.6 var(--f-mono);background:var(--sunk);color:var(--ink);margin-bottom:8px}.res-ok{font-size:13px;color:var(--ok)}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:4px}
+.dl-btn,.r-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;box-sizing:border-box;margin:0;line-height:1.2}
+.dl-btn.sm,.theme-btn{min-height:40px}
+.theme-btn{padding:0 12px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:14px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:6px}.theme-btn:hover{border-color:var(--ink)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .dl-btn{color:#1a0a0c}}
+:root[data-theme="dark"] .dl-btn{color:#1a0a0c}
+@media (max-width:520px){.theme-btn .tl{display:none}}
 .rnote{margin:10px 0 0;font-size:12.5px;line-height:1.6;color:var(--ink-3)}
 .tb-next{justify-self:start;margin-top:2px;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-weight:600;font-size:13.5px;font-family:inherit;cursor:pointer;text-align:left}.tb-next:hover{border-color:var(--ink)}
 .sbar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--paper);border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(0,0,0,.06);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
@@ -350,7 +357,7 @@ table.tbl{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.6}
 .sbar-t{display:flex;flex-direction:column;line-height:1.3}.sbar-t b{font-size:15px;font-family:var(--f-mono)}.sbar-sub{font-size:12px;color:var(--ink-3)}
 .sbar-b{display:flex;gap:8px}.dl-btn.sm{margin-top:0;padding:9px 14px}
 body{padding-bottom:84px}
-.dl-btn{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 16px;border-radius:10px;border:1px solid var(--brand);background:var(--brand);color:#fff;font-weight:600;font-size:14px;font-family:inherit;cursor:pointer}.dl-btn:hover{background:var(--brand-ink)}.dl-hint{margin-top:8px!important;font-size:13px}
+.dl-btn{display:inline-flex;align-items:center;gap:8px;margin-top:0;padding:10px 16px;border-radius:10px;border:1px solid var(--brand);background:var(--brand);color:#fff;font-weight:600;font-size:14px;font-family:inherit;cursor:pointer}.dl-btn:hover{background:var(--brand-ink)}.dl-hint{margin-top:8px!important;font-size:13px}
 .try-name{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-weight:600}
 .try-name input{font:inherit;font-weight:400;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--ui-line);background:var(--raise);color:var(--ink);width:240px;max-width:100%}
 .tb-save{min-height:36px;padding:6px 14px;border-radius:9px;border:0;background:var(--ink);color:var(--paper);font-size:13.5px;font-weight:600;cursor:pointer}
@@ -513,7 +520,7 @@ body{padding-bottom:84px}
               <button type="button" class="r-btn" data-gonext id="rb-go">เริ่มที่หัวข้อแรก</button></div></li>
             <li id="rs-3" class="rs"><span class="rn">3</span>
               <div class="rb"><b>ดาวน์โหลดผล แล้วส่งไฟล์ให้ทีม</b><p>ทดสอบครบแล้ว (หรือพักไว้ก่อนก็ได้) กดปุ่มนี้ จะได้ไฟล์ 1 ไฟล์ ส่งให้ทีมพัฒนาทางอีเมลหรือไลน์ ถ้าทดสอบเพิ่มทีหลัง ดาวน์โหลดใหม่แล้วส่งไฟล์ล่าสุดอีกครั้ง</p>
-              <button type="button" class="dl-btn" data-dl><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>ดาวน์โหลดผลการทดลอง</button> <button type="button" class="r-btn" data-copy>คัดลอกผลเป็นข้อความ</button>
+              <div class="btnrow"><button type="button" class="dl-btn" data-dl><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>ดาวน์โหลดผลการทดลอง</button><button type="button" class="r-btn" data-copy>คัดลอกผลเป็นข้อความ</button></div>
               <div class="resbox" id="resbox" hidden><p><b>ดาวน์โหลดไม่ได้ใช่ไหม</b> คัดลอกข้อความด้านล่างนี้ ส่งให้ทีมทางอีเมลหรือไลน์แทนได้เลย</p><textarea id="res-ta" readonly rows="9"></textarea><button type="button" class="r-btn" data-copy2>คัดลอกทั้งหมด</button> <span class="res-ok" id="res-ok" aria-live="polite"></span></div></div></li>
           </ol>
           <p class="rnote">ที่กดและพิมพ์ไว้จะเก็บในเบราว์เซอร์เครื่องนี้ (ใช้เครื่องและเบราว์เซอร์เดิมเมื่อกลับมาทำต่อ) · บทที่ 6 มากับ Demo 2 · ส่วนที่ 2 และ 3 เป็นรอบถัดไป ไฟล์ผลแยกตามรอบ</p>
@@ -551,7 +558,7 @@ body{padding-bottom:84px}
   </div>
 </div>
 
-<div class="sbar" id="sbar" hidden><div class="sbar-in"><div class="sbar-t"><b id="sb-n"></b><span class="sbar-sub">รอบที่ 1 · Demo 1</span></div><div class="sbar-b"><button type="button" class="r-btn" data-gonext id="sb-go">หัวข้อถัดไป</button><button type="button" class="dl-btn sm" data-dl>ดาวน์โหลดผล</button></div></div></div>
+<div class="sbar" id="sbar" hidden><div class="sbar-in"><div class="sbar-t"><b id="sb-n"></b><span class="sbar-sub">รอบที่ 1 · Demo 1</span></div><div class="sbar-b"><button type="button" class="theme-btn" id="theme-btn" aria-label="สลับโหมดมืดและสว่าง"><span class="ti" aria-hidden="true">🌙</span><span class="tl">โหมดมืด</span></button><button type="button" class="r-btn" data-gonext id="sb-go">หัวข้อถัดไป</button><button type="button" class="dl-btn sm" data-dl>ดาวน์โหลดผล</button></div></div></div>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="ภาพหน้าจอขนาดใหญ่">
@@ -894,6 +901,12 @@ function renderProgress(){
   $$('[data-open-team]').forEach(function(b){b.hidden=!canTeam});
 }
 
+
+/* ---------- theme switch (light / dark) ---------- */
+function curDark(){ var a=root.getAttribute('data-theme'); return a?a==='dark':!!(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches) }
+function paintTheme(){ var d=curDark(), b=$('#theme-btn'); if(!b) return; $('.ti',b).textContent=d?'☀️':'🌙'; $('.tl',b).textContent=d?'โหมดสว่าง':'โหมดมืด'; b.setAttribute('aria-pressed',d?'true':'false') }
+var sv=store.get('shinsen-manual-theme'); if(sv==='dark'||sv==='light') root.setAttribute('data-theme',sv);
+document.addEventListener('click',function(e){ if(!e.target.closest('#theme-btn')) return; var n=curDark()?'light':'dark'; root.setAttribute('data-theme',n); store.set('shinsen-manual-theme',n); paintTheme() });
 var ROUND='Demo 1';
 function firstPending(){ for(var i=0;i<TOPICS.length;i++){ var v=T.mine.t[TOPICS[i].id]; if(!(v&&v.d)) return TOPICS[i] } return null }
 function goNext(fromId){
@@ -1120,7 +1133,7 @@ document.addEventListener('click',function(e){ if(e.target.closest('[data-dl]'))
 function connect(){ goLocal('nodb') }
 (function(){ var inp=$('#try-name'); try{ var v=localStorage.getItem(NKEY); if(v) inp.value=v }catch(e){}
   inp.addEventListener('input',function(){ try{renderRound()}catch(e){}  try{localStorage.setItem(NKEY,inp.value)}catch(e){} }); })();
-renderAll(); connect();
+renderAll(); paintTheme(); connect();
 
 /* ---------- open at hash ---------- */
 if(location.hash.length>1){var t=document.getElementById(location.hash.slice(1)); if(t){root.style.scrollBehavior='auto'; t.scrollIntoView(); setTimeout(function(){root.style.scrollBehavior=''},50); flash(t); onScroll()}}
