@@ -1101,6 +1101,7 @@ function copyRes(){
   else $('#res-ok').textContent='คัดลอกอัตโนมัติไม่ได้ · เลือกข้อความทั้งหมดแล้วคัดลอกเอง';
 }
 document.addEventListener('click',function(e){ if(e.target.closest('[data-copy]')){ if(showResult(true)) copyRes() } else if(e.target.closest('[data-copy2]')) copyRes() });
+
 function downloadResult(){
   TOPICS.forEach(function(t){ if(t.dirtyText) saveComment(t) });
   var nm=myName();
