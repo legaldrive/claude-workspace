@@ -10,6 +10,10 @@
 .fb-t{color:var(--ink-3);font-size:12.5px}
 .fb-c{margin:6px 0 0!important;font-size:14px;line-height:1.6;white-space:pre-line;color:var(--ink)}
 .fb-c.none{color:var(--ink-3)}
+.fbn{margin-left:auto;flex:none;align-self:center;display:inline-flex;align-items:center;gap:3px;font-family:var(--f-mono);font-size:11px;font-weight:600;line-height:1;padding:3px 6px;border-radius:999px;background:var(--line-2);color:var(--ink-2)}
+.fbn svg{width:11px;height:11px}
+.fbn.warn{background:var(--warn-bg);color:var(--warn-ink);box-shadow:inset 0 0 0 1px var(--warn-line)}
+.toc a:has(.fbn)::after{margin-left:6px!important}
 </style></head><body>
 <title>คู่มือการใช้งานระบบสั่งซื้อ Shinsen Ichiba</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -1173,6 +1177,7 @@ if(location.hash.length>1){var t=document.getElementById(location.hash.slice(1))
 (function(){
   var FB=window.SHINSEN_FEEDBACK||[]; if(!FB.length) return;
   function esc(x){return String(x||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  var chap={};
   var by={}; FB.forEach(function(r){ (by[r.n]=by[r.n]||[]).push(r) });
   var IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-5 4V5.5Z"/></svg>';
   Array.prototype.forEach.call(document.querySelectorAll('section.sub'),function(sec){
@@ -1185,7 +1190,19 @@ if(location.hash.length>1){var t=document.getElementById(location.hash.slice(1))
         (r.comment?'<p class="fb-c">'+esc(r.comment)+'</p>':'<p class="fb-c none">ไม่มีความเห็น</p>')+'</li>';
     }).join('')+'</ul>';
     sec.appendChild(box);
+    var iss=list.filter(function(r){return r.status==='มีประเด็น'}).length;
+    var ch=sec.closest('article.chapter');
+    badge('#'+sec.id,list.length,iss);
+    if(ch){ var c=chap[ch.id]||(chap[ch.id]={n:0,i:0}); c.n+=list.length; c.i+=iss }
   });
+  Object.keys(chap).forEach(function(id){ badge('#'+id,chap[id].n,chap[id].i) });
+  function badge(href,n,iss){
+    Array.prototype.forEach.call(document.querySelectorAll('.toc a[href="'+href+'"]'),function(a){
+      var b=document.createElement('span'); b.className='fbn'+(iss?' warn':'');
+      b.title='ความเห็นจากผู้ทดลอง '+n+' รายการ'+(iss?' · มีประเด็น '+iss:'');
+      b.setAttribute('aria-label',b.title); b.innerHTML=IC+n; a.appendChild(b);
+    });
+  }
 })();
 </script>
 </body></html>
