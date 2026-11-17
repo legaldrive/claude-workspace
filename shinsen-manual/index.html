@@ -1,4 +1,16 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+/* feedback received from testers (data in feedback.js, merged by tools/merge_feedback.py) */
+.fb{margin:12px 0 0;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--raise);display:grid;gap:10px}
+.fb-h{margin:0!important;font-size:14px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px}
+.fb-h svg{width:17px;height:17px;color:var(--ink-2)}
+.fb ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.fb li{margin:0;padding:10px 0 0;border-top:1px solid var(--line)}
+.fb li:first-child{border-top:none;padding-top:0}
+.fb-m{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:13.5px}
+.fb-t{color:var(--ink-3);font-size:12.5px}
+.fb-c{margin:6px 0 0!important;font-size:14px;line-height:1.6;white-space:pre-line;color:var(--ink)}
+.fb-c.none{color:var(--ink-3)}
+</style></head><body>
 <title>คู่มือการใช้งานระบบสั่งซื้อ Shinsen Ichiba</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1156,4 +1168,24 @@ if(location.hash.length>1){var t=document.getElementById(location.hash.slice(1))
 </script>
 
 
+<script src="feedback.js"></script>
+<script>
+(function(){
+  var FB=window.SHINSEN_FEEDBACK||[]; if(!FB.length) return;
+  function esc(x){return String(x||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  var by={}; FB.forEach(function(r){ (by[r.n]=by[r.n]||[]).push(r) });
+  var IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-5 4V5.5Z"/></svg>';
+  Array.prototype.forEach.call(document.querySelectorAll('section.sub'),function(sec){
+    var sn=sec.querySelector('.sub-h .sn'); if(!sn) return;
+    var list=by[sn.textContent.trim()]; if(!list) return;
+    var box=document.createElement('div'); box.className='fb'; box.setAttribute('data-uncommentable','');
+    box.innerHTML='<p class="fb-h">'+IC+'ความเห็นจากผู้ทดลอง · '+list.length+'</p><ul>'+list.map(function(r){
+      var warn=r.status==='มีประเด็น';
+      return '<li><div class="fb-m"><b>'+esc(r.name)+'</b><span class="chip '+(warn?'warn':'ok')+'">'+esc(r.status||'—')+'</span><span class="fb-t">'+esc(r.round)+(r.at?' · '+esc(r.at):'')+'</span></div>'+
+        (r.comment?'<p class="fb-c">'+esc(r.comment)+'</p>':'<p class="fb-c none">ไม่มีความเห็น</p>')+'</li>';
+    }).join('')+'</ul>';
+    sec.appendChild(box);
+  });
+})();
+</script>
 </body></html>
