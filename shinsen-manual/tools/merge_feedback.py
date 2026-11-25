@@ -2,6 +2,7 @@
 """Merge tryout CSV files (downloaded from the manual's "ดาวน์โหลดผล") into feedback.js.
 
 Usage: python3 tools/merge_feedback.py file1.csv [file2.csv ...]
+A "Solution" (or "คำตอบจากทีม") column becomes the team reply shown under the comment.
 Rows are keyed by (round, tester, topic number); a newer export of the same tester
 replaces that tester's earlier row for the topic, so re-sent files never duplicate.
 """
@@ -31,6 +32,7 @@ def rows(path):
                 'status': (r.get('สถานะ') or '').strip(),
                 'comment': (r.get('ความเห็น') or '').replace('\r', '').strip(),
                 'at': (r.get('เวลาที่บันทึก') or '').strip(),
+                'reply': (r.get('Solution') or r.get('คำตอบจากทีม') or '').replace('\r', '').strip(),
             }
 
 def main(files):
@@ -41,6 +43,10 @@ def main(files):
             k = (r['round'], r['name'], r['n'])
             if k not in data:
                 added += 1
+            elif not r['reply'] and data[k].get('reply'):
+                r['reply'] = data[k]['reply']  # keep the team's earlier answer
+            if not r['reply']:
+                r.pop('reply')
             data[k] = r
     def key(x):
         return ([int(p) for p in x['n'].split('.')], x['round'], x['name'])
